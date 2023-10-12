@@ -1,0 +1,146 @@
+\part{量子系のダイナミクス}
+\section{2状態系の状態間の遷移}
+2状態系の状態間の遷移を議論する際，厳密に解くか，摂動論を使うかで結果が異なる．ここでは2種類の方法の適用を試みる．
+
+
+外部から何らかの作用が印加されたとき，古典力学では，系の初期状態から終状態への遷移の途中過程を時々刻々と追跡することできる．しかし，量子力学の場合，重ね合わせの原理によってそのような追跡は不可能であり，知ることができるのはそれらの状態間の遷移確率である．
+\begin{equation}
+    \hH=\hH_0+\hat{V}
+\end{equation}
+Hamiltonian$\hH$による状態ベクトル$\ket{\psi(t)}$の時間発展はSchrodinger方程式によって記述される．$\ket{\psi(t)}$を$\hH_0$の固有状態$\{\ket{n}\}$で展開する：
+\begin{equation}
+    \ket{\psi(t)}=\sum_{n}\ket{n}a_n.
+\end{equation}
+このように展開する理由は，状態$\ket{\psi(t)}$において，系を$\hH_0$の固有状態$\ket{m}$に発見する確率$|a_m(t)|^2$を求めることが目的だからである．これを\eqref{}に代入し，$\hH_0\ket{n}=E_n\ket{n}$を用いて，左から$\bra{m}$を掛けると，we obtain $a_m(t)$ of the equation
+\begin{equation}
+    i\hbar\frac{d}{dt}a_m(t)=E_m^{(0)}a_m(t)+\sum_n\braket{m|\hat{V}|n}a_n(t).
+\end{equation}
+\eqref{}で$\braket{n|\hat{V}|m}=v\delta_{n,m}$，すなわち，$\hat{V}$が対角的であれば，\eqref{}はそれぞれの係数$a_m(t)$
+に関する独立な方程式に分離できるため，初期状態が他の状態に遷移することはない．状態間の遷移を起こすのは，外からの作用$\hat{V}$が非対角項を持つときである．\\
+
+\subsection{2状態系}
+ここで，$\hH_0$の固有状態が基底状態$\ket{g}$と第一励起状態$\ket{e}$の2個しかない2状態系を考える．すなわち，
+\begin{equation}
+    \hH_0\ket{g}=E_g^{(0)}\ket{g},\ \ \hH_0\ket{e}=E_e^{(0)}\ket{e},\ \ E_e^{(0)}>E_g^{(0)}
+\end{equation}
+とする．このとき，$\ket{\psi(t)}$は
+\begin{equation}
+    \ket{\psi(t)}=\ket{g}a_g(t)+\ket{e}a_e(t)
+\end{equation}
+となり，また相互作用は
+\begin{equation}
+    \hat{V} = \left(
+        \begin{array}{cc}
+       \braket{g|\hat{V}|g}&\braket{g|\hat{V}|e} \\[10pt]
+        \braket{g|\hat{V}|e}&\braket{e|\hat{V}|e} \\
+        \end{array}
+        \right)
+        =
+        \left(
+        \begin{array}{cc}
+       0&v\\[10pt]
+        v^{\ast}&0 \\
+        \end{array}
+        \right)
+\end{equation}
+で与えられるとする．するとこのとき，\eqref{}は
+\begin{align}
+    i\hbar\frac{d}{dt}a_g(t)&=E_g^{(0)}a_g(t)+v a_e(t)\\[10pt]
+    i\hbar\frac{d}{dt}a_e(t)&=E_e^{(0)}a_e(t)+v^{\ast} a_g(t)
+\end{align}
+となる．ここで，$a_i(t)=C_i(t)\exp{[-iE_i^{(0)}t/\hbar]}$, $i=1,2$とおくと，\eqref{}は
+\begin{align}
+    i\hbar\frac{d}{dt}C_g(t)&=ve^{-\omega_0t}C_e(t)\\[10pt]
+    i\hbar\frac{d}{dt}C_e(t)&=v^{\ast}e^{-\omega_0t} C_g(t)
+\end{align}
+ここで，$\omega_0\equiv(E_e^{(0)}-E_g^{(0)})/\hbar$である．さて，時刻$t=0$において，系が低エネルギー順位$E_g^{(0)}$の固有状態$\ket{g}$にあったとする．このとき，微分方程式\eqref{}の初期条件は，$C_g(0)=1$, $C_e(0)=0$，また\eqref{}より
+\begin{equation}
+    \frac{dC_1}{dt}(0)=0,\ \ \frac{dC_2}{dt}(0)=\frac{v^{\ast}}{i\hbar}
+\end{equation}
+となる．また，\eqref{}から$C_g(t)$を消去すると，
+\begin{equation}
+    \frac{d^2C_2(t)}{dt^2}-i\omega_0\frac{dC_2(t)}{dt}+\frac{|v|^2}{\hbar^2}C_2(t)=0.
+\end{equation}
+この方程式の一般解を求めるために，$C_2(t)=A\exp[i\omega t]$とおき，これを\eqref{}へ代入すると，we obtain
+\begin{equation}
+    \omega^2-\omega_0\omega-|v|^2/\hbar^2=0.
+\end{equation}
+$\omega$について解くと，$\omega=(1/2)[\omega_0\pm\sqrt{\omega_0^2+4|v\|^2/\hbar^2}]$である．したがって，\eqref{}の一般解は
+\begin{equation}
+    C_2(t)=e^{i\omega t/2}[k_1e^{i\Tilde{\omega} t/2}+k_2e^{i\Tilde{\omega} t/2}]
+\end{equation}
+で与えられる．ここで$\Tilde{\omega}\equiv\sqrt{\omega_0^2+2|v|^2/\hbar^2}$で，$k_1$と$k_2$は積分定数である．これらは，初期条件を使うと，$k_1=-v^{\ast}/\hbar\Tilde{\omega}$, $k_2=+v^{\ast}/\hbar\Tilde{\omega}$
+と決まる．これより特殊解として次を得る：
+\begin{equation}
+    C_2(t)=(-2iv^{\ast}/\hbar\Tilde{\omega})e^{i\omega t/2}\frac{e^{i\Tilde{\omega} t/2}-e^{i\Tilde{\omega} t/2}}{2i}
+    =(-2iv^{\ast}/\hbar\Tilde{\omega})e^{i\omega t/2}\sin{\Tilde{\omega}t/2}
+\end{equation}
+したがって，時刻$t$に系を状態$\ket{e}$に発見する確率は
+\begin{equation}
+    |a_2(t)|^2=|C_2(t)|^2
+    =\frac{4|v|^2}{(\hbar\Tilde{\omega})^2}\sin^2{\left(\frac{\Tilde{\omega}t}{2}\right)}
+\end{equation}
+で与えられ，系が基底状態$\ket{g}$に残留している確率は
+\begin{equation}
+    |a_1(t)|^2=1-|a_2(t)|^2=1-\frac{4|v|^2}{(\hbar\Tilde{\omega})^2}\sin^2{\left(\frac{\Tilde{\omega}t}{2}\right)}
+\end{equation}
+
+
+
+
+\section{rabi振動}
+
+\begin{equation}
+    \hat{H}=
+    \frac{\Delta}{2} \hat{\sigma}_{z} + \frac{\lambda}{2} \hat{\sigma}_{x}
+    =\frac{\Omega}{2}
+    \left(
+    \frac{\Delta}{\Omega} \hat{\sigma}_{z} + \frac{\lambda}{\Omega} \hat{\sigma}_{x}
+    \right)
+\end{equation}
+ここで，
+\begin{equation}
+    \Omega\equiv \sqrt{\Delta^2 + \lambda^2}
+\end{equation}
+
+
+\begin{align}
+     \ket{\psi(t)}&=\left(
+        \begin{array}{c}
+       e^{i\omega t/2}
+       \Bigl(
+       \cos{\frac{\Omega }{2}t}
+       +i\frac{\Delta}{\Omega}
+       \sin{\frac{\Omega}{2}t}
+       \Bigr)\\[15pt]
+       %
+       -ie^{-i\omega t/2}
+       \frac{\lambda}{\Omega}
+       \sin{\frac{\Omega}{2}t}\\
+        \end{array}
+        \right)\\[10pt]
+        &=e^{i\omega t/2}
+       \Bigl(
+       \cos{\frac{\Omega }{2}t}
+       +i\frac{\Delta}{\Omega}
+       \sin{\frac{\Omega}{2}t}
+       \Bigr)
+       \ket{e}
+       -ie^{-i\omega t/2}
+       \frac{\lambda}{\Omega}
+       \sin{\frac{\Omega}{2}t}\ket{g}
+\end{align}
+よって，状態が$\ket{e}$, $\ket{g}$に残っている確率はそれぞれ以下のように与えられる：
+\begin{align}
+    P_e &= |\hat{P}_e\ket{\psi(t)}|^2
+    =  \cos^2{\frac{\Omega }{2}t}
+       +\frac{\Delta^2}{\Omega^2}
+       \sin^2{\frac{\Omega}{2}t}\\[10pt]
+    P_g &= |\hat{P}_g\ket{\psi(t)}|^2
+    = \frac{\lambda^2}{\Omega^2}
+       \sin^2{\frac{\Omega}{2}t}
+\end{align}
+
+
+
+\subsection{Simulation結果とパラメータの対応関係}

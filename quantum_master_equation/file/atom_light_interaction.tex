@@ -1,0 +1,725 @@
+
+\part{原子と光の相互作用}
+\section{原子-光相互作用の一般論}
+原子系と電磁場の相互作用を考える．原子系，電磁場そして相互作用Hamiltonianをそれぞれ$\hat{H}_{\rm{A}}$，$\hat{H}_{\rm{F}}$，$\hat{H}^{'}$としたとき，全系のHamiltonianは，電気双極子近似のもとで，
+\begin{align}
+    \hat{H} &= \hat{H}_{\rm{A}}+\hat{H}_{\rm{F}}+\hat{H}^{'}\\[10pt]
+    \hat{H}_{\rm{A}}&=\sum_{i}E_{i}\ket{i}\bra{i}\\[10pt]
+    \hat{H}_{\rm{F}}&=\sum_{k}\hbar\omega_k\left(\hat{a}_k^{\dag}\hat{a}_k+\frac{1}{2}\right)\\[10pt]
+    \hat{H}^{'}&=-e\hat{\bm{r}}\cdot\hat{\bm{E}}
+\end{align}
+と表される．ここで，$\ket{i}$は原子系の$i$番目のエネルギー固有値$E_i$に対応する固有状態，$\hat{\bm{r}}$はポテンシャルの中心を原点とした時の電子の位置座標演算子であり，電場演算子$\hat{\bm{E}}$は原子内で一様であるとする．\\
+
+相互作用$\hat{H}^{'}$については，原子系に演算する部分$e\hat{\bm{r}}$と電磁場に演算する部分$\hat{\bm{E}}$に分けられる．まず，演算子$e\hat{\bm{r}}$を固有関数系$\{\ket{i}\}$で展開すると，
+\begin{equation}
+    e\hat{\bm{r}}=e\hat{I}\hat{\bm{r}}\hat{I}
+    =\sum_{i,j}\ket{i}\braket{i|\hat{\bm{r}}|j}\bra{j}
+    =\sum_{i,j}P_{i,j}\hsig_{i,j}
+\end{equation}
+となる．ここで，$P_{i,j}\equiv e\braket{i|\hat{\bm{r}}|j}$は電気双極子遷移の遷移行列要素であり，$\hsig_{i,j}=\ket{i}\bra{j}$は，原子系の$\ket{j}$から$\ket{i}$へ変換する状態変換演算子である．一方，電場$\hat{\bm{E}}$は，原子が固定されていることにより，（電磁場の量子化を参照）を使い，
+\begin{equation}
+    \hat{\bm{E}}=\sum_{k}{\Tilde{\bm{e}}}\mathcal{E}_k(\hat{a}_k+\hat{a}_k^{\dag})
+\end{equation}
+と表される．ここで簡単のために，電磁場は直線偏光（ここよくわからない）としてこれらをまとめると，
+\begin{equation}
+    \hat{H}^{'}=-e\hat{\bm{r}}\cdot\hat{\bm{E}}
+    =-(\sum_{i,j}P_{i,j}\hsig_{i,j})(\sum_{k}{\Tilde{\bm{e}}}\mathcal{E}_k(\hat{a}_k+\hat{a}_k^{\dag}))
+    =\hbar\sum_{i,j}\sum_{k}g_k^{ij}\hsig_{i,j}(\hat{a}_k+\hat{a}_k^{\dag})
+\end{equation}
+where $g_k^{ij}=-P_{i,j}\cdot\Tilde{\bm{e}}\mathcal{E}_k$.
+ここまでが一般論である．
+
+
+
+\section{Jaynes-Cummings model}
+2準位系を考える．第一励起状態を$\ket{e}$, 基底状態を$\ket{g}$とし，次のベクトル表示をとる：
+\begin{equation}
+     \ket{e}=\left(
+        \begin{array}{c}
+       1\\[10pt]
+       0\\
+        \end{array}
+        \right),\ \ \ 
+        \ket{g}=\left(
+        \begin{array}{c}
+       0\\[10pt]
+       1\\
+        \end{array}
+        \right)
+\end{equation}
+とする．
+
+\begin{equation}
+     \hat{H}_{\rm{A}}=\left(
+        \begin{array}{cc}
+       \frac{1}{2}\hbar\omega&0\\[15pt]
+       0&-\frac{1}{2}\hbar\omega\\
+        \end{array}
+        \right)
+        =\frac{1}{2}\hbar\omega\hsig_z
+\end{equation}
+上昇演算子，下降演算子はそれぞれ次のように表される：
+\begin{equation}
+     \hsig_+=\ket{e}\bra{g}=\left(
+        \begin{array}{cc}
+       0&1\\[10pt]
+       0&0\\
+        \end{array}
+        \right),\ \ \ 
+        \hsig_-=\ket{g}\bra{e}=\left(
+        \begin{array}{cc}
+       0&0\\[10pt]
+       1&0\\
+        \end{array}
+        \right)
+\end{equation}
+
+またこれらは，
+\begin{equation}
+    \hsig_{\pm}=\frac{\hsig_x\pm i\hsig_y}{2}
+\end{equation}
+
+\subsection{問題設定}
+2準位原子が，周波数$\omega_0$の単一モードの電磁場と相互作用する状況を考える．このとき，2準位原子と単一モードの電磁場との相互作用を記述するHamiltonianは
+\begin{equation}
+    \hat{H}_{\rm{JC}}
+    =\frac{1}{2}\hbar\omega\hsig_z
+    +\hbar\omega_0\hat{a}^\dagger\ha
+    +\hbar g(\hsig_+\hat{a}+\hsig_-\hat{a}^\dagger)
+\end{equation}
+と書ける．これはJaynes-Cummings modelと呼ばれている．
+
+
+\subsection{Jaynes-Cummings modelの固有値問題}
+ここでは，Jaynes-Cummings modelの固有状態および固有値を求める．そこで次の固有方程式を考える：
+\begin{equation}
+    \hat{H}_{\rm{JC}}\ket{\Psi}=E\ket{\Psi}
+\end{equation}
+
+ここで，$\ket{u,n}=\ket{u}\otimes\ket{n}$, $\ket{g,n}=\ket{g}\otimes\ket{n}$の基底で展開すると
+\begin{align}
+    \hsig_z\otimes\hat{1}_n
+    &=(\ket{e}\bra{e}-\ket{g}\bra{g})\otimes
+    \sum_{n=0}^{\infty}\ket{n}\bra{n}\nn[10pt]
+    &=\sum_{n=0}^{\infty}(\ket{e,n}\bra{e,n}-\ket{g,n}\bra{g,n})
+    \nn[10pt]
+    &=-\ket{g,0}\bra{g,0}+\ket{e,0}\bra{e,0}
+    -\ket{g,1}\bra{g,1}+\ket{e,1}\bra{e,1}+\cdots
+    \nn[10pt]
+    &=\left(
+        \begin{array}{cc}
+       -1&0\\[10pt]
+       0&1\\
+        \end{array}
+        \right)
+        \otimes
+        \left(
+        \begin{array}{ccccc}
+        1                                                \\
+         & 1          &        & \text{\huge{0}}   \\
+         &                 & \ddots                     \\
+         & \text{\huge{0}} &        & \ddots            \\
+         &                 &        &           & \ddots
+        \end{array}
+        \right)\nn[10pt]
+    &=  \left(
+        \begin{array}{cccccc}
+        -1                                                \\
+         & 1          &        & &\text{\huge{0}}   \\
+         &                 &-1                     \\
+         & &        & 1           \\
+         &                  \text{\huge{0}}&        &           & \ddots\\
+         &                 &        &           &        &\ddots
+        \end{array}
+        \right)\nn[10pt]
+\end{align}
+
+
+
+\begin{align}
+    \hat{1}_2\otimes\hat{a}^\dag\hat{a}
+    &=(\ket{g}\bra{g}+\ket{e}\bra{e})\otimes
+    \sum_{n=0}^{\infty}n\ket{n}\bra{n}\nn[10pt]
+    &=\sum_{n=0}^{\infty}n(\ket{g,n}\bra{g,n}+\ket{e,n}\bra{e,n})
+    \nn[10pt]
+    &=0(\ket{g,0}\bra{g,0}+\ket{e,0}\bra{e,0})
+    +1(\ket{g,1}\bra{g,1}+\ket{e,1}\bra{e,1})+\cdots
+    \nn[10pt]
+    &=\left(
+        \begin{array}{cc}
+       1&0\\[10pt]
+       0&1\\
+        \end{array}
+        \right)
+        \otimes
+        \left(
+        \begin{array}{cccccc}
+        0                                                \\
+         & 1          &        & &\text{\huge{0}}   \\
+         &                 &2                    \\
+         & &        & 3           \\
+         &                  \text{\huge{0}}&        &           & \ddots\\
+         &                 &        &           &        &\ddots
+        \end{array}
+        \right)\nn[10pt]
+    &=  \left(
+        \begin{array}{cccccc}
+        0                                               \\
+         & 1          &        & &\text{\huge{0}}   \\
+         &                 &2                     \\
+         & &        & 3           \\
+         &                  \text{\huge{0}}&        &           & \ddots\\
+         &                 &        &           &        &\ddots
+        \end{array}
+        \right)\nn[10pt]
+\end{align}
+
+\begin{align}
+    \hsig_+\hat{a}
+    &=(\ket{g}\bra{g}+\ket{e}\bra{e})\otimes
+    \sum_{n=0}^{\infty}n\ket{n}\bra{n}\nn[10pt]
+    &=\sum_{n=0}^{\infty}n(\ket{g,n}\bra{g,n}+\ket{e,n}\bra{e,n})
+    \nn[10pt]
+    &=0(\ket{g,0}\bra{g,0}+\ket{e,0}\bra{e,0})
+    +1(\ket{g,1}\bra{g,1}+\ket{e,1}\bra{e,1})+\cdots
+    \nn[10pt]
+    &=\left(
+        \begin{array}{cc}
+       0&1\\[10pt]
+       0&0\\
+        \end{array}
+        \right)
+        \otimes
+    \left(
+        \begin{array}{ccccccc}
+       0& 0& 0&0&0& \dots  & \dots\\
+      1 &0& 0&0&0& \dots  & \dots\\
+      0&\sqrt{2}& 0&0&0& \dots  & \dots\\
+      0&0&\sqrt{3}&0& \dots& \dots  & \dots\\
+      \vdots & \vdots &\vdots & \vdots & \ddots& \dots & \vdots \\
+      \vdots & \vdots &\vdots & \vdots & \dots& \ddots & \vdots \\
+      \dots & \dots&\dots & \dots& \dots& \dots  & \ddots
+        \end{array}
+        \right)\nn[10pt]
+    &=  \left(
+        \begin{array}{cccccc}
+        0                                               \\
+         & 1          &        & &\text{\huge{0}}   \\
+         &                 &2                     \\
+         & &        & 3           \\
+         &                  \text{\huge{0}}&        &           & \ddots\\
+         &                 &        &           &        &\ddots
+        \end{array}
+        \right)\nn[10pt]
+\end{align}
+
+
+\begin{align}
+    \hsig_-\hat{a}^\dagger
+    &=(\ket{g}\bra{g}+\ket{e}\bra{e})\otimes
+    \sum_{n=0}^{\infty}n\ket{n}\bra{n}\nn[10pt]
+    &=\sum_{n=0}^{\infty}n(\ket{g,n}\bra{g,n}+\ket{e,n}\bra{e,n})
+    \nn[10pt]
+    &=0(\ket{g,0}\bra{g,0}+\ket{e,0}\bra{e,0})
+    +1(\ket{g,1}\bra{g,1}+\ket{e,1}\bra{e,1})+\cdots
+    \nn[10pt]
+    &=\left(
+        \begin{array}{ccccccc}
+       0& 0& 0&0&0& \dots  & \dots\\
+      1 &0& 0&0&0& \dots  & \dots\\
+      0&\sqrt{2}& 0&0&0& \dots  & \dots\\
+      0&0&\sqrt{3}&0& \dots& \dots  & \dots\\
+      \vdots & \vdots &\vdots & \vdots & \ddots& \dots & \vdots \\
+      \vdots & \vdots &\vdots & \vdots & \dots& \ddots & \vdots \\
+      \dots & \dots&\dots & \dots& \dots& \dots  & \ddots
+        \end{array}
+        \right)\nn[10pt]
+    &=  \left(
+        \begin{array}{cccccc}
+        0                                               \\
+         & 1          &        & &\text{\huge{0}}   \\
+         &                 &2                     \\
+         & &        & 3           \\
+         &                  \text{\huge{0}}&        &           & \ddots\\
+         &                 &        &           &        &\ddots
+        \end{array}
+        \right)\nn[10pt]
+\end{align}
+
+
+したがって，Hamiltonian $\hat{H}_{\rm{JC}}$を行列表示すると，
+\begin{align}
+    \hat{H}_{\rm{JC}}
+    &=\frac{1}{2}\hbar\omega(\hsig_z\otimes\hat{1}_N)
+    +\hbar\omega_0(\hat{1}_2\otimes\hat{a}^\dagger\hat{a})
+    +\hbar g(\hsig_+\hat{a}+\hsig_-\hat{a}^\dagger)\nn[10pt]
+    &=  \left(
+        \begin{array}{cccccc}
+        - \frac{1}{2}\hbar\omega                                              \\
+         & \frac{1}{2}\hbar\omega         &        & &\text{\huge{0}}   \\
+         &                 &-\frac{1}{2}\hbar\omega                  \\
+         & &        & \frac{1}{2}\hbar\omega         \\
+         &                  \text{\huge{0}}&        &           & \ddots\\
+         &                 &        &           &        &\ddots
+        \end{array}
+        \right)
+    +  \left(
+        \begin{array}{cccccc}
+        0                                               \\
+         & \hbar\omega_0          &        & &\text{\huge{0}}   \\
+         &                 &2\hbar\omega_0                     \\
+         & &        & 3\hbar\omega_0           \\
+         &                  \text{\huge{0}}&        &           & \ddots\\
+         &                 &        &           &        &\ddots
+        \end{array}
+        \right)\nn[10pt]
+    &+  \left(
+        \begin{array}{cccccccc}
+       0& 0& 0&0&0&0& \dots  & \dots\\
+      0&0& g&0&0&0& \dots  & \dots\\
+      0&g& 0&0&0&0& \dots  & \dots\\
+      0&0&0&0&\sqrt{2}g& \dots& \dots  & \dots\\
+      0&0&0&\sqrt{2}g&0& \dots& \dots  & \dots\\
+      \vdots & \vdots &\vdots&\vdots & \vdots & \ddots& \dots & \vdots \\
+      \vdots & \vdots &\vdots&\vdots & \vdots & \dots& \ddots & \vdots \\
+      \dots & \dots&\dots&\dots & \dots& \dots& \dots  & \ddots
+        \end{array}
+        \right)\nn[10pt]
+    &=  \left(
+        \begin{array}{cccccccc}
+       - \frac{1}{2}\hbar\omega& 0& 0&0&0&0& \dots  & \dots\\
+      0&\frac{1}{2}\hbar\omega& g&0&0&0& \dots  & \dots\\
+      0&g& - \frac{1}{2}\hbar\omega+\hbar\omega_0&0&0&0& \dots  & \dots\\
+      0&0&0&\frac{1}{2}\hbar\omega+\hbar\omega_0&\sqrt{2}g& \dots& \dots  & \dots\\
+      0&0&0&\sqrt{2}g&- \frac{1}{2}\hbar\omega+2\hbar\omega_0& \dots& \dots  & \dots\\
+      \vdots & \vdots &\vdots&\vdots & \vdots & \ddots& \dots & \vdots \\
+      \vdots & \vdots &\vdots&\vdots & \vdots & \dots& \ddots & \vdots \\
+      \dots & \dots&\dots&\dots & \dots& \dots& \dots  & \ddots
+        \end{array}
+        \right)
+\end{align}
+よって，状態をベクトル$\ket{e,n}$と$\ket{g,n+1}$で張られる部分空間のブロック行列を得る：
+\begin{align}
+    \hat{H}_{\rm{JC}}^{(n)}=\left(
+        \begin{array}{cc}
+      \frac{1}{2}\hbar\omega+n\hbar\omega_0& \hbar\sqrt{n+1}g\\[10pt]
+      \hbar\sqrt{n+1}g& - \frac{1}{2}\hbar\omega+(n+1)\hbar\omega_0\\
+        \end{array}
+        \right)
+\end{align}
+ただし，$n=0,1,2,\ldots$である．
+行列$\hat{H}_{\rm{JC}}^{(n)}$から得られる固有方程式は
+\begin{align}
+    \left(
+        \begin{array}{cc}
+      E-(\hbar\omega/2+n\hbar\omega_0)& -\hbar\sqrt{n+1}g\\[10pt]
+      -\hbar\sqrt{n+1}g& E-(-\hbar\omega/2+(n+1)\hbar\omega_0)\\
+        \end{array}
+        \right)
+        \left(
+        \begin{array}{c}
+      a\\[10pt]
+      b\\
+        \end{array}
+        \right)=0
+\end{align}
+
+\begin{align}
+    \left|
+    E\hat{1}_2-\hat{H}_{\rm{JC}}^{(n)}
+    \right|
+    &=\left|\left(
+        \begin{array}{cc}
+      E-(\hbar\omega/2+n\hbar\omega_0)& -\hbar\sqrt{n+1}g\\[10pt]
+      -\hbar\sqrt{n+1}g& E-(-\hbar\omega/2+(n+1)\hbar\omega_0)\\
+        \end{array}
+        \right)\right|\nn[10pt]
+    &=\left[
+    E-(\hbar\omega/2+n\hbar\omega_0)
+    \right]
+    \left[
+    E-(-\hbar\omega/2+(n+1)\hbar\omega_0)
+    \right]
+    -(\hbar g)^2(n+1)=0
+\end{align}
+
+
+これを解くと
+\begin{equation}
+    E_{\pm}=\left(
+    n+\frac{1}{2}
+    \right)\hbar\omega_0\pm\frac{\hbar\Delta_n}{2}
+\end{equation}
+を得る．
+
+$E=E_+$のとき
+\begin{align}
+    \left(
+        \begin{array}{cc}
+      \left(n+\frac{1}{2}
+    \right)\hbar\omega_0+\frac{\hbar\Delta_n}{2}-(\hbar\omega/2+n\hbar\omega_0)& -\hbar\sqrt{n+1}g\\[10pt]
+      -\hbar\sqrt{n+1}g& \left(n+\frac{1}{2}
+    \right)\hbar\omega_0+\frac{\hbar\Delta_n}{2}-(-\hbar\omega/2+(n+1)\hbar\omega_0)\\
+        \end{array}
+        \right)
+        \left(
+        \begin{array}{c}
+      a\\[10pt]
+      b\\
+        \end{array}
+        \right)&=0\nn[10pt]
+        \left(
+        \begin{array}{cc}
+      \frac{\hbar}{2}(\omega_0-\omega+\Delta_n)& -\hbar\sqrt{n+1}g\\[10pt]
+      -\hbar\sqrt{n+1}g& -\frac{\hbar}{2}(\omega_0-\omega+\Delta_n)\\
+        \end{array}
+        \right)
+        \left(
+        \begin{array}{c}
+      a\\[10pt]
+      b\\
+        \end{array}
+        \right)&=0
+\end{align}
+
+この連立方程式を解くと
+\begin{align}
+    \frac{\hbar}{2}(\omega_0-\omega+\Delta_n)a-\hbar\sqrt{n+1}gb&=0\\[10pt]
+    a&=\frac{\hbar\sqrt{n+1}g}{\frac{\hbar}{2}(\omega_0-\omega+\Delta_n)}b
+\end{align}
+
+規格化条件より$a^2+b^2=1$
+
+\begin{align}
+    1&=a^2+b^2=\left(
+    1+\frac{\hbar^2(n+1)g^2}{\frac{\hbar^2}{4}(\omega_0-\omega+\Delta_n)^2}
+    \right)b^2\nn[10pt]
+    &=
+    \frac{\frac{\hbar^2}{4}(\omega_0-\omega+\Delta_n)^2+\hbar^2(n+1)g^2}{\frac{\hbar^2}{4}(\omega_0-\omega+\Delta_n)^2}
+    b^2
+    =\frac{(\omega_0-\omega+\Delta_n)^2+4(n+1)g^2}{(\omega_0-\omega+\Delta_n)^2}
+    b^2
+    \end{align}
+    
+    \begin{align}
+    \therefore 
+    b^2&=\frac{(\Delta_n-(\omega-\omega_0))^2}{(\Delta_n-(\omega-\omega_0))^2+4(n+1)g^2}\nn[10pt]
+    \therefore 
+    b&=\frac{(\Delta_n-\delta)}{\sqrt{(\Delta_n-\delta)^2+4(n+1)g^2}}
+    \equiv\cos\theta_n
+\end{align}
+ここで，$\delta=\omega-\omega_0$である．
+\begin{align}
+    a=\frac{2\sqrt{n+1}g}{(\omega_0-\omega+\Delta_n)}b
+    =\frac{2\sqrt{n+1}g}
+    {\sqrt{(\Delta_n-\delta)^2+4(n+1)g^2}}
+    \equiv\sin\theta_n
+\end{align}
+ここで
+\begin{equation}
+    \tan\theta_n
+    =\frac{\sin{\theta_n}}{\cos{\theta_n}}
+    =\frac{2\sqrt{n+1}g}{(\Delta_n-\delta)}
+\end{equation}
+である．
+
+よって，固有状態$\ket{\Psi_{\pm}}$についても
+\begin{align}\label{JC_eigen_state1}
+    \ket{\Psi_+}&=\sin{\theta_n}\ket{e,n}+\cos\theta_n\ket{g,n+1}\\[10pt]
+    \label{JC_eigen_state2}
+    \ket{\Psi_-}&=\cos{\theta_n}\ket{e,n}-\sin\theta_n\ket{g,n+1}
+\end{align}
+
+得られたエネルギー固有値から，電磁場と結合した原子のエネルギー準位が2つに分裂し，その差が
+\begin{equation}
+    \Delta E\equiv　E_+-E_-=\hbar\Delta_n=\hbar\sqrt{4g^2(n+1)+\delta}
+\end{equation}
+であることがわかる．これをラビ分裂という．特に，電磁場が真空状態$(n=0)$の場合でさえも，原子のエネルギー準位が$\hbar\sqrt{4g^2+\delta}$だけ分裂を起こす．これを真空ラビ分裂(Vacume Labi Splitting)と呼ぶ．
+
+\eqref{JC_eigen_state1},\eqref{JC_eigen_state2}のような電磁場と結合した状態にある原子は，あたかも電磁場のドレスをまとった原子のように見えるので，ドレストアトムと呼ばれる．
+
+
+
+
+\subsection{状態の時間発展}
+次にJC modelにおける状態の時間発展について論じる．今，初期時刻$t=0$では原子は第一励起状態$\ket{e}$にあり，電磁場は光子数状態$\ket{n}$にあるとする．このとき初期状態は
+\begin{equation}
+    \ket{\Psi(t=0)}=\ket{e}\ket{n}\equiv\ket{u,n}
+\end{equation}
+となる．系の時間発展は，Schr\"{o}dinger方程式
+\begin{equation}\label{Sch.eq_JC}
+    i\hbar\frac{\partial}{\partial t}\ket{\Psi(t)}=\hat{H}_{\rm{JC}}\ket{\Psi(t)}
+\end{equation}
+で記述される．
+
+\eqref{Sch.eq_JC}の形式的な解は以下で与えられる：
+\begin{equation}\label{Solve_Sch.eq_JC}
+    \ket{\Psi(t)}=e^{-i\hat{H}_{\rm{JC}}t/\hbar}\ket{\Psi(0)}=e^{-i\hat{H}_{\rm{JC}}t/\hbar}\ket{e,n}
+\end{equation}
+ここで，\eqref{JC_eigen_state1},\eqref{JC_eigen_state2}を逆に解くことで，初期状態$\ket{e,n}$をJC-modelの固有状態$\ket{\Psi_+}$,$\ket{\Psi_-}$での展開した形を具体的に記述することができる：
+\begin{align}
+    \sin\theta_n\ket{\Psi_+}&=\sin^2{\theta_n}\ket{e,n}+\sin{\theta_n}\cos\theta_n\ket{g,n+1}\\[10pt]
+    \cos{\theta_n}\ket{\Psi_-}&=\cos^2{\theta_n}\ket{e,n}-\sin\theta_n\cos\theta_n\ket{g,n+1}
+\end{align}
+
+\begin{equation}\label{initial_state}
+    \ket{u,n} = \sin{\theta_n}\ket{\Psi_+}+\cos{\theta_n}\ket{\Psi_-}
+\end{equation}
+
+\eqref{initial_state}を\eqref{Solve_Sch.eq_JC}へ代入すると
+\begin{align}\label{Solve_Sch.eq_JC2}
+    \ket{\Psi(t)}&=e^{-i\hat{H}_{\rm{JC}}t/\hbar}
+    (\sin{\theta_n}\ket{\Psi_+}+\cos{\theta_n}\ket{\Psi_-}\nn[10pt]
+    &=
+    \sin{\theta_n}e^{-iE_+t/\hbar}\ket{\Psi_+}
+    +\cos{\theta_n}e^{-iE_-t/\hbar}\ket{\Psi_-}\nn[10pt]
+    &=
+    \sin{\theta_n}e^{-iE_+t/\hbar}\Bigl(\sin{\theta_n}\ket{e,n}+\cos\theta_n\ket{g,n+1}\Bigr)
+    +\cos{\theta_n}e^{-iE_-t/\hbar}\Bigl(\cos{\theta_n}\ket{e,n}-\sin\theta_n\ket{g,n+1}\Bigr)
+    \nn[10pt]
+    %
+    &=
+    \Bigl(e^{-iE_+t/\hbar}\sin^2{\theta_n}
+    +e^{-iE_-t/\hbar}\cos^2{\theta_n}\Bigr)\ket{e,n}
+    +
+    \sin{\theta_n}\Bigl(e^{-iE_+t/\hbar}-e^{-iE_-t/\hbar}\Bigr)\sin{\theta_n}\cos\theta_n\ket{g,n+1}
+\end{align}
+\eqref{Solve_Sch.eq_JC2}にJC modelのエネルギー固有値\eqref{},\eqref{}を代入すると，
+\begin{align}
+    e^{-iE_{\pm}t/\hbar}
+    &=\exp{
+    \left\{
+    -i
+    \left(
+    \left(
+    n+\frac{1}{2}
+    \right)\hbar\omega_0\pm\frac{\hbar\Delta_n}{2}
+    \right)
+    t/\hbar
+    \right\}
+    }\nn[10pt]
+    &=\exp{
+    \left\{
+    -i
+    \left(
+    n+\frac{1}{2}
+    \right)\omega_0t
+    \right\}
+    }
+    \exp{
+    \left\{
+    \mp i\frac{\hbar\Delta_n}{2}t
+    \right\}
+    }\nn[10pt]
+    &=\exp{
+    \left\{
+    -i
+    \left(
+    n+\frac{1}{2}
+    \right)\omega_0t
+    \right\}
+    }
+    \left\{
+    \cos\frac{\Delta_n t}{2}
+    \mp i\sin\frac{\Delta_n t}{2}
+    \right\}
+\end{align}
+より，まず
+\begin{align}
+    &e^{-iE_+t/\hbar}\sin^2{\theta_n}
+    +e^{-iE_-t/\hbar}\cos^2{\theta_n}\nn[10pt]
+    &=\exp{
+    \left\{
+    -i
+    \left(
+    n+\frac{1}{2}
+    \right)\omega_0t
+    \right\}
+    }
+    \left\{
+    \left(
+    \cos\frac{\Delta_n t}{2}
+    -i\sin\frac{\Delta_n t}{2}
+    \right)\sin^2{\theta_n}
+    +\left(
+    \cos\frac{\Delta_n t}{2}
+    +i\sin\frac{\Delta_n t}{2}
+    \right)\cos^2{\theta_n}
+    \right\}\nn[10pt]
+    %%%%%
+    &=e^{
+    -i
+    \left(
+    n+\frac{1}{2}
+    \right)\omega_0t
+    }
+    \left\{
+    \cos\frac{\Delta_n t}{2}
+    \left(\sin^2{\theta_n}
+    +\cos^2{\theta_n}
+    \right)
+    -\sin\frac{\Delta_n t}{2}
+    \left(
+    \cos^2{\theta_n}
+    -i\sin^2{\theta_n}
+    \right)
+    \right\}
+    \nn[10pt]
+    %%%%%
+    &=e^{
+    -i
+    \left(
+    n+\frac{1}{2}
+    \right)\omega_0t
+    }
+    \left\{
+    \cos\frac{\Delta_n t}{2}
+    -i\sin\frac{\Delta_n t}{2}
+    \cos{2\theta_n}
+    \right\}
+\end{align}
+次に
+\begin{align}
+    e^{-iE_+t/\hbar}
+    -e^{-iE_-t/\hbar}
+    &=\exp{
+    \left\{
+    -i
+    \left(
+    n+\frac{1}{2}
+    \right)\omega_0t
+    \right\}
+    }
+    \left(
+    \cos\frac{\Delta_n t}{2}
+    -i\sin\frac{\Delta_n t}{2}
+    -
+    \cos\frac{\Delta_n t}{2}
+    -i\sin\frac{\Delta_n t}{2}
+    \right)\nn[10pt]
+    &=\exp{
+    \left\{
+    -i
+    \left(
+    n+\frac{1}{2}
+    \right)\omega_0t
+    \right\}
+    }
+    \left(
+    -2i\sin\frac{\Delta_n t}{2}
+    \right)
+\end{align}
+したがって，JC modelの解として次式を得る：
+\begin{align}\label{Solve_Sch.eq_JC2}
+    \ket{\Psi(t)}&=
+    e^{
+    -i
+    \left(
+    n+\frac{1}{2}
+    \right)\omega_0t
+    }
+    \left[
+    \left\{
+    \cos\frac{\Delta_n t}{2}
+    -i\sin\frac{\Delta_n t}{2}
+    \cos{2\theta_n}
+    \right\}\ket{e,n}
+    +
+    \left(
+    -i\sin\frac{\Delta_n t}{2}
+    \right)2\sin{\theta_n}\cos\theta_n\ket{g,n+1}
+    \right]\nn[10pt]
+    &=
+    e^{
+    -i
+    \left(
+    n+\frac{1}{2}
+    \right)\omega_0t
+    }
+    \left[
+    \left\{
+    \cos\frac{\Delta_n t}{2}
+    -i\sin\frac{\Delta_n t}{2}
+    \cos{2\theta_n}
+    \right\}\ket{e,n}
+    -i\sin\frac{\Delta_n t}{2}
+    \sin{2\theta_n}\ket{g,n+1}
+    \right]
+\end{align}
+この解について考察を行う．まず，$\ket{g,n+1}$の展開係数に含まれる
+\begin{equation}
+    \sin{2\theta_n}=2\sin\theta_n\cos\theta_n
+    =\frac{4g\sqrt{n+1}(\Delta_n-\delta)}{(\Delta_n-\delta)^2+4(n+1)g^2}
+\end{equation}
+に注目すると，Detuning$\delta$が十分大きいとき$(\delta\to\infty)$，
+\begin{equation}
+    \sin{2\theta_n}
+    =\frac{4g\sqrt{n+1}(\Delta_n\delta-1)}{\delta(\Delta_n/\delta-1)^2+4(n+1)g^2/\delta}
+    \to\mathcal{O}{(1/\delta)}
+\end{equation}
+となる.
+つまり，$\delta=\omega-\omega_0$が大きくなると，原子は基底状態$\ket{g,n+1}$の状態へ遷移しにくくなることがわかる．
+
+
+次にOn resonant$(\delta=0),\therefore\omega=\omega_0$の場合，
+\begin{equation}
+    \Delta_n=2g\sqrt{n+1},\ \ \ \sin{2\theta_n}=1,\ \ \ \cos{2\theta_n}=0
+\end{equation}
+となるので，系の時間発展は次のようになる：
+\begin{align}\label{Solve_Sch.eq_JC2}
+    \ket{\Psi(t)}
+    &=
+    e^{
+    -i
+    \left(
+    n+\frac{1}{2}
+    \right)\omega_0t
+    }
+    \left[
+    \cos{(g\sqrt{n+1} t)}
+    \ket{e,n}
+    -i\sin{(g\sqrt{n+1} t)}\ket{g,n+1}
+    \right]
+\end{align}
+ここから，時刻$t$に原子が第一励起状態に見いだされる確率$P_e(t)$および基底状態に見いだされる確率$P_g(t)$は次のように与えられる：
+\begin{align}
+    P_{e}(t)&=|\Braket{e,n|\Psi(t)}|^2
+    =\cos^2{(g\sqrt{n+1} t)}\\[10pt]
+    P_{g}(t)&=|\Braket{g,n+1|\Psi(t)}|^2
+    =\sin^2{(g\sqrt{n+1} t)}.
+\end{align}
+また，時刻$t$における平均光子数は次のように与えられる：
+\begin{align}
+    \Braket{\hat{a}^\dagger\hat{a}}(t)
+    &=\braket{\Psi(t)|\hat{a}^{\dagger}\hat{a}|\Psi(t)}\nn[10pt]
+    &=
+    (\cos{(g\sqrt{n+1} t)}
+    \bra{e,n}
+    +i\sin{(g\sqrt{n+1} t)}\bra{g,n+1})
+    (\hat{a}^\dagger\hat{a})
+    (\cos{(g\sqrt{n+1} t)}
+    \ket{e,n}
+    -i\sin{(g\sqrt{n+1} t)}\ket{g,n+1})\nn[10pt]
+    &=
+    (\cos^2{(g\sqrt{n+1} t)}
+    \braket{e,n|\hat{a}^\dagger\hat{a}|e,n}
+    -i\sin{(g\sqrt{n+1} t)}\cos{(g\sqrt{n+1} t)}
+    \braket{e,n|\hat{a}^\dagger\hat{a}|g,n+1}\nn[10pt]
+    %%%%%
+    &-i\sin{(g\sqrt{n+1} t)}\cos{(g\sqrt{n+1} t)}
+    \braket{g,n+1|\hat{a}^\dagger\hat{a}|e,n}
+    +\sin^2{(g\sqrt{n+1} t)}\braket{g,n+1|\hat{a}^\dagger\hat{a}|g,n+1})\nn[10pt]
+    &=
+    n\cos^2{(g\sqrt{n+1} t)}
+    +(n+1)\sin^2{(g\sqrt{n+1} t)}\nn[10pt]
+    &=
+    n
+    +\sin^2{(g\sqrt{n+1} t)}
+    =n+P_{g}(t)
+\end{align}
+
+このように，原子は決まった周波数
+\begin{equation}
+    \Omega_{\rm{Rabi}}=2g\sqrt{n+1}
+\end{equation}
+で光子の吸収と放出を繰り返す．これをRabi振動という．また，$\Delta_n$や$\Omega_{\rm{Rabi}}$はRabi周波数と呼ばれる．特に，電磁場の初期状態が真空状態の場合，すなわち，$n=0$の場合も原子の初期状態が第一励起状態であればRabi振動が起こることがわかる．

@@ -1,0 +1,456 @@
+\part{量子光学的状態}
+\section{コヒーレント状態}
+\begin{equation}
+    \ha\ket{\alpha}=\alpha\ket{\alpha}
+\end{equation}
+$\alpha\in\mathbb{C}$である．\\
+　1modeの調和振動子の光子数状態に関して，成り立つ以下の式
+\begin{align}
+    \ha^\dag\ket{n}&=\sqrt{n+1}\ket{n+1},\ \ \ \ \ha\ket{n}=\sqrt{n}\ket{n-1}\\[10pt]
+    \bra{n}\ha&=\sqrt{n+1}\bra{n+1},\ \ \ \ \bra{n}\ha^\dag=\sqrt{n}\bra{n-1}
+\end{align}
+を用いると
+\begin{equation}
+    \braket{n|\alpha}=\frac{1}{\sqrt{n}}\braket{n-1|\ha|\alpha}
+    =\frac{\alpha}{\sqrt{n}}\braket{n-1|\alpha}
+\end{equation}
+が成り立つ．これを$n$について繰り返すと
+\begin{equation}
+    \braket{n|\alpha}
+    =\frac{\alpha}{\sqrt{n}}\braket{n-1|\alpha}
+    =\frac{\alpha^2}{\sqrt{(n)(n-1)}}\braket{n-2|\alpha}
+    =\cdots=\frac{\alpha^n}{\sqrt{n!}}\braket{0|\alpha}
+\end{equation}
+
+$\ket{\alpha}$を$\{\ket{n}\}$で展開すると
+\begin{equation}
+    \ket{\alpha}=\sum_{n=0}^{\infty}\ket{n}\braket{n|\alpha}
+    =\braket{0|\alpha}\sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n}
+\end{equation}
+となるので，$\ket{\alpha}$のノルムの2乗は
+\begin{align}
+    \|\ket{\alpha}\|^2
+    &=\braket{\alpha|\alpha}=
+    \left(\braket{\alpha|0}\sum_{m=0}^{\infty}\frac{(\alpha^\ast)^m}{\sqrt{m!}}\bra{m}\right)
+    \left(\braket{0|\alpha}\sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n}\right)\nn[10pt]
+    &=\braket{\alpha|0}\braket{0|\alpha}\sum_{m=0}^{\infty}\frac{(\alpha^\ast)^m}{\sqrt{m!}}
+   \sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}\braket{m|n}\nn[10pt]
+   &=|\braket{0|\alpha}|^2\sum_{n=0}^{\infty}\frac{(|\alpha|^2)^n}{n!}
+   =|\braket{0|\alpha}|^2e^{|\alpha|^2}
+\end{align}
+$\braket{\alpha|\alpha}=1$を要請すると，
+\begin{equation}
+    \braket{0|\alpha}=\exp{(-|\alpha|^2/2)}
+\end{equation}
+したがって，
+\begin{equation}
+    \ket{\alpha}
+    =\braket{0|\alpha}\sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n}
+    =\exp{(-|\alpha|^2/2)}\sum_{n=0}^{\infty}\frac{(\alpha\ha^\dag)^n}{{n!}}\ket{0}
+    =\exp{(-|\alpha|^2/2)}e^{\alpha\ha^\dag}\ket{0}
+\end{equation}
+ここで
+\begin{equation}
+    \ket{n}=\frac{(\ha)^\dag}{\sqrt{n!}}\ket{0}
+\end{equation}
+を使った．
+\begin{equation}
+    \ket{0}=\exp{(-\alpha^\ast\ha)}\ket{0}
+\end{equation}
+であることに注意すると，
+\begin{align}
+    \ket{\alpha}&=e^{-|\alpha|^2/2}e^{\alpha\ha^\dag}e^{-\alpha^\ast\ha}\ket{0}\nn[10pt]
+    &=e^{-|\alpha|^2/2}e^{\alpha\ha^\dag-\alpha^\ast\ha+|\alpha|^2[\ha,\ha^\dag]/2}\ket{0}\nn[10pt]
+    &=e^{-|\alpha|^2/2}e^{\alpha\ha^\dag-\alpha^\ast\ha}e^{|\alpha|^2/2}\ket{0}
+    =e^{\alpha\ha^\dag-\alpha^\ast\ha}\ket{0}
+\end{align}
+
+\subsection{直交性と完全性}
+2つのコヒーレント状態$\ket{\alpha}$，$\ket{\beta}$との内積を求めると，
+\begin{align}
+    \braket{\alpha|\beta}&=\braket{\alpha|0}\braket{0|\beta}
+    \sum_{m=0}^{\infty}\frac{(\alpha^\ast)^m}{\sqrt{m!}}
+   \sum_{n=0}^{\infty}\frac{\beta^n}{\sqrt{n!}}\braket{m|n}\nn[10pt]
+   &=\exp{(-|\alpha|^2/2)}\exp{(-|\beta|^2/2)}
+   \sum_{n=0}^{\infty}\frac{(\alpha^\ast\beta)^n}{{n!}}\nn[10pt]
+   &=\exp{(-|\alpha|^2/2-|\beta|^2/2+\alpha^\ast\beta)}
+\end{align}
+固有値の異なるコヒーレント状態は直交しないことがわかる．ここで，$\beta=-\alpha$とおくと，
+\begin{align}
+    \braket{\alpha|-\alpha}
+   &=\exp{(-|\alpha|^2/2-|\alpha|^2/2-|\alpha|^2)}=e^{-2|\alpha|^2}
+\end{align}
+となる．$\alpha\to\infty$ならば，$\braket{\alpha|-\alpha}\to0$，つまり直交することがわかる．\\
+　次に完全性について計算を行う．
+\begin{align}
+    \int\ket{\alpha}\bra{\alpha}d^2\alpha
+    &=\sum_{m,n}\int d^2\alpha\ket{m}\braket{m|\alpha}\braket{\alpha|n}\bra{n}\nn[10pt]
+    &=\sum_{m,n}\int d^2\alpha\ket{m}\bra{n}\frac{\alpha^m\alpha^n}{\sqrt{m!n!}}e^{-|\alpha|^2}\nn[10pt]
+\end{align}
+ここで，$\alpha=re^{i\theta}$，$d^2\alpha=rd\theta dr$と変数変換し，$|\alpha|^2=|r|^2|e^{i\theta}|^2=|r^2|$が成り立つから，
+\begin{align}
+    \int\ket{\alpha}\bra{\alpha}d^2\alpha
+    &=\sum_{m,n}\frac{1}{\sqrt{m!n!}}\ket{m}\bra{n}\int d^2\alpha\alpha^m(alpha^\ast)^n e^{-|\alpha|^2}\nn[10pt]
+    &=\sum_{m,n}\frac{1}{\sqrt{m!n!}}\ket{m}\bra{n}\int_0^{\infty}r\cdot dr
+    \int_{0}^{2\pi}d\theta\ 
+    r^me^{i m\theta} r^n e^{-in\theta} e^{-r^2}\nn[10pt]
+    &=\sum_{m,n}\frac{1}{\sqrt{m!n!}}\ket{m}\bra{n}\int_0^{\infty}dr\ e^{-r^2} r^{(m+n+1)}
+    \int_{0}^{2\pi}d\theta\ 
+    e^{i(m-n)\theta}
+\end{align}
+まず$\theta$についての積分を実行すると
+\begin{align}
+    \int_{0}^{2\pi}d\theta\ 
+    e^{i(m-n)\theta}=\left[\frac{1}{i(m-n)}e^{i(m-n)\theta}\right]_0^{2\pi}
+    =\frac{1}{i(m-n)}(e^{2\pi i(m-n)\theta}-1=\delta_{m,n}
+\end{align}
+\begin{align}
+    \int\ket{\alpha}\bra{\alpha}d^2\alpha
+    &=\sum_{m,n}\frac{1}{\sqrt{m!n!}}\ket{m}\bra{n}\int_0^{\infty}dr\ e^{-r^2} r^{(m+n+1)}2\pi\delta_{m,n}\nn[10pt]
+    &=2\pi\sum_{n}\frac{1}{n!}\ket{n}\bra{n}\int_0^{\infty}dr\ e^{-r^2} r^{(2n+1)}\nn[10pt]
+    &=\sum_{n}\frac{1}{n!}\ket{n}\bra{n}\cdot 2\pi \cdot \frac{n!}{2}
+    =\pi
+\end{align}
+ここで，積分公式
+\begin{align}
+    \int_0^{\infty}dx\ e^{-ax^2} x^{(2n+1)}&=\frac{n!}{2a^{n+1}}\\[10pt]
+\end{align}
+を使った．よって，コヒーレント状態の完全性条件は
+\begin{equation}
+    \frac{1}{\pi}\int d^2\alpha \ket{\alpha}\bra{\alpha}=1
+\end{equation}
+これを用いるとコヒーレント状態をコヒーレント状態で展開できることがわかる．任意の状態$\ket{\psi}$を
+\begin{equation}
+    \ket{\psi}=\frac{1}{\pi}\int\ket{\beta}\braket{\beta|\psi}d^2\beta
+\end{equation}
+と展開し，$\ket{\psi}\to\ket{\alpha}$に置き換えると
+\begin{equation}
+    \ket{\alpha}=\frac{1}{\pi}\int\ket{\beta}\braket{\beta|\alpha}d^2\beta
+    =\frac{1}{\pi}\int\ket{\beta}\exp{(-|\alpha|^2/2-|\beta|^2/2+\alpha\beta^\ast)}d^2\beta
+\end{equation}
+となる．これを過剰完全性と呼ぶ．
+
+
+\subsection{光子数期待値}
+状態がコヒーレント状態$\ket{\alpha}$を取る場合の平均光子数$\bar{n}$を計算する．まず平均光子数は，
+\begin{align}
+    \bar{n} =\braket{\alpha|\hat{n}|\alpha} = \braket{\alpha|\hat{a}^{\dagger}\hat{a}|\alpha} = |\alpha|^2
+\end{align}
+となる．また，平均光子数の分散は
+\begin{align}
+    \braket{\alpha|\hat{n}^2|\alpha}
+    &=\braket{\alpha|\hat{a}^{\dagger}\hat{a}\hat{a}^{\dagger}\hat{a}|\alpha}\nn[10pt]
+    &=|\alpha|^2\braket{\alpha|\hat{a}\hat{a}^{\dagger}|\alpha}\nn[10pt]
+    &=|\alpha|^2\braket{\alpha|(\hat{a}^{\dagger}\hat{a}+1)|\alpha}\nn[10pt]
+    &=|\alpha|^2\left\{
+    \braket{\alpha|\hat{a}^{\dagger}\hat{a}|\alpha} + 1
+    \right\}\nn[10pt]
+    &=|\alpha|^2\cdot|\alpha|^2 + |\alpha|^2
+    =|\alpha|^2(|\alpha|^2 + 1 )
+\end{align}
+であるから，
+\begin{align}
+    (\Delta n)^2 &= \braket{\alpha|\hat{n}^2|\alpha} - \bar{n}^2\nn[10pt]
+    &=|\alpha|^2(|\alpha|^2 + 1 ) - |\alpha|^4 = |\alpha|^2
+\end{align}
+となる．すなわち，コヒーレント状態は光子数の分散がその期待値に等しい：
+\begin{equation}
+    (\Delta n)^2 = \bar{n}
+\end{equation}
+
+コヒーレント状態の定義から，小悲恋と状態に$n$個の光子が見つかる確率は，
+\begin{equation}
+    |\braket{n|\alpha}|^2 
+    = \left|e^{-|\alpha|^2/2}\sum_{m=0}^{\infty}\frac{\alpha^m}{\sqrt{m!}}\braket{n|m}\right|^2
+    =e^{-|\alpha|^2}\frac{(|\alpha|^2)^n}{n!}
+\end{equation}
+となる．これはポアソン分布になっている．
+
+\subsection{電磁場の期待値と分散}
+コヒーレント状態に対する電場演算子と磁場演算子
+\begin{align}
+    \hat{\bm{E}}(\bm{r},t)&=
+    \sum_{\bm{k},\sigma}i\sqrt{\frac{\hbar\omega_{\lambda}}{2\epsilon_0 V}}\vec{e}_{\lambda}
+    \left[
+    \hat{a}_{\lambda}e^{i(\bm{k}\cdot\bm{r}-\omega_{\lambda})}
+    - \hat{a}^{\dagger}_{\lambda}e^{-i(\bm{k}\cdot\bm{r}-\omega_{\lambda})}
+    \right],\\[10pt]
+    %
+    \hat{\bm{B}}(\bm{r},t)&=
+    \sum_{\bm{k},\sigma}i\sqrt{\frac{\hbar}{2\epsilon_0\omega_{\lambda} V}}\bm{k}\times\vec{e}_{\lambda}
+    \left[
+    \hat{a}_{\lambda}e^{i(\bm{k}\cdot\bm{r}-\omega_{\lambda})}
+    - \hat{a}^{\dagger}_{\lambda}e^{-i(\bm{k}\cdot\bm{r}-\omega_{\lambda})}
+    \right]
+\end{align}
+の期待値と分散を計算すると，電場については
+\begin{align}
+    \braket{\alpha|\hat{\bm{E}}(\bm{r},t)|\alpha}
+    &=\sqrt{\frac{2\hbar\omega}{\epsilon_0V}}|\alpha|\sin{\omega t-\bm{k}\cdot\bm{r}-\theta}\\[10pt]
+    (\Delta E)^2
+    & = \frac{\hbar\omega}{2\epsilon_0V}\\[10pt]
+    \Delta E
+    & = \sqrt{\frac{\hbar\omega}{2\epsilon_0V}}
+\end{align}
+磁場については
+\begin{align}
+    \braket{\alpha|\hat{\bm{B}}(\bm{r},t)|\alpha}
+\end{align}
+となる．
+
+この計算を電場についてだけ証明しておこう：
+\begin{equation}
+    \hat{E}=
+    i\sqrt{\frac{\hbar\omega}{2\epsilon_0V}}
+    \left(
+    \hat{a}e^{-i(\omega t-\bm{k}\cdot\bm{r})}
+    -\hat{a}^{\dagger}e^{i(\omega t-\bm{k}\cdot\bm{r})}
+    \right)
+\end{equation}
+
+\begin{align}
+    \hat{E}^2&=
+    -\frac{\hbar\omega}{2\epsilon_0V}
+    \left\{
+    \left(
+    \hat{a}e^{-i(\omega t-\bm{k}\cdot\bm{r})}
+    -\hat{a}^{\dagger}e^{i(\omega t-\bm{k}\cdot\bm{r})}
+    \right)
+    \left(
+    \hat{a}e^{-i(\omega t-\bm{k}\cdot\bm{r})}
+    -\hat{a}^{\dagger}e^{i(\omega t-\bm{k}\cdot\bm{r})}
+    \right)
+    \right\}\nn[10pt]
+    &=
+    -\frac{\hbar\omega}{2\epsilon_0V}
+    \left(
+    \hat{a}^2e^{-2i(\omega t-\bm{k}\cdot\bm{r})}
+    +\hat{a}^{\dagger 2}e^{2i(\omega t-\bm{k}\cdot\bm{r})}
+    -\hat{a}\hat{a}^{\dagger}
+    -\hat{a}^{\dagger}\hat{a}
+    \right)\nn[10pt]
+\end{align}
+
+
+\begin{align}
+    \braket{\alpha|\hat{E}^2|\alpha}
+    &=
+    -\frac{\hbar\omega}{2\epsilon_0V}
+    \Braket{\alpha|\left(
+    \hat{a}^2e^{-2i(\omega t-\bm{k}\cdot\bm{r})}
+    +\hat{a}^{\dagger 2}e^{2i(\omega t-\bm{k}\cdot\bm{r})}
+    -\hat{a}\hat{a}^{\dagger}
+    -\hat{a}^{\dagger}\hat{a}
+    \right)|\alpha}\nn[10pt]
+    &=
+    -\frac{\hbar\omega}{2\epsilon_0V}
+    \braket{\alpha|
+    \hat{a}^2|\alpha}e^{-2i(\omega t-\bm{k}\cdot\bm{r})}
+    +\braket{\alpha|
+    \hat{a}^{\dagger 2}|\alpha}e^{2i(\omega t-\bm{k}\cdot\bm{r})}
+    -\braket{\alpha|\hat{a}\hat{a}^{\dagger}|\alpha}
+    -\braket{\alpha|\hat{a}^{\dagger}\hat{a}|\alpha}\nn[10pt]
+    %
+    &=
+    -\frac{\hbar\omega}{2\epsilon_0V}
+    \alpha^2
+    e^{-2i(\omega t-\bm{k}\cdot\bm{r})}
+    +\alpha^{\ast 2}
+    e^{2i(\omega t-\bm{k}\cdot\bm{r})}
+    -\braket{\alpha|\hat{a}^{\dagger}\hat{a}|\alpha}-1
+    -\braket{\alpha|\hat{a}^{\dagger}\hat{a}|\alpha}\nn[10pt]
+    %
+    &=
+    -\frac{\hbar\omega}{2\epsilon_0V}
+    \left(
+    \alpha^2
+    e^{-2i(\omega t-\bm{k}\cdot\bm{r})}
+    +\alpha^{\ast 2}
+    e^{2i(\omega t-\bm{k}\cdot\bm{r})}
+    -2|\alpha|^2-1
+    \right)\nn[10pt]
+\end{align}
+
+we set $\Delta=\omega t-\bm{k}\cdot\bm{r}$
+\begin{align}
+    &\alpha^2
+    e^{-2i\Delta}
+    +\alpha^{\ast 2}
+    e^{2i\Delta}
+    -2|\alpha|^2-1
+    \nn[10pt]
+    &=|\alpha|^2e^{2i\theta}
+    e^{-2i\Delta}
+    +|\alpha|^2e^{-2i\theta}
+    e^{2i\Delta}
+    -2|\alpha|^2-1\nn[10pt]
+    &=2|\alpha|^2
+    \frac{\left(
+    e^{-2i(\Delta-\theta)}
+    +
+    e^{2i(\Delta-\theta)}
+    \right)}
+    {2}
+    -2|\alpha|^2-1\nn[10pt]
+    &=2|\alpha|^2
+    \cos{2(\Delta-\theta)}
+    -2|\alpha|^2-1\nn[10pt]
+    &=2|\alpha|^2
+    (1-2\sin^2{(\Delta-\theta)})
+    -2|\alpha|^2-1\nn[10pt]
+    &=-4|\alpha|^2\sin^2{2(\Delta-\theta)})-1
+\end{align}
+we use $\alpha=|\alpha|^2e^{i\theta}$. So we obtain
+\begin{align}
+    \braket{\alpha|\hat{E}^2|\alpha}
+    &=
+    \frac{\hbar\omega}{2\epsilon_0V}
+    \left(
+    4|\alpha|^2\sin^2{(\omega t-\bm{k}\cdot\bm{r}-\theta)})+1
+    \right)
+\end{align}
+Thus, 電磁場の分散は
+\begin{align}
+    (\Delta E)^2 & = \braket{\alpha|\hat{E}^2|\alpha} -(\braket{\alpha|\hat{E}|\alpha})^2\nn[10pt]
+    &=\frac{\hbar\omega}{2\epsilon_0V}
+    \left(
+    4|\alpha|^2\sin^2{(\omega t-\bm{k}\cdot\bm{r}-\theta)})+1
+    \right)
+    -\frac{2\hbar\omega}{\epsilon_0V}|\alpha|^2\sin^2({\omega t-\bm{k}\cdot\bm{r}-\theta})\nn[10pt]
+    &=\frac{\hbar\omega}{2\epsilon_0V}
+\end{align}
+
+
+
+\subsection{演算子の代数}
+\paragraph{公式1}
+演算子$\hat{A}$, $\hat{B}$が可換ではないとする．つまり$[\hat{A}, \hat{B}]\neq0$であるとする．このとき，演算子$\hat{A}$, $\hat{B}$, $\xi\in\mathbb{C}$に対して以下の公式が成り立つ：
+\begin{equation}
+    e^{\xi\hat{A}}\hat{B}e^{-\xi\hat{A}}
+    =\hat{B}+\xi[\hat{A}, \hat{B}]
+    +\frac{\xi^2}{2!}\bigl[
+    \hat{A}, [\hat{A}, \hat{B}]
+    \bigr]
+    ++\frac{\xi^3}{3!}
+    \Bigl[\hat{A},
+    \bigl[
+    \hat{A}, [\hat{A}, \hat{B}]
+    \bigr]
+    \Bigr]
+    +\cdots
+\end{equation}
+
+
+
+\paragraph{公式2}
+もし，$\bigl[\hat{A}, [\hat{A}, \hat{B}]\bigr]$, $\xi=1$ならば以下の公式が成り立つ：
+\begin{equation}
+    e^{\hat{A}+\hat{B}+\frac{1}{2}[\hat{A}, \hat{B}]}
+    =e^{\hat{A}}e^{\hat{B}}
+\end{equation}
+
+\subsection{変位演算子}
+変位演算子を
+\begin{equation}
+    \hat{D}(\alpha)=\exp{(\alpha\hat{a}^\dagger-\alpha^\ast\hat{a})}
+\end{equation}
+により導入する．ここで$\alpha\in \mathbb{C}$は無次元である．定義より
+\begin{equation}
+    \hat{D}^\dagger(\alpha)=\exp{(\alpha^\ast\hat{a}-\alpha\hat{a}^\dagger)}
+    =\hat{D}(-\alpha)=\hat{D}^{-1}(\alpha)
+\end{equation}
+である．よって変位演算子$\hat{D}(\alpha)$は$\hat{D}(\alpha)\hat{D}^\dagger(\alpha)=\hat{I}$を満たしおり，ユニタリ演算子であることがわかる．
+
+\subsection{Basic property of boost operator}
+ここでは，変位演算子の性質について調べる．まず，変位演算子$\hat{D}(\alpha)$を真空状態$\ket{0}$に作用させる．その前に次の公式
+\begin{equation}
+    \exp{\left(\alpha\hat{a}^\dagger-\alpha^\ast\hat{a}\right)}
+    =e^{\frac{1}{2}|\alpha|^2}e^{\alpha\hat{a}^\dagger}e^{-\alpha^\ast\hat{a}}
+\end{equation}
+を確認しておく．これは次のように示せる．演算子$\hat{A}=\alpha\hat{a}^\dagger$, $\hat{B}=-\alpha^\ast\hat{a}$に対して公式2を適用すると，
+\begin{equation}
+    \exp{\left(\alpha\hat{a}^\dagger-\alpha^\ast\hat{a}+\frac{1}{2}[\alpha\hat{a}^\dagger, -\alpha^\ast\hat{a}]\right)}
+    =e^{\alpha\hat{a}^\dagger}e^{-\alpha^\ast\hat{a}}
+\end{equation}
+
+\begin{equation}
+    \exp{\left(\alpha\hat{a}^\dagger-\alpha^\ast\hat{a}+\frac{1}{2}|\alpha|^2\right)}
+    =e^{\alpha\hat{a}^\dagger}e^{-\alpha^\ast\hat{a}}
+\end{equation}
+
+\begin{align}
+    [\alpha\hat{a}^\dagger, -\alpha^\ast\hat{a}]
+    =-\alpha\alpha^\ast\hat{a}^\dagger\hat{a}
+    +\alpha\alpha^\ast\hat{a}\hat{a}^\dagger
+    =|\alpha|^2 [\hat{a}, \hat{a}^\dagger]=|\alpha|^2
+\end{align}
+である．
+
+\begin{align}
+    \hat{D}(\alpha)\ket{0}
+    &=e^{\frac{1}{2}|\alpha|^2}e^{\alpha\hat{a}^\dagger}e^{-\alpha^\ast\hat{a}}\ket{0}\nn[10pt]
+    &=e^{\frac{1}{2}|\alpha|^2}e^{\alpha\hat{a}^\dagger}
+    \left(
+    \hat{I}-\alpha^\ast\hat{a}+\frac{1}{2!}(-\alpha^\ast\hat{a})^2+\cdots
+    \right)\ket{0}\nn[10pt]
+    %
+    &=e^{\frac{1}{2}|\alpha|^2}e^{\alpha\hat{a}^\dagger}\ket{0}
+\end{align}
+ここで，$\hat{a}\ket{0}=0$を使った．
+\begin{align}
+    \hat{D}(\alpha)\ket{0}
+    &=e^{\frac{1}{2}|\alpha|^2}
+    \left(
+    \hat{I}+\alpha\hat{a}^\dagger+\frac{1}{2!}(\alpha\hat{a}^\dagger)^2+\cdots
+    \right)\ket{0}\nn[10pt]
+    %
+    &=e^{\frac{1}{2}|\alpha|^2}\sum_{n=0}^{\infty}\frac{(\alpha)^n\sqrt{n!}}{n!}\ket{0}\nn[10pt]
+    &=e^{\frac{1}{2}|\alpha|^2}\sum_{n=0}^{\infty}\frac{(\alpha)^n}{\sqrt{n!}}\ket{0}
+    =\ket{\alpha}
+\end{align}
+
+
+次に変位演算子により$\hat{a}$, $\hat{a}^\dag$にユニタリ変換を施すと，生成（消滅）演算子$\hat{a}^\dagger$, $\hat{a}$を$\alpha$, $\alpha^\ast$だけ平行移動する効果がある：
+\begin{align}
+    \hat{D}^\dagger(\alpha)\hat{a}\hat{D}(\alpha)&=\hat{a} + \alpha\\[10pt]
+    \hat{D}^\dagger(\alpha)\hat{a}^\dagger\hat{D}(\alpha)&=\hat{a}^\dagger + \alpha^\ast
+\end{align}
+
+これらの式を導出を行う．
+変位演算子による$\hat{a}^{\dagger}$の変換を考える．これは，次の公式
+\begin{equation}
+    e^{\xi\hat{A}}\hat{B}e^{-\xi\hat{A}}
+    =\hat{B}+\xi[\hat{A},\hat{B}]+\frac{\xi^2}{2!}[\hat{A},[\hat{A},\hat{B}]]+\cdots
+\end{equation}
+において，$\hat{A}=\alpha^\ast\hat{a}-\alpha\hat{a}^{\dagger}$，$\hat{B}=\hat{a}^{\dagger}$, $\xi=1$とおくことにより，次のように計算できる：
+\begin{align}
+    \hat{D}^{\dagger}(\alpha)\hat{a}^{\dagger}\hat{D}(\alpha)
+    &=e^{\alpha^\ast\hat{a}-\alpha\hat{a}^{\dagger}}
+    \hat{a}^{\dagger}
+    e^{\alpha\hat{a}^{\dagger}-\alpha^\ast\hat{a}}\nn[10pt]
+    &=\hat{a}^{\dagger}
+    +[\alpha^\ast\hat{a}-\alpha\hat{a}^{\dagger},\hat{a}^{\dagger}]
+    +\frac{1}{2}\left[\alpha^\ast\hat{a}-\alpha\hat{a}^{\dagger},[\alpha^\ast\hat{a}-\alpha\hat{a}^{\dagger},\hat{a}^{\dagger}]\right]\nn[10pt]
+    &=\hat{a}^{\dagger}+\alpha^{\ast}
+\end{align}
+ここで，次の関係式
+\begin{align}
+    [\alpha^\ast\hat{a}-\alpha\hat{a}^{\dagger},\hat{a}^{\dagger}]
+    &=(\alpha^\ast\hat{a}-\alpha\hat{a}^{\dagger})\hat{a}^{\dagger}
+    -\hat{a}^{\dagger}(\alpha^\ast\hat{a}-\alpha\hat{a}^{\dagger})\nn[10pt]
+    &=\alpha^\ast\hat{a}\hat{a}^{\dagger}-\alpha\hat{a}^{\dagger}\hat{a}^{\dagger}
+    -\alpha^\ast\hat{a}^{\dagger}\hat{a}+\alpha\hat{a}^{\dagger}\hat{a}^{\dagger}\nn[10pt]
+    &=\alpha^\ast\hat{a}\hat{a}^{\dagger}
+    -\alpha^\ast\hat{a}^{\dagger}\hat{a}
+    \alpha^\ast-\alpha^\ast[\hat{a},\hat{a}^{\dagger}]\nn[10pt]
+\end{align}
+と第3項の交換子が可換になることを用いた．$\hat{D}^\dagger(\alpha)\hat{a}\hat{D}(\alpha)=\hat{a}+\alpha$を同様に示せる．
+
+$\hat{D}(\alpha)\ket{0}$は$\hat{a}$の固有状態であることも示せる：
+\begin{equation}
+    \hat{a}\hat{D}(\alpha)\ket{0}
+    =\hat{D}(\alpha)\hat{D}^\dagger(\alpha)\hat{a}\hat{D}(\alpha)\ket{0}
+    =\hat{D}(\alpha)(\hat{a}+\alpha)\ket{0}
+    =\alpha\hat{D}(\alpha)\ket{0}
+\end{equation}
+ここで，$\hat{a}\ket{0}=0$を使った．

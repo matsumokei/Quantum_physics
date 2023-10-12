@@ -1,0 +1,32 @@
+
+\section{Wigner関数}
+Wigner分布関数(Wigner distribution function)は古典極限で古典的な分布関数に一致し，結果の解釈の助けになる．Wigner分布関数は次のWigner変換で定義される量である：
+\begin{equation}
+    W(x,p;t) = \frac{1}{2\pi\hbar}\int_{-\infty}^{\infty}d\xi \exp{\left(-\frac{ip\xi}{\hbar}\right)}
+    \rho\left(x+\frac{\xi}{2}, x+\frac{\xi}{2};t\right).
+\end{equation}
+ここで，$\xi=()$である．この分布関数は$p$について積分を行うと座標に対する分布関数$W(x)$，$x$について積分すると運動量に対する分布関数$W(p)$を与えるハイブリット型の分布関数で，$W(x,p;t)$は古典統計力学でよく用いられる古典的な位相空間に類似した量である．しかし，Wigner分布関数は粒子の存在確率を与える古典的な意味の分布関数ではない．実際この関数は負の値を取ることもあり，「確率分布」という意味を持たないことに注意が必要である．\\
+定義式より，
+
+これを用いるとQuantum Liouville equation
+\begin{equation}
+    \frac{\partial}{\partial t}\hrho(t) =-\frac{i}{\hbar}[\hH, \hrho(t)]
+\end{equation}
+はWigner分布関数に対するLiouville方程式に変換することができる：
+\begin{equation}
+    \frac{\partial}{\partial t}W(r,p;t) =-\hat{\mathcal{L}}W(r,p;t)
+\end{equation}
+where
+\begin{equation}
+    -\hat{\mathcal{L}}\equiv
+    \left\{
+    -\frac{p}{m}\cdot\frac{\partial}{\partial r}
+    +\frac{1}{i\hbar}\left[U\left(r-\frac{\hbar}{2i}\cdot\frac{\partial}{\partial p}\right)
+    -U\left(r+\frac{\hbar}{2i}\cdot\frac{\partial}{\partial p}\right)
+    \right]
+    \right\}
+\end{equation}
+はWigner表示のLiouville演算子である．
+
+
+

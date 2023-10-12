@@ -1,0 +1,585 @@
+\part{古典電磁気学}
+\section{Maxwell方程式}
+電場$\bm{E}$と磁場$\bm{B}$で記述されたMaxwellの方程式に対して，ベクトルポテンシャルとスカラーポテンシャルを導入し，Maxwellの方程式を書き直すのが本書の目的である．
+
+電荷分布$\rho(\vr,t)$と電流分布${\bm{i}}(\vr,t)$とが与えられ，電磁場$\bm{E}(\vr,t)$，$\bm{B}(\vr,t)$が時間，空間的に変化する場合を考える．次に示す4組の方程式
+\begin{align}
+\label{mx1}
+\nabla\times\bm{E}(\vr,t)+\dfrac{\partial\bm{B}(\vr,t)}{\partial t}=\bm 0
+\end{align}
+
+\begin{align}
+\label{mx2}
+\nabla\cdot\bm{B}(\vr,t)=0
+\end{align}
+
+\begin{align}
+\label{mx3}
+   \nabla\times\bm{B}(\vr,t)-\epsilon_0\mu_0\dfrac{\partial\bm{E}(\vr,t)}{\partial t}
+      =\mu_0{\bm{i}}(\vr,t)
+\end{align}
+
+\begin{align}
+\label{mx4}
+   \nabla\cdot\bm{E}(\vr,t)
+      =\frac{\rho(\vr,t)}{\epsilon_0}
+\end{align}
+をMaxwellの方程式という．これらは，電磁場$\bm{E}$，$\bm{B}$の時間と空間の変化を記述するもっとも基本的な
+法則である．上式において，$\epsilon_0$は真空の誘電率，$\mu_0$は真空の透磁率である．物質中の電磁場を考えているわけではないので$\epsilon_0$，$\mu_0$を用いている．\\
+
+
+
+
+
+%
+\subsection{方程式と解の個数}
+$\bm{E}$と$\bm{B}$の6個の未知数を求めるのに対して，Maxwellの方程式(\ref{mx1})$\sim$(\ref{mx4})の数は8個である．求める解に対して条件式が多い．そのため，解が存在しないのではないかという心配がある．その心配は無用であることをこの節では論じる．
+(\ref{mx1})の発散をとると
+\begin{align}
+\dv\Bigl(\nabla\times\bm{E}(\vr,t)\Bigr)+\dv\dfrac{\partial\bm{B}(\vr,t)}{\partial t}=\bm 0
+\end{align}
+第1項は恒等的に$0$となるから，
+\begin{align}
+\dv\dfrac{\partial\bm{B}(\vr,t)}{\partial t}=\bm 0
+\end{align}
+が得られる．また，空間微分と時間微分の順序は
+\begin{align}
+\dfrac{\partial^2 }{\partial \alpha\partial t}=\dfrac{\partial^2 }{\partial t\partial \alpha},\ \ \ \ \ \alpha=x,y,z
+\end{align}
+と交換できるので，
+\begin{align}\label{g1}
+\dfrac{\partial}{\partial t}\dv\bm{B}(\vr,t)=\bm 0
+\end{align}
+となる．つまり，$\dv\bm{B}(\vr,t)$は時間的に一定である．したがって，初期時刻$t=0$において，
+\begin{align}\label{g2}
+\dv\bm{B}(\vr,t=0)=\bm 0
+\end{align}
+がみたされているならば，任意の時刻に対してみたされる．\\
+%
+%
+　今度は，(\ref{mx3})に対して，発散をとると
+\begin{align}
+\dv\Bigl(\nabla\times\bm{B}(\vr,t)\Bigr)-\epsilon_0\mu_0\dv\dfrac{\partial\bm{E}(\vr,t)}{\partial t}
+      =\mu_0\dv{\bm{i}}(\vr,t)
+\end{align}
+左辺第1項は恒等的に$0$になるので
+\begin{align}
+\label{g3}
+\epsilon_0\mu_0\dv\dfrac{\partial\bm{E}(\vr,t)}{\partial t}+\mu_0\dv{\bm{i}}(\vr,t)=0
+\end{align}
+となる．(\ref{g3})左辺第2項に対して，電荷保存測
+\begin{align}
+\label{dc}
+\dv{\bm{i}}(\vr,t)=-\dfrac{\partial\rho(\vr,t)}{\partial t}
+\end{align}
+を適用し，整理すると
+\begin{align}
+\label{g4}
+\dfrac{\partial}{\partial t}\left(\dv\bm{E}(\vr,t)-\frac{\rho(\vr,t)}{\epsilon_0}\right)=0
+\end{align}
+が得られる．つまり，$\dv\bm{E}(\vr,t)-\dfrac{\rho(\vr,t)}{\epsilon_0}$は時間的に一定である．したがって，初期時刻$t=0$において，
+\begin{align}\label{g5}
+\dv\bm{E}(\vr,t=0)=\frac{\rho(\vr,t=0)}{\epsilon_0}
+\end{align}
+がみたされているならば，任意の時刻に対してみたされる．\\
+　上で論じたことから，静電磁磁場であろうと時間変動する電磁場だろうと，必ず磁場は性質(\ref{mx2})を持ち，電場は性質(\ref{mx4})を持っているということである．つまり，(\ref{mx2})と(\ref{mx4})は電磁場に対する初期条件として要求されるにすぎないということである．このことから，電場$\bm{E}$と磁場$\bm{B}$の時間発展は(\ref{mx1})と(\ref{mx3})の6個の方程式によって決定される．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+\subsection{線積分とStokesの定理}
+ここで，線積分と重要な定理であるStokesの定理について説明しておく．
+\subsubsection{ベクトル場の線積分}
+ベクトル場$\bm{C}(\vr)=(C_x(\vr),C_y(\vr),C_z(\vr))$が領域$D$で定義されているとする．$D$内に曲線$L$と，$L$上に2点$P$，$Q$がある．$L$上の点は，$t$をパラメータとして位置ベクトル$\vr=\vr(t)=(x(t),y(t),z(t))$のように表されているものとする．また，$t=t_0$のとき点$P$，$t=t_1$のとき点$Q$であるとする．\\
+　曲線$L$に沿った，点$P$から点$Q$までのベクトル場$\bm{C}$の線積分は
+\begin{align}\label{sen1}
+\int_L\bm{C}(\vr)\cdot d\vr=\int_P^Q\bm{C}(\vr)\cdot d\vr=\int_{t_0}^{t_1}\bm{C}(\vr)\cdot \frac{d\vr}{dt}dt
+\end{align}
+と定義される．\\
+　領域$D$で定義されるスカラー場$f=f(\vr)=f(x,y,z)$に対して，
+\begin{align}\label{chain}
+\frac{df}{dt}=\dfrac{\partial f}{\partial x}\frac{dx}{dt}
++\dfrac{\partial f}{\partial y}\frac{dy}{dt}
++\dfrac{\partial f}{\partial z}\frac{dz}{dt}
+\end{align}
+が成り立つ．ここで，$t\to\vr\to f$という関係から，$f$の引数として$t$をとって，$f(t)$と表せることに注意したい．もしも，ベクトル場$\bm{C}(\vr)$がスカラー場$f(\vr)$のグラディエント$\nabla f(\vr)$を用いて
+\begin{align}\label{nab}
+\bm{C}=\nabla f(\vr)
+=\left(
+\dfrac{\partial f}{\partial x},
+\dfrac{\partial f}{\partial y},
+\dfrac{\partial f}{\partial z}
+\right)
+\end{align}
+と表されているとき，線積分の定義(\ref{sen1})から
+\begin{align}\label{sen2}
+\int_L\bm{C}(\vr)\cdot d\vr&=\int_L\nabla f(\vr)\cdot d\vr=\int_P^Q\nabla f(\vr)\cdot d\vr\notag\\[10pt]
+&=\int_{t_0}^{t_1}\left(
+\dfrac{\partial f}{\partial x},
+\dfrac{\partial f}{\partial y},
+\dfrac{\partial f}{\partial z}
+\right)\cdot \frac{d\vr}{dt}dt\notag\\[10pt]
+%
+%
+&=\int_{t_0}^{t_1}\left(\dfrac{\partial f}{\partial x}\frac{dx}{dt}
++\dfrac{\partial f}{\partial y}\frac{dy}{dt}
++\dfrac{\partial f}{\partial z}\frac{dz}{dt}\right)dt\notag\\[10pt]
+%
+&=\int_{t_0}^{t_1}\frac{df}{dt}dt=\int_{f(t=t_0)}^{f(t=t_1)}df=\Bigl[f\Bigr]_{f(t_0)}^{f(t_1)}\notag\\[10pt]
+&=f(t_1)-f(t_0)
+\end{align}
+で成り立つ．ここで，$f(P)$を点$P$での$f$の値，$f(Q)$を点$Q$での$f$の値とする．つまり，$f(P)=f(t=t_0)$，$f(Q)=f(t=t_1)$とすると，
+\begin{align}\label{sen3}
+\int_L\bm{C}(\vr)\cdot d\vr&=\int_L\nabla f(\vr)\cdot d\vr=\int_P^Q\nabla f(\vr)\cdot d\vr=f(Q)-f(P)
+\end{align}
+が成り立つ．とくに，$L$が$D$内の閉曲線，すなわち，始点$P$と終点$Q$が一致するならば，(\ref{sen3})において，$f(Q)=f(P)$となるから，
+\begin{align}\label{sen4}
+\oint_L\bm{C}(\vr)\cdot d\vr&=\oint_L\nabla f(\vr)\cdot d\vr=0
+\end{align}
+が成り立つ．ここで閉曲線$L$を一周するような，ベクトル場$\bm{C}(\vr)$の線積分を$\displaystyle\oint_L\bm{C}(\vr)\cdot\vr$と書き，周回積分という．この結果を定理としてまとめておくと次のようになる．
+\begin{theorem}\label{thm1}
+もしも領域$D$でベクトル場$\bm{C}(\vr)=\nabla f(\vr)$が成り立つとするならば，領域$D$内の2点$P$，$Q$を結ぶ曲線$L$に沿って，
+\begin{align}
+\int_L\nabla f(\vr)\cdot d\vr=f(Q)-f(P)
+\end{align}
+である．とくに$L$が閉曲線ならば，
+\begin{align}
+\oint_L\nabla f(\vr)\cdot d\vr=0
+\end{align}
+である．
+\end{theorem}
+定理\ref{thm1}を簡潔に表すと
+\begin{align}
+\bm{C}(\vr)=\nabla f(\vr)\Rightarrow \oint_L\nabla f(\vr)\cdot d\vr=0
+\end{align}
+である．
+
+
+
+
+
+
+
+
+
+%
+\subsubsection{Stokesの定理}
+重要なStokesの定理について説明する．Stokesの定理は，閉曲面におけるベクトル場の回転の面積分を閉曲線上での元のベクトル場の線積分へと変換する手続きである．
+\begin{theorem}[Stokesの定理]\label{sto}
+$L$を空間内の曲面上の閉曲線，$S$を$L$によって囲まれた閉曲面とする．このとき，ベクトル場$\bm{C}(\vr)$に対して，
+\begin{align}
+\int_S\Bigl(\nabla\times\bm{C}(\vr)\Bigr)\cdot\bm{n}dS=\oint_L\bm{C}(\vr)\cdot d\vr
+\end{align}
+が成り立つ．これを$\rm{Stokes}$の定理という．
+\end{theorem}
+ここで，$\bm{n}$は閉曲面$S$の単位法線ベクトル，$dS$は閉曲面$S$の微小領域の面積である．閉曲線$L$には反時計周りを正とするように向きがつけられており，単位法線ベクトル$\bm{n}$は$L$の向きに関して右ネジの法則をみたすものとする．
+
+
+
+
+
+
+
+
+
+%
+\subsubsection{スカラー場のグラディエントの存在}
+先と同様にベクトル場$\bm{C}(\vr)$とスカラー場$f(\vr)$を考え，定義域を$D$とする．今回は$\bm{C}(\vr)=\nabla f(\vr)$を仮定しないことに注意したい．領域$D$内に2点$P$と$Q$があり，$P$と$Q$を結ぶ$D$内の2つの曲線を$L_1$，$L_2$とする．また，$P$から$L_1$に沿って$Q$へ向かい，次に$L_2$の逆に沿って$P_0$へ戻ってくる閉曲線を$L$とし，$L:=L_1-L_2$と書く．\\
+　いま，ベクトル場$\bm{C}(\vr)$の回転に対して，任意の位置$\vr$で$\nabla\times\bm{C}(\vr)=\bm0$が成り立つとき，Stokesの定理\ref{sto}より
+\begin{align}
+\oint_L\bm{C}(\vr)\cdot d\vr=\int_S\Bigl(\nabla\times\bm{C}(\vr)\Bigr)\cdot\bm{n}dS=\int_S0\cdot dS=0
+\end{align}
+が成り立つ．よって，
+\begin{align}
+\oint_L\bm{C}(\vr)\cdot d\vr=\int_{L_1}\bm{C}(\vr)\cdot d\vr-\int_{L_2}\bm{C}(\vr)\cdot d\vr=0
+\end{align}
+となるから，
+\begin{align}
+\int_{L_1}\bm{C}(\vr)\cdot d\vr=\int_{L_2}\bm{C}(\vr)\cdot d\vr
+\end{align}
+が成り立つ．つまり，ベクトル場$\bm{C}(\vr)$の線積分は$P$と$Q$を結ぶ経路に無関係に定まるということが示せた．\\
+　次に，$P$を領域$D$内で固定された点，$Q$を領域$D$内の任意の点とする．上での結果より，ベクトル場$C$の線積分$\displaystyle\int_P^Q\bm{C}(\vr)\cdot\vr$は経路によらないものとする．したがって，この線積分の値は点$Q$のみに依存することになり，$Q$の位置を$\vr=(x,y,z)$とすれば，
+\begin{align}\label{sf}
+f(\vr)=\int_P^Q\bm{C}\cdot d\vr
+\end{align}
+によって，スカラー場$f(\vr)$を定義できる．\\
+　経路$P\to Q$の曲線を考える．この曲線上の点は，位置ベクトル$\vr=\vr(t)=(x(t),y(t),z(t))$のようにパラメータされているものとする．また，$t=0$のとき点$P$，$t=t$のとき点$Q$であるとする．
+\begin{align}
+f(\vr)=\int_P^Q\bm{C}(\vr)\cdot d\vr
+\end{align}
+は
+\begin{align}\label{sft}
+f(t)=\int_0^t\bm{C}\cdot\frac{d\vr}{dt}dt
+\end{align}
+と書ける．(\ref{sft})の両辺を$t$で微分すれば，
+\begin{align}\label{sft1}
+\frac{df}{dt}=\bm{C}(\vr)\cdot\frac{d\vr}{dt}
+\end{align}
+一方，(\ref{chain})より，
+\begin{align}\label{sft2}
+\frac{df}{dt}=\nabla f(\vr)\cdot\frac{d\vr}{dt}
+\end{align}
+と書けるから，(\ref{sft1})と(\ref{sft2})より，
+\begin{align}\label{sft3}
+\bm{C}(\vr)\cdot\frac{d\vr}{dt}=\nabla f(\vr)\cdot\frac{d\vr}{dt}
+\end{align}
+曲線についての接ベクトル$\dfrac{d\vr}{dt}$は任意に取ることができるので，
+\begin{align}\label{sft4}
+\bm{C}(\vr)=\nabla f(\vr)
+\end{align}
+と書ける．この結果を定理としてまとめると次のようになる．
+\begin{theorem}\label{thm2}
+領域$D$でベクトル場$\bm{C}(\vr)$が定義されているとする．領域$D$内の任意の位置$\vr$で$\rot\bm{C}(\vr)=\bm0$ならば，
+\begin{align}
+\oint_L\bm{C}(\vr)\cdot d\vr=0
+\end{align}
+が成り立ち，$\bm{C}(\vr)=\nabla f(\vr)$であるような$D$全体で定義されるスカラー場$f(\vr)$が存在する．
+\end{theorem}
+定理\ref{thm1}を簡潔に表すと
+\begin{align}
+\rot\bm{C}(\vr)=\bm0\Rightarrow \oint_L\nabla f(\vr)\cdot d\vr=0\Rightarrow \bm{C}(\vr)=\nabla f(\vr)
+\end{align}
+である．また，定理\ref{thm1}と定理\ref{thm2}より，
+\begin{align}
+\rot\bm{C}(\vr)=\bm0\Rightarrow \oint_L\nabla f(\vr)\cdot d\vr=0\Leftrightarrow  \bm{C}(\vr)=\nabla f(\vr)
+\end{align}
+が成り立つ．\\
+　定理\ref{thm2}を電磁気学を考える場合に便利になるような形に直しておく．定理\ref{thm2}の$\bm{C}(\vr)=\nabla f(\vr)$において，$f(\vr)\to -f(\vr)$とすれば，定理\ref{thm2}は次のように書きかえられる．
+\begin{theorem}\label{thm3}
+領域$D$でベクトル場$\bm{C}(\vr)$が定義されているとする．領域$D$内の任意の位置$\vr$で$\rot\bm{C}(\vr)=\bm0$ならば，
+\begin{align}
+\oint_L\bm{C}(\vr)\cdot d\vr=0
+\end{align}
+が成り立ち，$\bm{C}(\vr)=-\nabla f(\vr)$であるような$D$全体で定義されるスカラー場$f(\vr)$が存在する．一般にこの場合の$f(\vr)$をベクトル場$\bm{C}(\vr)$のスカラーポテンシャルという．
+\end{theorem}
+
+
+
+
+
+
+
+%
+\subsection{ゲージ変換}
+(\ref{mx2})は
+\begin{align}
+\bm{B}(\vr,t)=\rot{\bm{A}}(\vr,t)
+\end{align}
+とおくと，自動的にみたされる．ここで${\bm{A}}(\vr,t)$は微分可能な任意関数でベクトルポテンシャルという．これを(\ref{mx1})左辺第2項に代入すると
+\begin{align}
+\label{ga1}
+\nabla\times\bm{E}(\vr,t)+\dfrac{\partial}{\partial t}\rot{\bm{A}}(\vr,t)&=\bm 0\notag\\[10pt]
+\therefore\rot\left(\bm{E}(\vr,t)+\dfrac{\partial}{\partial t}{\bm{A}}(\vr,t)\right)&=\bm 0
+\end{align}
+ここで，(\ref{ga1})に対して，定理\ref{thm3}を$\bm{C}(\vr,t)=\bm{E}(\vr,t)+\dfrac{\partial}{\partial t}{\bm{A}}(\vr,t)$として適用すると，(\ref{ga1})ならば，
+\begin{align}
+\bm{E}(\vr,t)+\dfrac{\partial}{\partial t}{\bm{A}}(\vr,t)=-\nabla\phi(\vr,t)
+\end{align}
+であるようなスカラー場$\phi(\vr,t)$が存在する．スカラー場$\phi(\vr,t)$をスカラーポテンシャルという．\\
+　結局(\ref{mx1})と(\ref{mx2})の方程式は
+\begin{align}
+\label{bp}
+\bm{B}(\vr,t)=\rot{\bm{A}}(\vr,t)\\[5pt]
+\label{sp}
+\bm{E}(\vr,t)+\dfrac{\partial}{\partial t}{\bm{A}}(\vr,t)=-\nabla\phi(\vr,t)
+\end{align}
+とおくことによって自動的にみたされる．そこで，電磁ポテンシャルの組$({\bm{A}},\phi)$を求めれば，それを(\ref{bp})と(\ref{sp})のように微分することによって，電場$\bm{E}(\vr,t)$と$\bm{B}(\vr,t)$が求まることになる．\\
+%
+%
+%
+%
+　残りの2つの方程式(\ref{mx3})と(\ref{mx4})についてみる前に，組$({\bm{A}},\phi)$の取り方にどれくらいの不定性があるか考えてみる．\\
+　　組$({\bm{A}},\phi)$とはべつの組$({\bm{A}^{\prime}},{\phi^\prime})$もまた，(\ref{bp})，(\ref{sp})をみたすとする．するとまず，(\ref{bp})から
+\begin{align}
+\label{bp1}
+\bm{B}(\vr,t)&=\rot{\bm{A}}(\vr,t)\\[5pt]
+\label{bp2}
+\bm{B}(\vr,t)&=\rot{\bm{A}^{\prime}}(\vr,t)
+\end{align}
+が成り立つ．(\ref{bp1})$-$(\ref{bp2})より，
+\begin{align}
+\label{ga2}
+\rot\Bigl({\bm{A}}(\vr,t)-{\bm{A}^{\prime}}(\vr,t)\Bigr)=\bm0
+\end{align}
+となる．定理\ref{thm3}より，
+\begin{align}
+\label{ga3}
+{\bm{A}}(\vr,t)-{\bm{A}^{\prime}}(\vr,t)=-\nabla u(\vr,t)
+\end{align}
+であるようなスカラー場$u(\vr,t)$が存在する．\\
+　次に(\ref{sp})から
+\begin{align}
+\label{sp1}
+\bm{E}(\vr,t)+\dfrac{\partial}{\partial t}{\bm{A}}(\vr,t)&=-\nabla\phi(\vr,t)\\[5pt]
+\label{sp2}
+\bm{E}(\vr,t)+\dfrac{\partial}{\partial t}{\bm{A}^{\prime}}(\vr,t)&=-\nabla{\phi^\prime}(\vr,t)
+\end{align}
+が成り立つ．(\ref{sp1})$-$(\ref{sp2})より，
+\begin{align}
+\label{ga4}
+\dfrac{\partial}{\partial t}\Bigl({\bm{A}}(\vr,t)-{\bm{A}^{\prime}}(\vr,t)\Bigr)=-\nabla\phi(\vr,t)+\nabla{\phi^\prime}(\vr,t)
+\end{align}
+となる．したがって(\ref{ga3})を(\ref{ga4})左辺へ代入すると
+\begin{align}
+-\dfrac{\partial}{\partial t}\nabla u(\vr,t)=-\nabla\phi(\vr,t)+\nabla{\phi^\prime}(\vr,t)\notag\\[10pt]
+\therefore\nabla {\phi^\prime}(\vr,t)=\nabla\phi(\vr,t)-\dfrac{\partial}{\partial t}\nabla u(\vr,t)
+\end{align}
+が得られる．よって，
+\begin{align}\label{ga5}
+{\phi^\prime}(\vr,t)=\phi(\vr,t)-\dfrac{\partial u(\vr,t)}{\partial t}
+\end{align}
+となる．(\ref{ga3})と(\ref{ga5})をまとめると，変換
+%%
+%%
+\begin{subnumcases}
+  {}
+  \label{gage1}
+{\bm{A}^{\prime}}(\vr,t)={\bm{A}}(\vr,t)+\nabla u(\vr,t)& \\[15pt]
+  \label{gage2}
+ {\phi^\prime}(\vr,t)=\phi(\vr,t)-\dfrac{\partial u(\vr,t)}{\partial t}&
+\end{subnumcases}
+が得られる．この変換によって，あるベクトルポテンシャル${\bm{A}}$とスカラーポテンシャル$\phi$から新しいベクトルポテンシャル${\bm{A}^{\prime}}$とスカラーポテンシャル${\phi^\prime}$をつくることができる．(\ref{gage1})と(\ref{gage2})の変換をゲージ変換という．電磁ポテンシャルの組$({\bm{A}},\phi)$と$({\bm{A}^{\prime}},{\phi^\prime})$，どちらを選んでもまったく同じ電場$\bm{E}$と磁場$\bm{B}$が得られるから，電磁ポテンシャル${\bm{A}}(\vr,t)$と$\phi(\vr,t)$には任意関数$u(\vr,t)$の不定性があるといえる．つまり，(\ref{gage1})と(\ref{gage2})のゲージ変換に対して，電場$\bm{E}$と磁場$\bm{B}$とは不変である．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+\subsection{ベクトルポテンシャルとスカラーポテンシャルをつかったMaxwell方程式の表現}
+次に，ベクトルポテンシャル${\bm{A}}$とスカラーポテンシャル$\phi$を決める方程式をみちびかねばならない．電場$\bm{E}$と磁場$\bm{B}$はスカラーポテンシャル$\phi$とベクトルポテンシャル${\bm{A}}$を用いて，
+\begin{numcases}
+  {}
+    \label{ef}
+\bm{E}(\vr,t)=-\nabla\phi(\vr,t)-\dfrac{\partial}{\partial t}{\bm{A}}(\vr,t)&\\[15pt]
+  \label{mag}
+\bm{B}(\vr,t)=\rot{\bm{A}}(\vr,t)&
+\end{numcases}
+と書ける．上の2式を用いて，Maxwell方程式(\ref{mx3})と(\ref{mx4})を$\bm{E}$と$\bm{B}$ではなく，$\phi$と${\bm{A}}$を用いて書き直す．\\
+　Maxwell方程式(\ref{mx3})より，
+\begin{align}
+   \nabla\times\bm{B}(\vr,t)-\epsilon_0\mu_0\dfrac{\partial\bm{E}(\vr,t)}{\partial t}
+      =\mu_0{\bm{i}}(\vr,t).\notag
+\end{align}
+これに，(\ref{ef})と(\ref{mag})を代入すると，
+\begin{align}\label{w1}
+   \rot\Bigl(\rot{\bm{A}}(\vr,t)\Bigr)-\epsilon_0\mu_0\dfrac{\partial}{\partial t}\left(
+   -\nabla\phi(\vr,t)-\dfrac{\partial}{\partial t}{\bm{A}}(\vr,t)
+   \right)
+      =\mu_0{\bm{i}}(\vr,t)
+\end{align}
+となる．ここで(\ref{w1})左辺第1項にベクトル解析の恒等式
+\begin{align}
+   \rot\Bigl(\rot{\bm{A}}(\vr,t)\Bigr)=\nabla\Bigl(\dv{\bm{A}}(\vr,t)\Bigr)-\Delta{\bm{A}}(\vr,t)
+\end{align}
+を用いると，
+\begin{align}
+\nabla\Bigl(\dv{\bm{A}}(\vr,t)\Bigr)-\Delta{\bm{A}}(\vr,t)-\epsilon_0\mu_0\dfrac{\partial}{\partial t}\left(
+   -\nabla\phi(\vr,t)-\dfrac{\partial}{\partial t}{\bm{A}}(\vr,t)
+   \right)
+      =\mu_0{\bm{i}}(\vr,t)
+\end{align}
+整理すると，
+\begin{align}\label{w2}
+\nabla
+\left(\dv{\bm{A}}(\vr,t)+\epsilon_0\mu_0\dfrac{\partial\phi(\vr,t)}{\partial t}\right)
++\epsilon_0\mu_0\dfrac{\partial^2{\bm{A}}(\vr,t)}{\partial t^2}
+-\Delta{\bm{A}}(\vr,t)=\mu_0{\bm{i}}(\vr,t)
+\end{align}
+が得られる．また，(\ref{mx4})より，
+\begin{align}
+   \nabla\cdot\bm{E}(\vr,t)
+      =\frac{\rho(\vr,t)}{\epsilon_0}．\notag
+\end{align}
+これに，(\ref{ef})を代入すると
+\begin{align}
+   \nabla\cdot\bm{E}(\vr,t)&=\dv\left(-\nabla\phi(\vr,t)-\dfrac{\partial}{\partial t}{\bm{A}}(\vr,t)\right)\notag\\[10pt]
+      &=-\Delta\phi(\vr,t)-\dfrac{\partial}{\partial t}\Bigl(\dv{\bm{A}}(\vr,t)\Bigr)=\frac{\rho(\vr,t)}{\epsilon_0}
+\end{align}
+が得られる．上で得られた結果をまとめると
+\begin{align}
+    \label{mxa1}
+\bm{E}(\vr,t)=-\nabla\phi(\vr,t)-\dfrac{\partial}{\partial t}{\bm{A}}(\vr,t)
+\end{align}
+\begin{align}
+  \label{mxa2}
+\bm{B}(\vr,t)=\rot{\bm{A}}(\vr,t)
+\end{align}
+\begin{align}\label{mxa3}
+\epsilon_0\mu_0\dfrac{\partial^2{\bm{A}}(\vr,t)}{\partial t^2}
+-\Delta{\bm{A}}(\vr,t)+
+\nabla
+\left(\dv{\bm{A}}(\vr,t)+\epsilon_0\mu_0\dfrac{\partial\phi(\vr,t)}{\partial t}\right)
+=\mu_0{\bm{i}}(\vr,t)
+\end{align}
+\begin{align}\label{mxa4}
+-\dfrac{\partial}{\partial t}\Bigl(\dv{\bm{A}}(\vr,t)\Bigr)-\Delta\phi(\vr,t)=\frac{\rho(\vr,t)}{\epsilon_0}
+\end{align}
+である．(\ref{mxa1})$\sim$(\ref{mxa4})の方程式系は，(\ref{mx1})$\sim$(\ref{mx4})のMaxwellの方程式系と内容的に全く等価であって，(\ref{mxa3})と(\ref{mxa4})の2式を解いて$\phi$と${\bm{A}}$を求め，それらを(\ref{mxa1})と(\ref{mxa2})へ代入することによって，電場$\bm{E}$と磁場$\bm{B}$を求めることができる．\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+\subsection{Lorentzゲージと波動方程式}
+　(\ref{mxa3})と(\ref{mxa4})において，
+\begin{align}\label{lor1}
+\chi(\vr,t):=\dv{\bm{A}}(\vr,t)+\epsilon_0\mu_0\dfrac{\partial\phi(\vr,t)}{\partial t}
+\end{align}
+とおくと，(\ref{mxa3})は
+\begin{align}\label{mxb3}
+\epsilon_0\mu_0\dfrac{\partial^2{\bm{A}}(\vr,t)}{\partial t^2}
+-\Delta{\bm{A}}(\vr,t)+
+\nabla\chi(\vr,t)
+=\mu_0{\bm{i}}(\vr,t)．
+\end{align}
+(\ref{mxa4})は(\ref{mxa4})の左辺第1項に$-\dv{\bm{A}}(\vr,t)=-\chi(\vr,t)+\epsilon_0\mu_0\dfrac{\partial\phi(\vr,t)}{\partial t}$を代入し，整理すれば
+\begin{align}\label{mxb4}
+\epsilon_0\mu_0\dfrac{\partial^2\phi(\vr,t)}{\partial t^2}-\Delta\phi(\vr,t)-\dfrac{\partial\chi(\vr,t)}{\partial t}=\frac{\rho(\vr,t)}{\epsilon_0}
+\end{align}
+となる．
+(\ref{lor1})の$\chi(\vr,t)$はゲージ変換
+\begin{subnumcases}
+  {}
+  \label{gal1}
+{\bm{A}}_L(\vr,t)={\bm{A}}(\vr,t)+\nabla u(\vr,t)& \\[15pt]
+  \label{gal2}
+ \phi_L(\vr,t)=\phi(\vr,t)-\dfrac{\partial u(\vr,t)}{\partial t}&
+\end{subnumcases}
+に対して，変換
+\begin{align}\label{lor2}
+\chi_L(\vr,t)&=\dv{\bm{A}}_L(\vr,t)+\epsilon_0\mu_0\dfrac{\partial\phi_L(\vr,t)}{\partial t}\notag\\[10pt]
+%
+&=\dv\Bigl({\bm{A}}(\vr,t)-\nabla u(\vr,t)\Bigr)
++\epsilon_0\mu_0\dfrac{\partial}{\partial t}\left(\phi(\vr,t)-\dfrac{\partial u(\vr,t)}{\partial t}\right)\notag\\[10pt]
+%
+&=\dv{\bm{A}}(\vr,t)+\epsilon_0\mu_0\dfrac{\partial\phi(\vr,t)}{\partial t}
++\Delta u(\vr,t)-\epsilon_0\mu_0\dfrac{\partial^2u(\vr,t)}{\partial t^2}\notag\\[10pt]
+%
+\therefore\chi_L(\vr,t)&=
+\chi(\vr,t)
++\left[\Delta-\epsilon_0\mu_0\dfrac{\partial^2}{\partial t^2}\right]u(\vr,t)
+\end{align}
+を受ける．つまり，${\bm{A}}$と$\phi$に対して，ゲージ変換(\ref{gal1})と(\ref{gal2})を施すと，(\ref{lor1})の$\chi(\vr,t)$には任意関数$u(\vr,t)$の不定性があるということが(\ref{lor2})からわかる．\\
+　これより，(\ref{mxb3})と(\ref{mxb4})の${\bm{A}}$と$\phi$に対して，ゲージ変換(\ref{gal1})と(\ref{gal2})を施すと，
+\begin{align}
+\epsilon_0\mu_0\dfrac{\partial^2{\bm{A}}_L(\vr,t)}{\partial t^2}
+-\Delta{\bm{A}}_L(\vr,t)+
+\nabla\chi_L(\vr,t)
+=\mu_0{\bm{i}}(\vr,t)．
+\end{align}
+\begin{align}
+\epsilon_0\mu_0\dfrac{\partial^2\phi_L(\vr,t)}{\partial t^2}-\Delta\phi_L(\vr,t)-\dfrac{\partial\chi_L(\vr,t)}{\partial t}=\frac{\rho(\vr,t)}{\epsilon_0}
+\end{align}
+となる．(\ref{lor2})の変換性を利用し，任意関数$u(\vr,t)$を適当に選び，(\ref{lor2})の左辺が$0$になるようにすると，
+\begin{align}
+\chi_L(\vr,t)&=
+\chi(\vr,t)
++\left[\Delta-\epsilon_0\mu_0\dfrac{\partial^2}{\partial t^2}\right]u(\vr,t)=0
+\end{align}
+であるから，ポテンシャル$\phi_L$と${\bm{A}}_L$に対する条件
+\begin{align}\label{lor3}
+\chi_L(\vr,t)=\dv{\bm{A}}_L(\vr,t)+\epsilon_0\mu_0\dfrac{\partial\phi_L(\vr,t)}{\partial t}=0
+\end{align}
+が得られる．この条件をLorentzゲージと呼ぶ．また，(\ref{lor1})より，
+\begin{align}\label{lor4}
+\left[\Delta-\epsilon_0\mu_0\dfrac{\partial^2}{\partial t^2}\right]u(\vr,t)
+=-\dv{\bm{A}}(\vr,t)+\epsilon_0\mu_0\dfrac{\partial\phi(\vr,t)}{\partial t}
+\end{align}
+を得る．(\ref{lor3})の条件式のおかげで，$\phi_L$と${\bm{A}}_L$のみたす式(\ref{mxb3})と(\ref{mxb4})は，次のように書きかえられる．
+\begin{align}\label{mxd3}
+\epsilon_0\mu_0\dfrac{\partial^2{\bm{A}}_L(\vr,t)}{\partial t^2}
+-\Delta{\bm{A}}_L(\vr,t)
+=\mu_0{\bm{i}}(\vr,t)．
+\end{align}
+\begin{align}\label{mxd4}
+\epsilon_0\mu_0\dfrac{\partial^2\phi_L(\vr,t)}{\partial t^2}-\Delta\phi_L(\vr,t)
+=\frac{\rho(\vr,t)}{\epsilon_0}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+\subsection{まとめ}
+光速$c$を
+\begin{align}
+c:=\frac{1}{\sqrt{\epsilon_0\mu_0}}
+\end{align}
+と定義し，得られた方程式系をまとめると，次のようになる．
+\begin{align}
+    \label{mw1}
+\bm{E}(\vr,t)=-\nabla\phi_L(\vr,t)-\dfrac{\partial}{\partial t}{\bm{A}}_L(\vr,t)
+\end{align}
+\begin{align}
+  \label{mw2}
+\bm{B}(\vr,t)=\rot{\bm{A}}_L(\vr,t)
+\end{align}
+\begin{align}\label{mw3}
+\left(\frac{1}{c^2}\dfrac{\partial^2}{\partial t^2}
+-\Delta\right){\bm{A}}_L(\vr,t)
+=\mu_0{\bm{i}}(\vr,t)．
+\end{align}
+\begin{align}\label{mw4}
+\left(\frac{1}{c^2}\dfrac{\partial^2}{\partial t^2}
+-\Delta\right)\phi_L(\vr,t)
+=\frac{\rho(\vr,t)}{\epsilon_0}
+\end{align}
+\begin{align}\label{lor}
+\dv{\bm{A}}_L(\vr,t)+\frac{1}{c^2}\dfrac{\partial\phi_L(\vr,t)}{\partial t}=0．
+\end{align}
+これらの方程式系はMaxwellの方程式系と等価である．まず，(\ref{mw3})と(\ref{mw4})の4個の独立な波動方程式を解き，得られた電磁ポテンシャルの組$({\bm{A}}_L,\phi_L)$のうちで条件(\ref{lor})をみたす組だけを選ぶ．この条件(\ref{lor})をLorentz条件といい，この条件をみたす電磁ポテンシャル${\bm{A}}_L$，$\phi_L$をLorentzゲージにおける電磁ポテンシャルという．そして，求めた${\bm{A}}_L$，$\phi_L$を(\ref{mw1})，(\ref{mw2})へ代入すれば，電場$\bm{E}$と磁場$\bm{B}$を求めることができる．

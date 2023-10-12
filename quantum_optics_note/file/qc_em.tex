@@ -1,0 +1,154 @@
+
+\part{電磁場の量子化}
+\section{電磁場の量子化}
+\subsection{離散化された場合}
+一般化された位置と運動量が次の交換関係を満足するように要請する：
+\begin{equation}
+    [\hat{q}_{\lambda}, \hat{p}_{\lambda^\prime}] = i\hbar\delta_{\lambda,\lambda^\prime},\ \ \
+    [\hat{q}_{\lambda}, \hat{q}_{\lambda^\prime}] = 0,\ \ \ 
+    [\hat{p}_{\lambda}, \hat{p}_{\lambda^\prime}] = 0
+\end{equation}
+ここで，$\lambda=(\bm{k},\sigma)$は波数と偏光の自由度$\sigma$を一つにまとめたものを表す．このとき，電磁場のエネルギーは，第二量子化されたHamiltonianとなる：
+\begin{equation}\label{elmg_Hamiltonian}
+    \hat{H} = \frac{1}{2}\sum_{\bm{k},\sigma} (\hat{p}_{\lambda}^2 + \omega_{\lambda}^2 \hat{q}_{\lambda}^2).
+\end{equation}
+ここで，次の生成消滅演算子$\hat{a}^{\dag}_{\lambda}$, $\hat{a}_{\lambda}$を導入する：
+\begin{align}
+    \hat{a}^{\dag}_{\lambda} &= \frac{1}{\sqrt{2\pi\omega_{\lambda}}}
+    (\omega_{\lambda} \hat{q}_{\lambda}-i\hat{p}_{\lambda})\\[10pt]
+    \hat{a}_{\lambda} &= \frac{1}{\sqrt{2\pi\omega_{\lambda}}}
+    (\omega_{\lambda} \hat{q}_{\lambda}+i\hat{p}_{\lambda})
+\end{align}
+生成消滅演算子は次の交換関係を満たす：
+\begin{equation}
+    [\hat{a}_{\lambda}, \hat{a}^{\dag}_{\lambda}] = \delta_{\lambda,\lambda^\prime}\hat{1},\ \ \
+    [\hat{a}_{\lambda}, \hat{a}_{\lambda^\prime}] = 0,\ \ \ 
+    [\hat{a}^{\dag}_{\lambda}, \hat{a}^{\dag}_{\lambda^\prime}] = 0
+\end{equation}
+
+\eqref{}を$\hat{q}_{\lambda}$, $\hat{p}_{\lambda}$について解けば，
+\begin{align}
+    \hat{q}_{\lambda} &= \sqrt{\frac{\hbar}{2\omega_{\lambda}}}
+    (\hat{a}_{\lambda}+\hat{a}^{\dagger}_{\lambda})\\[10pt]
+    \hat{p}_{\lambda} &= -i\sqrt{\frac{\hbar\omega_{\lambda}}{2}}
+    (\hat{a}_{\lambda}-\hat{a}^{\dagger}_{\lambda})
+\end{align}
+これらを\eqref{elmg_Hamiltonian}へ代入すると
+\begin{equation}
+    \hat{H} = \sum_{\bm{k},\sigma} 
+    \hbar\omega_{\lambda}\left(
+    \hat{a}^{\dagger}_{\lambda}\hat{a}_{\lambda} + \frac{1}{2}
+    \right)
+\end{equation}
+が得られる．電磁場の正の振動成分は
+\begin{align}
+    \hat{\bm{A}}^{+}_{\lambda}
+    &=\frac{1}{\sqrt{4\epsilon_0\omega_{\lambda}^2 V}}
+    (\omega_{\lambda} \hat{q}_{\lambda}+i\hat{p}_{\lambda})\vec{e}_{\lambda}\\[10pt]
+    &=\frac{1}{\sqrt{4\epsilon_0\omega_{\lambda}^2 V}}
+    \left[
+    \omega_{\lambda} \sqrt{\frac{\hbar}{2\omega_{\lambda}}}
+    (\hat{a}_{\lambda}+\hat{a}^{\dagger}_{\lambda})
+    +i(-i)\sqrt{\frac{\hbar\omega_{\lambda}}{2}}
+    (\hat{a}_{\lambda}-\hat{a}^{\dagger}_{\lambda})
+    \right]\vec{e}_{\lambda}\nn[10pt]
+    &=\frac{1}{\sqrt{4\epsilon_0\omega_{\lambda}^2 V}}
+    \left[
+    \sqrt{\frac{\hbar\omega_{\lambda}}{2}}
+    (\hat{a}_{\lambda}+\hat{a}^{\dagger}_{\lambda})
+    +\sqrt{\frac{\hbar\omega_{\lambda}}{2}}
+    (\hat{a}_{\lambda}-\hat{a}^{\dagger}_{\lambda})
+    \right]\vec{e}_{\lambda}\nn[10pt]
+    &=\frac{1}{\sqrt{4\epsilon_0\omega_{\lambda}^2 V}}
+    \sqrt{2\hbar\omega_{\lambda}}
+    \hat{a}_{\lambda}
+    \vec{e}_{\lambda}\nn[10pt]
+    %
+    &=\sqrt{\frac{\hbar}{2\epsilon_0\omega_{\lambda} V}}
+    \hat{a}_{\lambda}
+    \vec{e}_{\lambda}
+\end{align}
+となる．同様にして，負の振動成分は，
+\begin{equation}
+    \hat{\bm{A}}^{-}_{\lambda}
+    =\sqrt{\frac{\hbar}{2\epsilon_0\omega_{\lambda} V}}
+    \hat{a}^{\dagger}_{\lambda}
+    \vec{e}_{\lambda}
+\end{equation}
+と量子化される．これらの量子化により，ベクトル・ポテンシャル，電場，磁場は以下のように量子化される：
+\begin{align}
+    \hat{\bm{A}}(\bm{r},t)&=
+    \sum_{\bm{k},\sigma}\sqrt{\frac{\hbar}{2\epsilon_0\omega_{\lambda} V}}\vec{e}_{\lambda}
+    \left[
+    \hat{a}_{\lambda}e^{i(\bm{k}\cdot\bm{r}-\omega_{\lambda})}
+    + \hat{a}^{\dagger}_{\lambda}e^{-i(\bm{k}\cdot\bm{r}-\omega_{\lambda})}
+    \right],\\[10pt]
+    %
+    \hat{\bm{E}}(\bm{r},t)&=
+    \sum_{\bm{k},\sigma}i\sqrt{\frac{\hbar\omega_{\lambda}}{2\epsilon_0 V}}\vec{e}_{\lambda}
+    \left[
+    \hat{a}_{\lambda}e^{i(\bm{k}\cdot\bm{r}-\omega_{\lambda})}
+    - \hat{a}^{\dagger}_{\lambda}e^{-i(\bm{k}\cdot\bm{r}-\omega_{\lambda})}
+    \right],\\[10pt]
+    %
+    \hat{\bm{B}}(\bm{r},t)&=
+    \sum_{\bm{k},\sigma}i\sqrt{\frac{\hbar}{2\epsilon_0\omega_{\lambda} V}}\bm{k}\times\vec{e}_{\lambda}
+    \left[
+    \hat{a}_{\lambda}e^{i(\bm{k}\cdot\bm{r}-\omega_{\lambda})}
+    - \hat{a}^{\dagger}_{\lambda}e^{-i(\bm{k}\cdot\bm{r}-\omega_{\lambda})}
+    \right]
+\end{align}
+
+
+\subsection{連続モードの場合}
+
+
+
+
+
+
+
+
+
+
+生成演算子$\hat{a}^{\dagger}$と個数状態$\ket{n}$の間には次のような関係式を満たす：
+\begin{align}
+    \ha^\dag\ket{n}&=\sqrt{n+1}\ket{n+1}
+\end{align}
+これを用いて，$\hat{a}^{\dagger}$を行列表示すると
+\begin{align}
+    \hat{a}^{\dagger}=
+    \left(
+    \begin{array}{ccccc}
+   \braket{0|\hat{a}^{\dagger}|0} & \braket{0|\hat{a}^{\dagger}|1}& \dots& \dots  & \dots\\
+  \braket{1|\hat{a}^{\dagger}|0} &\braket{1|\hat{a}^{\dagger}|1}& \dots& \dots  & \dots\\
+  \braket{2|\hat{a}^{\dagger}|0} &\braket{2|\hat{a}^{\dagger}|1}& \dots& \dots  & \dots\\
+  \vdots & \vdots & \dots& \ddots & \vdots \\
+  \dots & \dots& \dots& \dots  & \vdots
+    \end{array}
+    \right)
+\end{align}
+
+ここで，行列要素$\braket{n|\hat{a}^{\dagger}|m}$をあらわに書くと，
+\begin{align}
+    \braket{n|\hat{a}^{\dagger}|m}
+    =\sqrt{m+1}\delta_{n,m+1}
+\end{align}
+と書けるから，$n=m+1$を満たすとき，有限の値を取り得る．それ以外の要素は0となる．これを行列表示として書くと次のようになる：
+
+\begin{align}
+    \hat{a}^{\dagger}=
+    \left(
+    \begin{array}{ccccccc}
+   0& 0& 0&0&0& \dots  & \dots\\
+  1 &0& 0&0&0& \dots  & \dots\\
+  0&\sqrt{2}& 0&0&0& \dots  & \dots\\
+  0&0&\sqrt{3}&0& \dots& \dots  & \dots\\
+  \vdots & \vdots &\vdots & \vdots & \dots& \ddots & \vdots \\
+  \dots & \dots&\dots & \dots& \dots& \dots  & \vdots
+    \end{array}
+    \right)
+\end{align}
+となる．
+
+

@@ -1,0 +1,560 @@
+
+\section{自由空間の電磁場}
+　はじめは，$z$軸方向に一様な電場$\bm E_0=(0,0,E_0)$，$E_0=\bm E_0$があったとする．そこに帯電していない半径$a$の導体球を持ち込んだとき，電子は電場からの力によって，$z$軸の負の方向に移動し，$z$軸の正の方向は正に帯電する．したがって，導体表面上には電荷が誘導される．その誘導電荷によってつくられる静電場$\bm E_1$とはじめの静電場$\bm E_0$との重ね合わせによる静電場$\bm E$ができる．\\
+　問題は，導体球によって，乱された静電ポテンシャル，すなわち電場$\bm E$による静電ポテンシャルを見出すことである．
+\subsection{1次元の波動方程式}
+$\psi=\psi(x,t)$とするとき，
+\be\label{wd1}
+\fbox{
+$\left(
+\dfrac{\partial^2}{\partial t^2}-v^2\dfrac{\partial^2}{\partial x^2}
+\right)
+\psi=0$
+}
+\ee
+を1次元の波動方程式という．ただし，$v$は正の実定数である．\\
+　(\ref{wd1})の一般解は，（2階の偏微分が可能で，偏微分して連続な）任意関数$f=f(x-vt)$，$g=g(x+vt)$を用いて，
+\be
+\psi=f(x-vt)+g(x+vt)
+\ee
+の形にかける．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+\begin{proof}
+$t$と$x$の偏微分に対して，次の表記法を定義する：
+\be
+\partial_t\equiv\dfrac{\partial}{\partial t}
+,\ \ \ \ 
+\partial_x\equiv\dfrac{\partial}{\partial x}
+\ee
+すると，(\ref{wd1})は，
+\be
+(\partial_t^2-v^2\partial_x^2)\psi=0
+\ee
+と書ける．上式の左辺の（）の中を因数分解すれば，
+\be\label{wd12}
+(\partial_t+v\partial_x)(\partial_t-v\partial_x)\psi=0
+\ee
+となる．\\
+　次に変数変換$(x,t)\to[\xi,\eta]$，$\psi(x,t)=\psi[\xi,\eta]$
+\begin{subnumcases}
+  {}
+  \xi=x-vt& \\
+  \eta=x+vt&
+\end{subnumcases}
+を考える．合成関数の偏微分chain-ruleより
+\begin{align}
+\frac{\partial}{\partial t}
+&=\frac{\partial\xi}{\partial t}\frac{\partial}{\partial \xi}+\frac{\partial\eta}{\partial t}\frac{\partial}{\partial\eta}
+=-v\frac{\partial}{\partial \xi}+v\frac{\partial}{\partial\eta}
+=v\left(-\frac{\partial}{\partial \xi}+\frac{\partial}{\partial\eta}\right)\\[10pt]
+%
+\frac{\partial}{\partial x}
+&=\frac{\partial\xi}{\partial x}\frac{\partial}{\partial \xi}+\frac{\partial\eta}{\partial x}\frac{\partial}{\partial\eta}
+=\frac{\partial}{\partial \xi}+\frac{\partial}{\partial\eta}
+\end{align}
+%%%%%%%%
+したがって，
+\begin{subnumcases}
+  {}
+  \partial_t+v\partial_x=2v\frac{\partial}{\partial \eta}& \\[10pt]
+  \partial_t-v\partial_x=-2v\frac{\partial}{\partial \xi}&
+\end{subnumcases}
+となり，(\ref{wd12})は，
+\be
+(\partial_t+v\partial_x)(\partial_t-v\partial_x)\psi=-4v^2\frac{\partial}{\partial \eta}\frac{\partial}{\partial \xi}\psi=0
+\ee
+\be
+\therefore\frac{\partial}{\partial \eta}\left(\frac{\partial\psi}{\partial \xi}\right)=0
+\ee
+となる．つまり，$\dfrac{\partial\psi}{\partial \xi}$は$\eta$に依存しないということがわかる．しかし，$\dfrac{\partial\psi}{\partial \xi}$は$\xi$にはいくらでも依存してもかまわないので，$\xi$のみの任意関数
+\be
+f=f[\xi,\eta]=f(\xi)
+\ee
+を用いて，
+\be
+\frac{\partial\psi}{\partial \xi}=\text{$\xi$のみの関数}=\frac{\partial f}{\partial \xi}
+\ee
+と書ける．ここで，右辺を$f(\xi)$ではなく$\dfrac{\partial\psi}{\partial \xi}$としたのは便宜的な理由による．\\
+　よって，
+\be
+\frac{\partial}{\partial \xi}\left\{
+\psi-f(\xi)
+\right\}=0
+\ee
+となる．上式より，$\psi-f(\xi)$は$\xi$に依存しないということがわかる．
+\footnote{%
+ここで注意したいのは，$\psi$と$f(\xi)$の引き算が$\xi$に依存しないということである．
+}
+$\eta$にはいくらでも依存していいので，$\eta$のみの任意関数
+\be
+g=g[\xi,\eta]=g(\eta)
+\ee
+を用いて，
+\be
+\psi-f(\xi)=g(\eta)
+\ee
+と書ける．\\
+　したがって，
+\be
+\psi[\xi,\eta]=f(\xi)+g(\eta)
+\ee
+となる．変数を$[\xi,\eta]\to(x,t)$に戻せば，
+\be
+\psi(x,t)=f(x-vt)+g(x+vt)
+\ee
+と書ける．
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+\subsection{進行電磁波}
+$z$軸方向に進む電磁場を考える．これは${\bm{E}}$，${\bm{B}}$が$z$と$t$のみに依存することを意味する．そこで以下では，
+\be
+\partial_x{\bm{E}}=\partial_x{\bm{E}}=\bm{0},\ \ \ \ \partial_x{\bm{B}}=\partial_x{\bm{B}}=\bm{0}
+\ee
+とする．\\
+　自由空間でのMaxwell方程式は
+\begin{align}
+\label{mx1}
+\nabla\times\bm{E}(\vr,t)+\dfrac{\partial\bm{B}(\vr,t)}{\partial t}=\bm 0
+\end{align}
+
+\begin{align}
+\label{mx2}
+\nabla\cdot\bm{B}(\vr,t)=0
+\end{align}
+
+\begin{align}
+\label{mx3}
+   \nabla\times\bm{B}(\vr,t)=\epsilon_0\mu_0\dfrac{\partial\bm{E}(\vr,t)}{\partial t}
+\end{align}
+
+\begin{align}
+\label{mx4}
+  \nabla\cdot{\bm{E}}(\vr,t)
+      =0 
+\end{align}
+である．\\
+　(\ref{mx2})，(\ref{mx4})より，
+\be
+\nabla\cdot{\bm{E}}={\partial_x} E_x+{\partial_y} E_y+{\partial_z} E_z=0,\ \ \ \therefore{\partial_z} E_z=0
+\ee
+%
+\be
+\nabla\cdot{\bm{B}}={\partial_x} B_x+{\partial_y} B_y+{\partial_z} B_z=0,\ \ \ \therefore{\partial_z} B_z=0
+\ee
+となる．\\
+　(\ref{mx1})，(\ref{mx3})の$z$成分より，
+\be
+{\partial_x} E_y+{\partial_y} E_x=-{\partial_z} B_z,\ \ \ \therefore{\partial_z} B_z=0
+\ee
+%
+\be
+{\partial_x} B_y+{\partial_y} B_x=\epsilon_0\mu_0{\partial_z} E_z,\ \ \ \therefore{\partial_z} E_z=0
+\ee
+したがって，$E_z$，$B_z$は$x,y,t$に依存しない定数である．そこで，これをゼロとおく．（以下，静電場，静磁場部分は$0$とおく．）：
+\be
+E_z=0,\ \ \ \ B_z=0
+\ee
+よって，${\bm{k}}=(0,0,1)$とすれば，
+\be
+{\bm{E}}\perp{\bm{k}},\ \ \ \ {\bm{B}}\perp{\bm{k}}
+\ee
+となる．これは進行電磁波が横波であることを表す．\\
+%
+%
+　次に，${\bm{E}}$の方向を$x$軸方向にとる．つまり，$E_y=E_z=0$とする．(\ref{mx1})の$x$成分，(\ref{mx3})の$y$成分より，
+\be
+{\partial_y} E_z+{\partial_z} E_y=-{\partial_z} B_x,\ \ \ \therefore{\partial_z} B_x=0
+\ee
+%
+\be
+{\partial_z} B_x+{\partial_x} B_z=\epsilon_0\mu_0{\partial_z} E_y,\ \ \ \therefore{\partial_z} B_x=0
+\ee
+よって，$B_x$は$x,y,z,t$に依存しない定数であり，$B_x=0$とおく．したがって，
+\be
+{\bm{E}}=(E_x,0,0),\ \ \ {\bm{B}}=(0,B_y,0)
+\ee
+となり，${\bm{E}},{\bm{B}},{\bm{k}}$は互いに直交する．
+%
+%
+以下，常に${\bm{E}}=(E_x,0,0)$であるとする．\\
+${\bm{E}}$のみたす波動方程式は，$\epsilon_0\mu_0=1/c^2$として，
+\be
+(\partial_t^2-v^2\partial_x^2)\psi=0
+\ee
+であった，$0$でない$E_x$については，
+\be
+\partial_t^2E_x-c^2({\partial_x}^2E_x+{\partial_y}^2E_x+{\partial_z}^2E_x)=0
+\ee
+であるが，${\partial_x} E_x={\partial_y} E_x=0$なので，
+\be\label{wex}
+\dfrac{\partial^2E_x}{\partial t^2}-c^2\dfrac{\partial^2E_x}{\partial z^2}=0
+\ee
+となる．これは1次元の波動方程式なので，$E_x$は任意関数$f$と$g$を用いて，
+\be\label{sol1}
+E_x=f(z-ct)+g(z+ct)
+\ee
+(\ref{mx1})の$y$成分は，
+\be
+{\partial_z} E_x-{\partial_x} E_z=-{\partial_z} B_y
+\ee
+$E_z=0$であるから，したがって，
+\begin{eqnarray*}
+  \begin{split}
+{\partial_z} B_y=-{\partial_z} E_x&=-\frac{\partial}{\partial z}
+\left\{
+f(z-ct)+g(z+ct)
+\right\}\\[10pt]
+%
+&=-\left\{
+\frac{\partial(z-ct)}{\partial z}\frac{\partial f(z-ct)}{\partial (z-ct)}
++\frac{\partial(z+ct)}{\partial z}\frac{\partial g(z+ct)}{\partial (z+ct)}
+\right\}\\[10pt]
+%
+&=-\left\{
+\frac{\partial f(z-ct)}{\partial (z-ct)}
++\frac{\partial g(z+ct)}{\partial (z+ct)}
+\right\}\\[10pt]
+%
+&=\frac{1}{c}\left\{
+\frac{\partial f(z-ct)}{\partial (z-ct)}\cdot(-c)
+-\frac{\partial g(z+ct)}{\partial (z+ct)}\cdot(c)
+\right\}\\[10pt]
+%
+&=\frac{1}{c}\left\{
+\frac{\partial f(z-ct)}{\partial (z-ct)}\cdot(-c)
+-\frac{\partial g(z+ct)}{\partial (z+ct)}\cdot(c)
+\right\}\\[10pt]
+  \end{split}
+\end{eqnarray*}
+ここで，$\mp c={\partial_z} (z\mp ct)$であるから，
+\begin{eqnarray*}
+  \begin{split}
+{\partial_z} B_y=-{\partial_z} E_x
+&=\frac{1}{c}\left\{
+\frac{\partial f(z-ct)}{\partial (z-ct)}\frac{\partial (z-ct)}{\partial t}
+-\frac{\partial g(z+ct)}{\partial (z+ct)}\frac{\partial (z+ct)}{\partial t}
+\right\}\\[10pt]
+%
+&=\frac{1}{c}\left\{
+\frac{\partial f(z-ct)}{\partial t}
+-\frac{\partial g(z+ct)}{\partial t}
+\right\}\\[10pt]
+%
+&=\frac{\partial }{\partial t}
+\left[
+\frac{1}{c}\left\{
+f(z-ct)+g(z+ct)
+\right\}\right]\\[10pt]
+  \end{split}
+\end{eqnarray*}
+つまり，
+\be
+\frac{\partial }{\partial t}
+\left[
+B_y-
+\frac{1}{c}\left\{
+f(z-ct)+g(z+ct)
+\right\}\right]=0
+\ee
+を得る．$B_y$は$x,y$に依存しないので，
+\be
+B_y=\frac{1}{c}\left\{
+f(z-ct)+g(z+ct)
+\right\}+D(z)
+\ee
+となる．ここで，$D(z)$は$z$のみに依存する任意関数である．\\
+　(\ref{mx3})の$x$成分より，
+\be
+{\partial_y} B_z-{\partial_z} B_y=\epsilon_0\mu_0{\partial_z} E_x=\frac{1}{c^2}{\partial_z} E_x
+\ee
+$B_z=0$であるから，
+\be
+-{\partial_z} B_y=\frac{1}{c^2}{\partial_z} E_x
+\ee
+となる．すなわち，
+\be
+-\frac{\partial }{\partial z}
+\left[
+\frac{1}{c}\left\{
+f(z-ct)+g(z+ct)
+\right\}+D(z)\right]
+%
+=\frac{1}{c^2}\frac{\partial }{\partial t}
+\left\{
+f(z-ct)+g(z+ct)
+\right\}\\[10pt]
+\ee
+%%
+%%
+\be
+\therefore
+-\frac{1}{c}\left\{
+\frac{\partial f(z-ct)}{\partial (z-ct)}+\frac{\partial g(z+ct)}{\partial (z+ct)}
+\right\}+\frac{\partial D(z)}{\partial z}
+%
+=\frac{1}{c^2}\left\{
+\frac{\partial f(z-ct)}{\partial (z-ct)}\cdot(-c)+\frac{\partial g(z+ct)}{\partial (z+ct)}\cdot(c)
+\right\}
+\ee
+したがって，${\partial_z} D(z)=0$．これは，$D(z)$が$x,y,z,t$に依存しない定数であることを表すので，$D(z)=0$とおく．\\
+　以上から，
+\be
+E_x=f(z-ct)+g(z+ct)
+\ee
+\be
+B_y=\frac{1}{c}
+\left\{
+f(z-ct)+g(z+ct)
+\right\}
+\ee
+を得る．これが$z$軸の方向に進行する($x$軸の方向に偏った)電磁波の一般形である．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+\subsection{平面波}
+$z$軸の方向に進む進行電磁波は，
+\be
+f_1=f_1(z-ct),\ \ \ f_2=f_2(z-ct)
+\ee
+\be
+g_1=g_1(z+ct),\ \ \ g_2=g_2(z+ct)
+\ee
+を任意関数として，
+\begin{subnumcases}
+  {}
+  E_x=f_1+g_1,\ \ \ E_y=f_2+g_2,\ \ \ E_z=0& \\[10pt]
+  B_x=\frac{1}{c}(f_1+g_1),\ \ \ B_y=\frac{1}{c}(f_2+g_2),\ \ \ B_z=0&
+\end{subnumcases}
+と書けた．このとき，$f_1,f_2$を考えたもの（進行波）を，${\bm{E}}_{{\uparrow}}$，${\bm{B}}_{{\uparrow}}$．$g_1,g_2$を考えたもの（後退波）を，${\bm{E}}_{{\downarrow}}$，${\bm{B}}_{{\downarrow}}$としよう：
+\be
+{\bm{E}}_{{\uparrow}}=(f_1,f_2,0),\ \ \ {\bm{B}}_{{\uparrow}}=\left(-\frac{1}{c}f_2,-\frac{1}{c}f_1,0\right)
+\ee
+\be
+{\bm{E}}_{{\downarrow}}=(g_1,g_2,0),\ \ \ {\bm{B}}_{{\downarrow}}=\left(\frac{1}{c}g_2,-\frac{1}{c}g_1,0\right)
+\ee
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+\subsubsection{直交性について}
+\paragraph{右手系}
+${\bm{E}}$と${\bm{B}}$は必ずしも直交しないが，${\bm{E}}_{{\uparrow}}\perp{\bm{B}}_{{\uparrow}}$（$\therefore{\bm{E}}_{{\uparrow}}\cdot{\bm{B}}_{{\uparrow}}=0$），${\bm{E}}_{{\downarrow}}\perp{\bm{B}}_{{\downarrow}}$（$\therefore{\bm{E}}_{{\downarrow}}\cdot{\bm{B}}_{{\downarrow}}=0$）であり，波の進む向きを${\bm{k}}$とすると，図\ref{}，\ref{}のように右手系を作る．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+\paragraph{ポインティングベクトル}
+ポインティングベクトル$\bm{S}=\dfrac{1}{\mu_0}{\bm{E}}\times{\bm{B}}$について，
+\begin{align}
+\bm{S}=\frac{1}{\mu_0}
+\left(
+    \begin{array}{c}
+      f_1+g_1 \\[10pt]
+      f_2+g_2 \\[10pt]
+      0
+    \end{array}
+  \right)
+  \times
+  \left(
+    \begin{array}{c}
+      \dfrac{1}{c}(f_1+g_1) \\[10pt]
+      \dfrac{1}{c}(f_2+g_2) \\[10pt]
+      0
+    \end{array}
+  \right)
+  =\frac{1}{\mu_0c}\left(0,0,f_1^2+f_2^2-g_1^2-g_2^2\right)
+\end{align}
+となるので，波の伝わる向き（$z$軸方向）に，エネルギーが流れていることがわかる．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+\paragraph{電磁場のエネルギー密度}
+電場と磁場のエネルギー密度をそれぞれ$w_e，w_m$とおく．電磁場のエネルギー密度
+\be
+w=w_e+w_m=\frac{\epsilon_0}{2}|{\bm{E}}|^2+\frac{1}{2\mu_0}|{\bm{B}}|^2
+\ee
+も${\bm{E}}，{\bm{B}}$のままではきれいにならない．しかし，${\bm{E}}={\bm{E}}_{{\uparrow}}$，${\bm{B}}={\bm{B}}_{{\downarrow}}$のときは，
+\be
+w_e=\frac{\epsilon_0}{2}|{\bm{E}}_{{\uparrow}}|^2=\frac{\epsilon_0}{2}(f_1^2+f_2^2)
+\ee
+\be
+w_m=\frac{1}{2\mu_0}|{\bm{B}}_{{\uparrow}}|^2=\frac{1}{2\mu_0c^2}(f_1^2+f_2^2)=\frac{\epsilon_0}{2}(f_1^2+f_2^2)
+\ee
+となり，$w_e=w_m$となる．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{}
+$f$のみ，$g$のみのように波の進む向きを決定したものが，通常は平面波と呼ばれるものである．以下，${\bm{E}}={\bm{E}}_{{\uparrow}}$，${\bm{B}}={\bm{B}}_{{\uparrow}}$として考える．
+\be\label{v1}
+z-ct=-c\left(
+t-\frac{z}{c}
+\right)
+=-\frac{c}{\omega}\left(
+\omega t-\frac{\omega z}{c}
+\right)
+=-\frac{c}{\omega}\left(
+\omega t-kz
+\right)
+\ee
+（ここで，$k=\omega/c$とおいた．）より，（正弦波を考えることにして）例えば
+\be
+f_1(z-ct)=E_0\sin{(\omega t-kz)}
+\ee
+とおくことができる．(\ref{v1})より，
+\be
+\sin(\omega t-kz)=\sin{\left\{
+-\frac{\omega}{c}(z-ct)
+\right\}}
+\ee
+さらに，$f_2=0$とすれば，
+\begin{subnumcases}
+  {}
+  {\bm{E}}=E_0\sin{(\omega t-kz)}(1,0,0)& \\[10pt]
+  {\bm{B}}=\frac{E_0}{c}\sin{(\omega t-kz)}(0,1,0)&
+\end{subnumcases}
+となり，このとき，
+\be
+\bm{S}=\frac{1}{\mu_0}{\bm{E}}\times{\bm{B}}=\frac{E_0^2}{\mu_0c^2}\sin^2(\omega t-kz)(0,0,1)
+\ee
+となる．
+
+
+
+

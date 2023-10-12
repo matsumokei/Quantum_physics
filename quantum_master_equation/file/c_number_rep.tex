@@ -1,0 +1,22 @@
+
+\section{コヒーレント状態による展開と準確率分布関数}
+\subsection{$P$表現}
+\begin{equation}
+    \hrho=\int\int\braket{\alpha'|\hrho|\alpha''}\ket{\alpha'}\bra{\alpha'}\frac{d^2\alpha'd^2\alpha''}{\pi^2}
+\end{equation}
+一般的には，
+\begin{equation}
+    \hrho=\int P(\alpha)\ket{\alpha}\bra{\alpha}
+\end{equation}
+と展開できる．ある密度行列がこのように$\ket{\alpha}$による対角表現できるとき，これを密度行列の$P$表現とよぶ．$P(\alpha)$をGlauber-Sudarshan（グラウバー・スダーシャン）の$P$関数という．
+
+
+\subsection{$Q$関数}
+密度演算子のコヒーレント状態の対角要素$\braket{\alpha|\hrho|\alpha}$は正の確率分布関数として知られる．これを$\pi$で割ったものを$Q$関数と呼ぶ．もし，$\hrho$に対して，$\hrho=\int P(\beta)\ket{\beta}\bra{\beta}d^2\beta$という$P(\beta)$が存在すれば
+\begin{align}
+    Q(\alpha)&=\frac{\braket{\alpha|\hrho|\alpha}}{\pi}=\frac{1}{\pi}\int P(\beta)\|\braket{\alpha|\beta}\|^2 d^2\beta\nn[10pt]
+    &=\frac{1}{\pi}\int P(\beta)e^{-|\alpha-\beta|^2}d^2\beta
+\end{align}
+であって，$Q$関数は$P(\beta)$のガウス型関数による畳み込みである．
+
+\section{量子力学のc数表現}

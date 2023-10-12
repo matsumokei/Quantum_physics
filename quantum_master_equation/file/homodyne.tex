@@ -1,0 +1,183 @@
+
+\section{平衡ホモダイン測定 (Balanced Homodyne detection)}
+\subsection{Beam spliterの一般論}
+今，被測定系Mとプローブ系Pを考える．また，被測定系の入力光，出力光を表す演算子をそれぞれ$\hat{a}_{\rm{M}}$, $\hat{a}_1$と表す．同様にして，プローブ系についても，$\hat{a}_{\rm{P}}$, $\hat{a}_2$と表す．
+
+ビームスプリッターとは，入力光ビームが２つ$(\hat{a}_{\rm{P}},\ \hat{a}_{\rm{M}})$，出力光ビームが２つ$(\hat{a}_{1},\ \hat{a}_{2})$の２入力，２出力デバイスである．その出力関係は次の線形変換で記述される：
+\begin{equation}
+    \left(
+        \begin{array}{c}
+       \hat{a}_1\\[10pt]
+       \hat{a}_2\\
+        \end{array}
+        \right)
+        =B\left(
+        \begin{array}{c}
+       \hat{a}_{\rm{P}}\\[10pt]
+       \hat{a}_{\rm{M}}\\
+        \end{array}
+        \right)
+        =
+        \left(
+        \begin{array}{cc}
+       B_{11}&B_{12}\\[10pt]
+        B_{21}&B_{22} \\
+        \end{array}
+        \right)
+        \left(
+        \begin{array}{c}
+       \hat{a}_{\rm{P}}\\[10pt]
+       \hat{a}_{\rm{M}}\\
+        \end{array}
+        \right)
+\end{equation}
+$B$は$2\times2$行列であり，エネルギー保存の要請，つまり入出力の間で，光子数の変化はないことを示し，次式を満たす必要がある：
+\begin{equation}\label{law_of_conservation}
+    \hat{a}^{\dag}_1\hat{a}_1 + \hat{a}^{\dag}_2\hat{a}_2
+    =\hat{a}^{\dag}_{\rm{P}}\hat{a}_{\rm{P}} + \hat{a}^{\dag}_{\rm{M}}\hat{a}_{\rm{M}}
+\end{equation}
+
+\begin{align}
+    \hat{a}_1 &= B_{11}\hat{a}_{\rm{P}} + B_{12}\hat{a}_{\rm{M}}\\[10pt]
+    \hat{a}_2 &= B_{21}\hat{a}_{\rm{P}} + B_{22}\hat{a}_{\rm{M}}
+\end{align}
+
+\begin{align}
+    \hat{a}^{\dag}_1\hat{a}_1 + \hat{a}^{\dag}_2\hat{a}_2 
+    &=
+    (B_{11}^{\ast}\hat{a}^{\dag}_{\rm{P}} +B_{12}^{\ast}\hat{a}^{\dagger}_{\rm{M}})
+    (B_{11}\hat{a}_{\rm{P}} + B_{12}\hat{a}_{\rm{M}})
+    +(B_{21}^{\ast}\hat{a}^{\dag}_{\rm{P}} +B_{22}^{\ast}\hat{a}^{\dagger}_{\rm{M}})
+    (B_{21}\hat{a}_{\rm{P}} + B_{22}\hat{a}_{\rm{M}})\nn[10pt]
+    &=(|B_{11}|^2+|B_{21}|^2)\hat{a}^{\dagger}_{\rm{P}}\hat{a}_{\rm{P}}
+    +(|B_{12}|^2+|B_{22}|^2)\hat{a}^{\dagger}_{\rm{M}}\hat{a}_{\rm{M}}\nn[10pt]
+    &+(B^{\ast}_{11}B_{12}+B^{\ast}_{21}B_{22})\hat{a}^{\dagger}_{\rm{P}}\hat{a}_{\rm{M}}
+    +(B_{11}B^{\ast}_{12}+B_{21}B^{\ast}_{22})\hat{a}^{\dagger}_{\rm{M}}\hat{a}_{\rm{P}}
+\end{align}
+よって，光子数の保存要請\eqref{law_of_conservation}から，行列$B$が満たすべき条件は次のようになる：
+\begin{align}
+    |B_{11}|^2+|B_{21}|^2 &= |B_{12}|^2+|B_{22}|^2 = 1\\[10pt]
+    B^{\ast}_{11}B_{12}+B^{\ast}_{21}B_{22} &= B_{11}B^{\ast}_{12}+B_{21}B^{\ast}_{22}) = 0
+\end{align}
+この条件は，行列$B$がユニタリ行列$(B^{\dagger}B=I_2)$であることと等価である．これは損失のない過程を考えているので当然ともいえる．
+任意の2次ユニタリ行列は，$\Lambda$, $\Psi$, $\Theta$, $\Phi$を任意の実数として，次のように書ける：
+\begin{equation}
+    B=e^{i\Lambda/2}
+        \left(
+        \begin{array}{cc}
+       e^{i\Phi/2}&0\\[10pt]
+        0&e^{-i\Phi/2} \\
+        \end{array}
+        \right)
+        \left(
+        \begin{array}{cc}
+       \cos{\Theta/2}&\sin{\Theta/2}\\[10pt]
+        -\sin{\Theta/2}&\cos{\Theta/2} \\
+        \end{array}
+        \right)
+        \left(
+        \begin{array}{cc}
+       B_{11}&B_{12}\\[10pt]
+        B_{21}&B_{22} \\
+        \end{array}
+        \right)
+        \left(
+        \begin{array}{cc}
+       e^{i\Phi/2}&0\\[10pt]
+        0&e^{-i\Phi/2} \\
+        \end{array}
+        \right)
+\end{equation}
+ここで，$\Lambda$, $\Psi$, $\Phi$は位相因子であるから，光学実験において適当に調整できるパラメータである．したがって，$\Lambda=\Psi=\Phi=0$とセットし，
+\begin{equation}
+    B=
+        \left(
+        \begin{array}{cc}
+       \cos{\Theta/2}&\sin{\Theta/2}\\[10pt]
+        -\sin{\Theta/2}&\cos{\Theta/2} \\
+        \end{array}
+        \right)
+\end{equation}
+とできる．透過率$T$, 反射率$R$をそれぞれ
+\begin{align}
+    T + R =1
+\end{align}
+て定義すると，行列$B$は
+\begin{equation}
+    B=
+        \left(
+        \begin{array}{cc}
+       \sqrt{T}&-\sqrt{R}\\[10pt]
+        \sqrt{R}&\sqrt{T}\\
+        \end{array}
+        \right)
+\end{equation}
+
+\subsection{バランス型ホモダイン検出}
+ビームスプリッターとして，$50/50$ビームスプリッターを用いる．これは，$T=R=1/2$という意味である．つまり，ビームスプリッターによる変換を表す行列$B$は
+\begin{equation}
+    B=
+        \left(
+        \begin{array}{cc}
+       \sqrt{1/2}&-\sqrt{1/2}\\[10pt]
+        \sqrt{1/2}&\sqrt{1/2}\\
+        \end{array}
+        \right)
+\end{equation}
+となる．また，被測定系には単一モードの電磁場を利用し，$\hat{a}_{\rm{S}} = \hat{a}_{\rm{M}}$とする．(これは，シグナル光と呼ばれている．)プローブ系にも同様に単一モードの電磁場を利用し，$\hat{a}_{\rm{LO}} = \hat{a}_{\rm{P}}$とする．（こちらはLocal Oscillatorとよぶ．）このとき，入出力の関係は，
+\begin{align}
+    \hat{a}_1 &= \sqrt{T}\hat{a}_{\rm{LO}} - \sqrt{R}\hat{a}_{\rm{S}}\\[10pt]
+    \hat{a}_2 &= \sqrt{T}\hat{a}_{\rm{S}} + \sqrt{R}\hat{a}_{\rm{LO}}
+\end{align}
+となる．ここで，測定するのは光の強さ（フォトン数）であり，測定の出力は光子検出器1,2でそれぞれ測定したフォトン数の差$\hat{R}\equiv\hat{n_2}-\hat{n_1}$で表される．ここで，$\hat{n}_1=\hat{a}^{\dag}_1\hat{a}_1$, $\hat{n}_2=\hat{a}^{\dag}_2\hat{a}_2$である．
+
+\begin{align}
+    \hat{R}&=\hat{n}_2-\hat{n}_1
+    =\hat{a}^{\dag}_2\hat{a}_2-\hat{a}^{\dag}_1\hat{a}_1\nn[10pt]
+    &=(\sqrt{T}\hat{a}^{\dagger}_{\rm{S}} + \sqrt{R}\hat{a}^{\dagger}_{\rm{LO}})
+    (\sqrt{T}\hat{a}_{\rm{S}} + \sqrt{R}\hat{a}_{\rm{LO}})
+    -(\sqrt{T}\hat{a}^{\dagger}_{\rm{LO}} - \sqrt{R}\hat{a}^{\dagger}_{\rm{S}})
+    (\sqrt{T}\hat{a}_{\rm{LO}} - \sqrt{R}\hat{a}_{\rm{S}})\nn[10pt]
+    &=(T-R)\hat{a}^{\dagger}_{\rm{S}}\hat{a}_{\rm{S}} 
+    - (T-R)\hat{a}^{\dagger}_{\rm{LO}}\hat{a}_{\rm{LO}}
+    +2\sqrt{TR}
+    (\hat{a}^{\dagger}_{\rm{LO}}\hat{a}_{\rm{S}} + \hat{a}^{\dagger}_{\rm{S}}\hat{a}_{\rm{LO}})
+\end{align}
+
+ここで, $T=R=1/2$のとき，
+\begin{align}
+    \hat{R}=\hat{n}_2-\hat{n}_1
+    =\hat{a}^{\dagger}_{\rm{LO}}\hat{a}_{\rm{S}} + \hat{a}^{\dagger}_{\rm{S}}\hat{a}_{\rm{LO}}
+\end{align}
+
+ビームスプリッターの入力状態，すなわち，全系の初期状態を$\ket{\Psi}\equiv\ket{\psi}_{\rm{LO}}\ket{\varphi}_{\rm{S}}$とすると，平均光子数は
+\begin{align}
+    \braket{\Psi|\hat{R}|\Psi}
+    &=\bra{\varphi}_{\rm{S}}\bra{\psi}_{\rm{LO}}\hat{R}\ket{\varphi}_{\rm{S}}\ket{\psi}_{\rm{LO}}\nn[10pt]
+    &=\bra{\varphi}_{\rm{S}}\bra{\psi}_{\rm{LO}}
+    (\hat{a}^{\dagger}_{\rm{LO}}\hat{a}_{\rm{S}}
+    +\hat{a}^{\dagger}_{\rm{S}}\hat{a}_{\rm{LO}})
+    \ket{\varphi}_{\rm{S}}\ket{\psi}_{\rm{LO}}\nn[10pt]
+    &=\braket{\psi|\hat{a}^{\dagger}_{\rm{LO}}|\psi}_{\rm{LO}}
+    \cdot\braket{\varphi|\hat{a}_{\rm{S}}|\varphi}_{\rm{S}}
+    +\braket{\psi|\hat{a}_{\rm{LO}}|\psi}_{\rm{LO}}
+    \cdot\braket{\varphi|\hat{a}^{\dagger}_{\rm{S}}|\varphi}_{\rm{S}}
+\end{align}
+シグナル光$\ket{\varphi}_{\rm{S}}$では，スクイズド状態などさまざまな状態の光が入力として利用される．LOでは，コヒーレント状態$\ket{\alpha}$を用いる．すると，$\hat{a}_{\rm{LO}}\ket{\alpha}=\alpha\ket{\alpha}$より，
+\begin{align}
+    \braket{\Psi|\hat{R}|\Psi}
+    &=\alpha^{\ast}\braket{\varphi|\hat{a}_{\rm{S}}|\varphi}_{\rm{S}}
+    +\alpha\braket{\varphi|\hat{a}^{\dagger}_{\rm{S}}|\varphi}_{\rm{S}}
+\end{align}
+ここで，$\alpha=|\alpha|e^{i\theta_{\rm{LO}}}$とすると，$\braket{\hat{R}}$は，
+\begin{align}
+    \braket{\Psi|\hat{R}|\Psi}
+    &=|\alpha|e^{-i\theta_{\rm{LO}}}\braket{\varphi|\hat{a}_{\rm{S}}|\varphi}_{\rm{S}}
+    +|\alpha|e^{i\theta_{\rm{LO}}}\braket{\varphi|\hat{a}^{\dagger}_{\rm{S}}|\varphi}_{\rm{S}}\nn[10pt]
+    &=2|\alpha|
+    \Braket{\varphi|
+    \frac{\hat{a}^{\dagger}_{\rm{S}}e^{i\theta_{\rm{LO}}}+\hat{a}_{\rm{S}}e^{-i\theta_{\rm{LO}}}}{2}
+    |\varphi}_{\rm{S}}\nn[10pt]
+    &=2|\alpha|\braket{\varphi|\hat{x}(\theta_{\rm{LO}})|\varphi}_{\rm{S}}
+\end{align}
+を得る．すなわち，$\hat{R}$の測定から，$\hat{x}(\theta_{\rm{LO}})$の期待値を知ることができる．例えば，$\hat{x}(\theta_{\rm{LO}}=0)$のとき，

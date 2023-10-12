@@ -1,0 +1,577 @@
+\section{粗視化と時間発展}
+\begin{equation}
+    \hH_{\tot}=\hH_{S}+\hH_{E}+\hH_{\rint}
+\end{equation}
+
+\begin{equation}
+    \frac{d\hrho_{\tot}(t)}{dt}
+    =-\frac{i}{\hbar}[\hH_{\tot},\hrho_{\tot}(t)]
+\end{equation}
+が成り立つ．この解である$\hrho_{\tot}$に対して，システムの密度演算子を
+\begin{equation}
+    \hrho_{\rS}\equiv\tr_{\E}[\hrho_{\tot}(t)]
+\end{equation}
+と定義する．
+
+非摂動Hamiltonianを$\hH_0=\hH_{S}+\hH_{E}$として，相互作用描像を以下のように定義する：
+\begin{align}
+    \hH^{\I}_{\rint}&=e^{i\hH_0 t/\hbar}\hH_{\rint}e^{-i\hH_0 t/\hbar}\\[10pt]
+    \hrho^{\I}_{\tot}&=e^{i\hH_0 t/\hbar}\hrho_{\rtot}e^{-i\hH_0 t/ \hbar}
+\end{align}
+相互作用描像での時間発展方程式は
+\begin{equation}\label{Eq:Liouville_I}
+    \frac{d\hrho^{\I}_{\tot}(t)}{dt}
+    =-\frac{i}{\hbar}\lambda[\hH^{\I}_{\rint}(t),\hrho^{\I}_{\tot}(t)]
+\end{equation}
+式\eqref{Eq:Liouville_I}を時刻$\tau\to t$まで積分すると
+\begin{equation}\label{Eq:Liouville_I1}
+    \hrho^{\I}_{\tot}(t)
+    =\hrho^{\I}_{\tot}(\tau)-\frac{i}{\hbar}\lambda\int_{\tau}^{t}dt_1[\hH^{\I}_{\rint}(t_1),\hrho^{\I}_{\tot}(t_1)]
+\end{equation}
+となる．式\eqref{Eq:Liouville_I1}を\eqref{Eq:Liouville_I}右辺へ代入し，$t\to t_1$，$t_1\to t_2$と置き換えると
+\begin{equation}\label{Eq:Liouville_I2}
+    \frac{d\hrho^{\I}_{\tot}(t_1)}{dt_1}
+    =-\frac{i}{\hbar}\lambda[\hH^{\I}_{\rint}(t_1),\hrho^{\I}_{\tot}(\tau)]
+    +({i}/{\hbar})^2\lambda^2\int_{\tau}^{t}dt_2[\hH^{\I}_{\rint}(t_1),
+    [\hH^{\I}_{\rint}(t_2),\hrho^{\I}_{\tot}(t_2)]
+    ]
+\end{equation}
+再び，式\eqref{Eq:Liouville_I2}を$\tau$から$t$まで積分すると，
+\begin{align}
+    \hrho^{\I}_{\tot}(t)
+    &=\hrho^{\I}_{\tot}(\tau)-\frac{i}{\hbar}\lambda
+    \int_{\tau}^{t}dt_1[\hH^{\I}_{\rint}(t_1),\hrho^{\I}_{\tot}(\tau)]\nn[10pt]
+    &\hspace{20pt}+({i}/{\hbar})^2\lambda^2\int_{\tau}^{t}dt_1\int_{\tau}^{t_1}dt_2[\hH^{\I}_{\rint}(t_1),
+    [\hH^{\I}_{\rint}(t_2),\hrho^{\I}_{\tot}(t_2)]
+    ]
+\end{align}
+このようにして，逐次的に，相互作用パラメータ$\lambda$の二次まで求めた解が
+\begin{align}
+    \hrho^{\I}_{\tot}(t)
+    &=\hrho^{\I}_{\tot}(\tau)-\frac{i}{\hbar}\lambda
+    \int_{\tau}^{t}dt_1[\hH^{\I}_{\rint}(t_1),\hrho^{\I}_{\tot}(\tau)]\nn[10pt]
+    &\hspace{20pt}+({i}/{\hbar})^2\lambda^2\int_{\tau}^{t}dt_1\int_{\tau}^{t_1}dt_2[\hH^{\I}_{\rint}(t_1),
+    [\hH^{\I}_{\rint}(t_2),\hrho^{\I}_{\tot}(\tau)]
+    ]
+\end{align}
+である．このとき，初期状態について以下のような仮定をする．
+%仮定
+\begin{kotak}
+\begin{these}
+    初期時刻$\tau$において，システムと環境は相関をもたない：
+    \begin{equation}
+        \hrho_{\tot}(\tau)=\hrho_{\rS}(\tau)\otimes\hrho_{\E}(\tau)
+    \end{equation}
+    また，環境は定常である．
+\end{these}
+\end{kotak}
+そして，環境系でトレースアウトをとる（$\tr_{\E}\hrho^{\I}_{\tot}(t)$）と
+\begin{align}
+    \hrho^{\I}_{\rS}(t)
+    &=\hrho^{\I}_{\rS}(\tau)\nn[10pt]
+    &\hspace{20pt}+({i}/{\hbar})^2\lambda^2\tr_{\E}\int_{\tau}^{t}dt_1\int_{\tau}^{t_1}dt_2[\hH^{\I}_{\rint}(t_1),
+    [\hH^{\I}_{\rint}(t_2),\hrho^{\I}_{\tot}(\tau)]
+    ]
+\end{align}
+となる．ここで，
+\begin{equation}
+    \hrho^{\I}_{\rS}(t)\equiv\tr_{\E}\hrho^{\I}_{\tot}(t)
+\end{equation}
+という定義を用いた．また，一般性を失わずに，相互作用Hamiltonianに関する第1項を環境について部分トレースした項が落とせることを用いた．これについての確認は後で行う．\\
+　の両辺を$t$で微分して，再びを微分方程式の形に書き直す．
+\begin{equation}
+    
+\end{equation}
+
+
+
+
+
+\section{マルコフ近似と回転波近似}
+\paragraph{Born(or weak-coupling)approximation}
+環境系の状態がほとんど影響しない場合を考えるために，システムと環境系の相互作用は弱いとする．
+
+\paragraph{Markov approximation}環境の相関関数が素早く減衰するとする．環境関連は早い，システム関連は遅いとする．これは古典的なブラウン運動と似ている．これは古典的なブラウン運動に似ている。大きな花粉の粒が、急速に移動する非常にカオスな分子の束の中をゆっくりと移動するようなものだ（カオスは励起が早く消滅するのに役立つ）。 回転波（世俗）近似：CIAが自分たちの作った混乱を収めるためにジェイソン・ボーンを殺そうとするようなもの。
+
+\paragraph{Rotating-wave(secular)approximation}
+後述するように、式(4.129)がリンドブラッド形式でない場合があることがわかります。このような場合には、第3の近似を行う必要があります。それは、Rabiモデルの文脈で説明した回転波近似（RWA）です（項3.3）。つまり、時々、急激に振動する項を捨てなければならないのです。なぜこのようなことが必要なのかというと、時間スケールと粗視化に関する議論に関連しています。忘れてはならないのは、バス・スタッ フは速く、システム・スタッフィングは遅いということである.これも古典的なブラウン運動に似ています。お風呂がハチミツを取ろうとしているクマだとすると、お風呂は自分の家を守るために必死に戦っているミツバチの群れです。クマが数歩歩く時間スケールの間に、ミツバチはすでに人生の半分を生きているのです。このような理由から、マスター方程式はお風呂のスケールよりもはるかに大きな時間スケールでしか解けないのです。もし、急激な振動項に遭遇したら、それは解決していない時間スケールで何かをモデル化しようとしていることを意味します。だからこそ、それを捨て去ることが正当化されるのです。つまり、ここでのRWAは、ある意味では、自分たちが作った混乱を修復しようとしているのです。
+
+
+\section{GKSL方程式（Lidblad量子マスター方程式）}
+
+デコヒーレンスをモデル化するために量子開放系という考え方が使われる．
+これは全系を注目する系とそれ以外の環境系にわけてそれらの間の相互作用を考えることによって
+注目系のデコヒーレンスを記述する考え方である．
+
+注目系の密度行列の時間発展を考えるとLindblad方程式と呼ばれるマスター方程式を導くことができる．
+
+まず，全系のハミルトニアンを注目系と環境系とその間の相互作用にわけて
+\begin{align}
+  H= H_S + H_E + H_I
+\end{align}
+と表す．
+この全系の時間発展はシュレディンガー方程式から
+\begin{align}
+  i \partial_t \ket{\psi (t)} = H \ket{\psi (t)}
+\end{align}
+と表される．
+この系の密度行列の時間発展は
+\begin{align}
+  i \dot{\rho} (t) = [ H , \rho (t) ]
+\end{align}
+となるのでその解は
+\begin{align}
+  \rho (t) = e^{-i H t} \rho_0 e^{i H t}
+\end{align}
+と表せる．
+ここで環境との相互作用は小さくて摂動として扱えると考えて
+\begin{align}
+  H &= H_0 + H_I \\
+  H_0 &= H_S + H_E
+\end{align}
+として相互作用描像
+\begin{align}
+  \ket{\psi}_I &= e^{i H_0 t} \ket{\psi}_S \\
+  \hat{O}(t) &= e^{i H_0 t} \hat{O}_S e^{-i H_0 t}
+\end{align}
+を導入すると密度行列とその時間発展は
+\begin{align}
+  i \dot{\rho}_I (t) &= [ H^{\prime}_I(t) , \rho (t) ]　\\
+  & H^{\prime}_I(t) = e^{i H_0 t} H_I e^{-i H_0 t} \\
+  \rho_I(t) &= \rho_I(0) - i \int^t_0 dt_1 [ H^{\prime}_I(t_1) , \rho (t_1) ]
+\end{align}
+と表せる．
+この$\rho_I(t)$を再び$\dot{\rho}_I(t)$の右辺に代入すると
+\begin{align}
+  \dot{\rho}_I (t) = -i [ H^{\prime}_I(t) , \rho (0) ]
+  - \int^t_0 dt_1 [ H^{\prime}_I(t_) , [ H^{\prime}_I(t_1) , \rho (t_1) ] ]
+\end{align}
+となる．
+reduced density matrixとして
+\begin{align}
+  \rho_S(t) = Tr_B ( \rho_I(t) )
+\end{align}
+を考える．これの時間微分は
+\begin{align}
+  \dot{\rho}_I (t) = -i Tr_B [ H^{\prime}_I(t) , \rho (0) ]
+  - Tr_B \int^t_0 dt_1 [ H^{\prime}_I(t) , [ H^{\prime}_I(t_1) , \rho (t_1) ] ]
+\end{align}
+となる.ここで第一項は計算するとゼロになることがわかる.
+また環境は常に熱平衡で,
+\begin{align}
+  \rho_I(t) = \rho_{SI} (t) \otimes \rho_B(0)
+\end{align}
+とする.
+よって
+\begin{align}
+  \dot{\rho}_I (t) 
+  =- Tr_B \int^t_0 dt_1 [ H^{\prime}_I(t) , [ H^{\prime}_I(t_1) , \rho_{SI} (t_1) \otimes \rho_B(0) ] ]
+\end{align}
+となる.
+さらにマルコフ近似$\rho_{SI}(t_1) \rightarrow \rho_{SI}(t) $を使って
+\begin{align}
+  \dot{\rho}_I (t) 
+  =- Tr_B \int^t_0 dt_1 [ H^{\prime}_I(t) , [ H^{\prime}_I(t_1) , \rho_{SI} (t_1) \otimes \rho_B(0) ] ]
+\end{align}
+とする.
+ここで
+\begin{align}
+  S_j(t) &= e^{iH_S t} S_j e^{-iH_S t} \\
+  B_j(t) &= e^{iH_B t} B_j e^{-iH_B t}
+\end{align}
+を導入すると相互作用ハミルトニアンは
+\begin{align}
+  H_I(t) = \sum_j S_j(t) \otimes B_j(t)
+\end{align}
+とかける.
+右辺の交換子を計算してこれを代入すると
+\begin{align}
+  \dot{\rho}_{SI} (t) 
+  &= - Tr_B \int^t_0 dt_1 
+  [ H_I(t) , [ H_I(t_1) , \rho_{SI} (t_1) \otimes \rho_B(0) ] ] \\
+  &= - Tr_B \int^t_0 dt_1
+  [ H_I(t) [ H_I(t_1) , \rho_{SI} (t_1) \otimes \rho_B(0) ]  - [ H_I(t_1) , \rho_{SI} (t_1) \otimes \rho_B(0) ] H_I(t) ] \\
+  &= - Tr_B \int^t_0 dt_1
+  \left[
+    H_I(t) [ H_I(t_1) \rho_{SI} (t_1) \otimes \rho_B(0) - \rho_{SI} (t_1) \otimes \rho_B(0) H_I(t_1) ] \right. \\
+  &\quad \left.
+    - [ H_I(t_1) \rho_{SI} (t_1) \otimes \rho_B(0) - \rho_{SI} (t_1) \otimes \rho_B(0) H_I(t_1) ] H_I(t)
+  \right] \\
+  &= - Tr_B \int^t_0 dt_1
+  \left[
+    H_I(t) H_I(t_1) \rho_{SI} (t_1) \otimes \rho_B(0) 
+    - H_I(t) \rho_{SI} (t_1) \otimes \rho_B(0) H_I(t_1) \right. \\
+  &\quad \left.
+    - H_I(t_1) \rho_{SI} (t_1) \otimes \rho_B(0) H_I(t) 
+    + \rho_{SI} (t_1) \otimes \rho_B(0) H_I(t_1) H_I(t)
+  \right] \\
+  &= - Tr_B \int^t_0 dt_1 \sum_j \sum_k
+  \left[
+    (S_j(t) \otimes B_j(t) ) ( S_k(t_1) \otimes B_k(t_1) )( \rho_{SI} (t_1) \otimes \rho_B(0) )
+    - ( S_j(t) \otimes B_j(t) ) ( \rho_{SI} (t_1) \otimes \rho_B(0) ) ( S_k(t_1) \otimes B_k(t_1) ) \right. \\
+  &\quad \left.
+    - (S_k(t_1) \otimes B_k(t_1)) (\rho_{SI} (t_1) \otimes \rho_B(0)) (S_j(t) \otimes B_j(t)) 
+    + (\rho_{SI} (t_1) \otimes \rho_B(0)) (S_k(t_1) \otimes B_k(t_1)) (S_j(t) \otimes B_j(t))
+  \right] \\
+  &=- Tr_B \int^t_0 dt_1 \sum_j \sum_k
+  \left[
+    S_j(t) S_k(t_1) \rho_{SI} (t_1) \otimes B_j(t) B_k(t_1) \rho_B(0) 
+    - S_j(t) \rho_{SI}(t_1) S_k(t_1) \otimes B_j(t) \rho_B(0) B_k(t_1) \right. \\
+  &\quad \left.
+    - S_k(t_1) \rho_{SI}(t_1) S_j(t) \otimes B_k(t_1) \rho_B(0) B_j(t) 
+    + \rho_{SI} (t_1) S_k(t_1) S_j(t) \otimes \rho_B(0) B_k(t_1) B_j(t)
+  \right] \\
+\end{align}
+となる.
+ここで
+\begin{align}
+  G_{jk}(t,t_1) = Tr_B (B_j(t) B_k(t_1) \rho_B(0))
+\end{align}
+とすると上の式は
+\begin{align}
+  \dot{\rho}_{SI} (t)
+  &=- \int^t_0 dt_1 \sum_j \sum_k
+  \left[
+    S_j(t) S_k(t_1) \rho_{SI} (t_1) G_{jk}(t,t_1) 
+    - S_j(t) \rho_{SI}(t_1) S_k(t_1) G_{jk}^{\dagger}(t,t_1) \right. \\
+  &\quad \left.
+    - S_k(t_1) \rho_{SI}(t_1) S_j(t) G_{jk}(t,t_1) 
+    + \rho_{SI} (t_1) S_k(t_1) S_j(t) G_{jk}^{\dagger}(t,t_1)
+  \right] \\
+  &=- \int^t_0 dt_1 \sum_j \sum_k
+  \left[
+    \left[ 
+      S_j(t) S_k(t_1) \rho_{SI}(t) - S_k(t_1) \rho_{SI}(t) S_j(t) 
+      \right]G_{jk}(t,t_1) -H.C.
+  \right]
+\end{align}
+と表せる.
+さらに$t_1=t-s$と変数変換して$t$と$t_1$を新しいパラメータ$s$によって関連付ける.
+また$G_{jk}(s)=G_{jk}(s,0)$とすると
+\begin{align}
+  \dot{\rho}_{SI} (t)
+  &= - \sum_j \sum_k \int^t_0 d(t-s) 
+  \left[
+    \left[ 
+      S_j(t) S_k(t-s) \rho_{SI}(t) - S_k(t-s) \rho_{SI}(t) S_j(t) 
+      \right]G_{jk}(t,t-s) -H.C.
+  \right] \\
+  &= - \sum_j \sum_k \int^t_0 ds 
+  \left[
+    \left[ 
+      S_j(t) S_k(t-s) \rho_{SI}(t) - S_k(t-s) \rho_{SI}(t) S_j(t) 
+      \right]G_{jk}(s) -H.C.
+  \right] \\
+  &= - \sum_j \sum_k \int^{\infty}_0 ds 
+  \left[
+    \left[ 
+      S_j(t) S_k(t-s) \rho_{SI}(t) - S_k(t-s) \rho_{SI}(t) S_j(t) 
+      \right]G_{jk}(s) -H.C.
+  \right]
+\end{align}
+となる.
+ここで相関関数$G_{jk}(s)$が減衰する時間よりも
+$t$が十分大きいとし,積分範囲を$0$から$t \rightarrow \infty$としても
+結果が変わらないとしている.
+
+また$H_S$の固有状態$\ket{\omega}$を使って
+\begin{align}
+  S_j(t) &= \sum_{\omega,\omega^{\prime}} 
+  e^{iH_S t} \ket{\omega} \bra{\omega} S_j \ket{\omega^{\prime}} \bra{\omega^{\prime}} e^{-iH_S t} \\
+  &= \sum_{\omega,\omega^{\prime}} 
+  e^{-i(\omega^{\prime}-\omega) t} 
+  \ket{\omega} \bra{\omega} S_j \ket{\omega^{\prime}} \bra{\omega^{\prime}} \\
+  &= \sum_{\Omega} \sum_{\omega-\omega^{\prime}=\Omega} 
+  e^{-i\Omega t} 
+  \ket{\omega} \bra{\omega} S_j \ket{\omega^{\prime}} \bra{\omega^{\prime}} \\
+  &= \sum_{\Omega}
+  e^{-i\Omega t} S_j(\Omega)
+\end{align}
+とする.
+これを使って
+\begin{align}
+  \dot{\rho}_{SI} (t)
+  &= - \sum_{j,k} \sum_{\Omega,\Omega^{\prime}} \int^{\infty}_0 ds
+  \left[
+    e^{-i(\Omega - \Omega^{\prime}) t} e^{i\Omega^{\prime} s}
+    \left[ 
+      S_j(\Omega) S_k(\Omega^{\prime}) \rho_{SI}(t) - S_k(\Omega^{\prime}) \rho_{SI}(t) S_j(\Omega) 
+    \right]G_{jk}(s) + H.C.
+  \right]
+\end{align}
+となる.
+ここで
+\begin{align}
+  \Gamma_{j,k}(\Omega) = \int^{\infty}_0 ds e^{i\Omega s} G_{j,k}(s)
+\end{align}
+とおくと
+\begin{align}
+  \dot{\rho}_{SI} (t)
+  &= - \sum_{j,k} \sum_{\Omega,\Omega^{\prime}} 
+  \left[
+    e^{-i(\Omega - \Omega^{\prime}) t} \Gamma_{j,k}(\Omega)
+    \left[ 
+      S_j(\Omega) S_k(\Omega^{\prime}) \rho_{SI}(t) - S_k(\Omega^{\prime}) \rho_{SI}(t) S_j(\Omega) 
+    \right] + H.C.
+  \right]
+\end{align}
+となる.
+また,$\Omega + \Omega^{\prime}$が大きいところは打ち消し合って消えるので
+$\Omega + \Omega^{\prime}=0$のところだけが効いてくるとする.
+よって
+\begin{align}
+  \dot{\rho}_{SI} (t)
+  &= - \sum_{j,k} \sum_{\Omega} 
+  \left[
+    \Gamma_{j,k}(\Omega)
+    \left[ 
+      S_j(\Omega) S_k(-\Omega) \rho_{SI}(t) - S_k(-\Omega) \rho_{SI}(t) S_j(\Omega) 
+    \right] + H.C.
+  \right] \\
+  &= - \sum_{j,k} \sum_{\Omega} 
+  \left[
+    \Gamma_{j,k}(\Omega)
+    \left[ 
+      S_j(\Omega) S^{\dagger}_k(\Omega) \rho_{SI}(t) - S^{\dagger}_k(\Omega) \rho_{SI}(t) S_j(\Omega) 
+    \right] + H.C.
+  \right]
+\end{align}
+となる.
+さらに$\Gamma_{j,k}$を実部と虚部に分解して
+\begin{align}
+  \Gamma_{j,k} (\Omega) = \frac{1}{2} ( J_{j,k}(\Omega) + i I_{j,k}(\Omega) )
+\end{align}
+とすると,
+\begin{align}
+  \dot{\rho}_{SI} (t)
+  &= - \sum_{j,k} \sum_{\Omega} 
+  \left[
+    \Gamma_{j,k}(\Omega)
+    \left[ 
+      S_j(\Omega) S^{\dagger}_k(\Omega) \rho_{SI}(t) - S^{\dagger}_k(\Omega) \rho_{SI}(t) S_j(\Omega) 
+    \right] + H.C.
+  \right] \\ 
+  &= - \sum_{j,k} \sum_{\Omega} 
+    \Gamma_{j,k}(\Omega)
+    \left[ 
+      S_j(\Omega) S^{\dagger}_k(\Omega) \rho_{SI}(t) - S^{\dagger}_k(\Omega) \rho_{SI}(t) S_j(\Omega)
+      + \rho_{SI}(t) S_j(\Omega) S^{\dagger}_k(\Omega) - S^{\dagger}_j(\Omega) \rho_{SI}(t) S_k(\Omega) 
+    \right] \\
+    &= - \sum_{j,k} \sum_{\Omega} 
+    \Gamma_{j,k}(\Omega)
+    \left[ 
+      [S^{\dagger}_j(\Omega) , S_k(\Omega) \rho_{SI}(t) ]
+      +[ \rho_{SI}(t) S_{k}^{\dagger}(\Omega), S_j(\Omega) ] 
+    \right] \\ 
+    &= \frac{1}{2} \sum_{j,k} \sum_{\Omega} 
+    ( J_{j,k}(\Omega) + i I_{j,k}(\Omega) )
+    \left[ 
+      [ S_k(\Omega) \rho_{SI}(t) , S^{\dagger}_j(\Omega) ]
+      +[ S_j(\Omega) , \rho_{SI}(t) S_{k}^{\dagger}(\Omega) ] 
+    \right] \\ 
+    &= \frac{1}{2} \sum_{j,k} \sum_{\Omega} 
+    J_{j,k}(\Omega)
+    \left[ 
+      [ S_k(\Omega) \rho_{SI}(t) , S^{\dagger}_j(\Omega) ]
+      +[ S_j(\Omega) , \rho_{SI}(t) S_{k}^{\dagger}(\Omega) ] 
+    \right] \\ 
+    &\quad + \frac{i}{2} \sum_{j,k} \sum_{\Omega} 
+    I_{j,k}(\Omega)
+    \left[ 
+      [ S_k(\Omega) \rho_{SI}(t) , S^{\dagger}_j(\Omega) ]
+      +[ S_j(\Omega) , \rho_{SI}(t) S_{k}^{\dagger}(\Omega) ] 
+    \right] \\
+    &= \sum_{j,k} \sum_{\Omega} 
+    \left[ J_{j,k} S_j \rho_{SI} S_k^{\dagger}
+    -\frac{1}{2} J_{j,k} \{ S_j^{\dagger} S_k , \rho_{SI} \}  
+    \right] \\ 
+    &\quad - \frac{i}{2} \sum_{j,k} \sum_{\Omega} 
+    [I_{j,k} S_j^{\dagger} S_k , \rho_{SI}] \\
+    &= -i [H_{LS} , \rho_{SI}(t)] 
+    + \sum_{j,k} \sum_{\Omega} 
+    \left[ J_{j,k} S_j \rho_{SI} S_k^{\dagger}
+    -\frac{1}{2} J_{j,k} \{ S_j^{\dagger} S_k , \rho_{SI} \}  
+    \right]
+\end{align}
+となってLindblad方程式が導かれる.
+ただし
+\begin{align}
+  H_{LS} = \frac{1}{2} \sum_{j,k} \sum_{\Omega}
+  I_{j,k} S_j^{\dagger} S_k
+\end{align}
+とした.
+
+
+
+Lindblad 方程式は、量子系の<h3>デコヒーレンス</h3>を考えるのに使われる1番簡単な方程式だ。その最も一般的な形は、系の密度演算子を\(\rho(t)\)、系の演算子の基底となる演算子を\(\{F_\alpha\}\)として
+\[\frac{d\rho}{dt} = -i[H,\rho(t)] + \sum_\mu \sum_\nu c_{\mu\nu}\left(F_\mu\rho F_\nu^\dagger - \frac{1}{2}\left\{F_\mu^\dagger F_\nu , \rho\right\}\right) \]
+である。<br><br>
+今回は、2準位系で Lindblad 方程式を考えるときによく現れる形である、
+\begin{align}
+\frac{d\rho}{dt} = -i\left[\frac{1}{2}\omega \sigma_z,\rho(t)\right] +  c_- \left(\sigma_-\rho \sigma_+ - \frac{1}{2}\left\{\sigma_+ \sigma_- , \rho\right\}\right)+  c_+ \left(\sigma_+\rho \sigma_- - \frac{1}{2}\left\{\sigma_- \sigma_+ , \rho\right\}\right)\tag{1}
+\end{align}
+を解いてみる。\(\sigma_z\)はパウリ演算子のZ成分で、\(\sigma_\pm\)は昇降演算子である。誤解のないように行列表現も書いておこう。\(\sigma_z\)の固有状態\(\ket{0},\ket{1}\)をこの系の基底として、\(\ket{0} = (1,0)^T,~\ket{0} = (0,1)^T\)とする時、\(\sigma_z,\sigma_\pm\)は
+\[\sigma_z = \left(\begin{array}{cc}1&0\\0&-1\end{array}\right),\quad\sigma_+ = \left(\begin{array}{cc}0&1\\0&0\end{array}\right),\quad\sigma_- = \left(\begin{array}{cc}0&0\\1&0\end{array}\right)\]
+<p class="smalltext">この式は例えば、原子が光子を自然放出することによるデコヒーレンスを扱える。微視的なハミルトニアンからLindblad方程式を導出するのはまた違う記事でやろうと思う。やる気が出れば
+<h2>2. 密度演算子の Bloch ベクトルによる表現</h2>
+愚直に(1)を解こうとするなら、
+\[\rho(t) = \left(\begin{array}{cc}\rho_{11}(t)&\rho_{21}(t)\\\rho_{12}(t)&\rho_{22}(t)\end{array}\right)\]
+と密度演算子を行列表示して、(ちなみに密度演算子はエルミートなので\(\rho_{21}(t) = \rho_{12}^*(t)\)) それぞれの成分ごとに、
+\[\frac{d}{dt}\rho_{ij}(t) = \cdots\]
+のように微分方程式を立て、これらを連立微分方程式として解く方法になるだろう。<br><br>
+実はもっと簡単で、物理的理解も得られやすい方法がある。それは<strong>密度演算子を、パウリ行列\(\sigma_x,\sigma_y,\sigma_z\)と単位行列\(I\)の基底で展開する方法</strong>である。パウリ行列+単位行列という行列\(\sigma_x,\sigma_y,\sigma_z,I\)は、パウリ演算子の性質</a>の記事でも紹介したように、2x2の行列の基底としての性質を持つのだった。密度演算子\(\rho(t)\)をこれらの行列で展開したものを一般に、
+\[\rho(t) = a(t)I + x(t)\sigma_x + y(t)\sigma_y + z(t)\sigma_z\]
+とおく。\(a,x,y,z\)は全て適当な実数である。係数が実数になるのは密度演算子がエルミートだからだ。\(\Tr(\rho(t)\sigma_\alpha)\)が\(\sigma_\alpha\)という演算子の期待値を表すことから、\(x(t),y(t),z(t)\)はそれぞれ時刻\(t\)での\(x,y,z\)方向の期待値という物理的意味を持つことがわかる。密度演算子を直接行列表示するよりかなりわかりやすい。
+<p class="smalltext">原子で考えるとx方向の期待値って何？て感じが拭えないかもしれないが、スピンを例として考えるとわかりやすいと思う。スピン角運動量のx方向期待値なら想像しやすいだろう。</p>
+この方法で(1)を解く前に、もう一つだけ下準備しておこう。密度演算子は、\(\Tr(\rho)=1\)をいつでも満たしていなければいけない。パウリ行列のトレースは全て0なので、これは\(a(t) = \frac{1}{2}\)が常に成り立つことを意味している。だから、
+\[\rho(t) = \frac{1}{2}I + x(t)\sigma_x + y(t)\sigma_y + z(t)\sigma_z\tag{2}\]
+と書けることになる。\(x(t),y(t),z(t)\)は<h3>Bloch ベクトル</h3>と呼ばれている。これを使って(1)のLindblad方程式を解くことにしよう。
+<p class="smalltext">ちなみにLindblad 方程式は上手くできていて、実はこのように密度演算子を展開したとき\(\frac{d}{dt}a(t) = 0\)が必ず成り立つようになっている。</p>
+<hr class="paragraph">
+<h2>3. 解く。</h2>
+まずは\(x(t),y(t),z(t)\)に関する微分方程式を立ててしまおう。(1)に(2)を代入してやるのだが、一気に全部代入すると式が長くなりすぎるので1項ずつやることにする。<br><br>
+まずは\(\sigma_x\)に関して代入したときに現れるそれぞれの項を計算してやると、
+\begin{align}
+\left[\sigma_z,\sigma_x\right] &= i2\sigma_y \\
+\sigma_-\sigma_x\sigma_+ &= 0 \\
+\sigma_+\sigma_x\sigma_- &= 0 \\
+\left\{\sigma_+ \sigma_- , \sigma_x\right\} &= \sigma_x \\
+\left\{\sigma_- \sigma_+ , \sigma_x\right\} &= \sigma_x \\
+\end{align}
+を得る。さすがに書くのが面倒だったので計算の詳細は飛ばしてしまった。\(\sigma_y\)に関しても同じようにやってやると、
+\begin{align}
+\left[\sigma_z,\sigma_y\right] &= -i2\sigma_x \\
+\sigma_-\sigma_y\sigma_+ &= 0 \\
+\sigma_+\sigma_y\sigma_- &= 0 \\
+\left\{\sigma_+ \sigma_- , \sigma_y\right\} &= \sigma_y \\
+\left\{\sigma_- \sigma_+ , \sigma_y\right\} &= \sigma_y \\
+\end{align}
+\(\sigma_z\)については
+\begin{align}
+\left[\sigma_z,\sigma_z\right] &= 0 \\
+\sigma_-\sigma_z\sigma_+ &= \frac{1}{2}(I-\sigma_z) \\
+\sigma_+\sigma_z\sigma_- &= -\frac{1}{2}(I+\sigma_z) \\
+\left\{\sigma_+ \sigma_- , \sigma_z\right\} &= I+\sigma_z \\
+\left\{\sigma_- \sigma_+ , \sigma_z\right\} &= -I+\sigma_z \\
+\end{align}
+最後に\(I\)については
+\begin{align}
+\left[\sigma_z,I\right] &= 0 \\
+\sigma_-I\sigma_+ &= \frac{1}{2}(I-\sigma_z) \\
+\sigma_+I\sigma_- &= \frac{1}{2}(I+\sigma_z) \\
+\left\{\sigma_+ \sigma_- , I\right\} &= I+\sigma_z \\
+\left\{\sigma_- \sigma_+ , I\right\} &= I-\sigma_z \\
+\end{align}
+である。これらを使って、(1)式に(2)を代入した結果は
+\begin{align}
+\frac{d\rho}{dt} = \omega(x(t)\sigma_y - y(t)\sigma_x) - \frac{c_- + c_+}{2}(x(t)\sigma_x+y(t)\sigma_y) - (c_-+c_+)z(t)\sigma_z + (c_+ - c_-)\sigma_z
+\end{align}
+となる。
+<hr class="paragraph">
+\(\sigma_x,\sigma_y,\sigma_z\)は全て直交しているので、上の式は3つの微分方程式に分離できる。左辺と右辺で、それぞれのパウリ行列の係数になっている部分同士を等号で結んでやるのだ。やってやると、
+\begin{align}
+\frac{d}{dt}x(t) &= -\omega y(t) - \frac{c_- + c_+}{2}x(t)  \\
+\frac{d}{dt}y(t) &= \omega x(t) - \frac{c_- + c_+}{2}y(t)  \\
+\frac{d}{dt}z(t) &= -(c_-+c_+)z(t) + (c_+ - c_-)
+\end{align}
+となる。あとは簡単な微分方程式の問題だ。これを解くと、\(\gamma=c_++c_-\), \(z_\infty = \frac{c_+ - c_-}{c_+ +c_-}\)として、
+\begin{align}
+x(t) &= e^{-\gamma t/2}(x(0)\cos\omega t - y(0)\sin\omega t) \\
+y(t) &= e^{-\gamma t/2}(x(0)\sin\omega t + y(0)\cos\omega t) \\
+z(t) &= \left(z(0)-z_\infty \right)e^{-\gamma t} + z_\infty
+\end{align}
+が得られる。\(x,y\)平面を回転しながら減衰していくことがわかる。一応しっかり解いておこうか。\(z\)は簡単に解けるので\(x,y\)を解こう。方程式を行列表示すると
+\begin{align}
+\frac{d}{dt}\left(\begin{array}{c} x(t)\\y(t)\end{array}\right) &= 
+\left(\begin{array}{cc} -\frac{\gamma}{2}& -\omega \\ \omega & -\frac{\gamma}{2}\end{array}\right)\left(\begin{array}{c} x(t)\\y(t)\end{array}\right)
+\end{align}
+行列の固有値\(\lambda\)を求めてやると
+\begin{align}
+\left(\lambda + \frac{\gamma}{2}\right)^2+\omega^2=0 \\
+\lambda = -\frac{\gamma}{2} \pm i\omega
+\end{align}
+となる。これの固有ベクトルから、
+\[
+\left(\begin{array}{c} p(t)\\q(t)\end{array}\right) = \frac{1}{\sqrt{2}}\left(\begin{array}{cc} 1& i \\ 1 & -i\end{array}\right)\left(\begin{array}{c} x(t)\\y(t)\end{array}\right)
+\]
+と定義すると、微分方程式が解けて
+\begin{align}
+p(t) &= p(0)e^{i\omega t}e^{-\gamma t/2}\\ &= \frac{1}{\sqrt{2}}(x(0)+iy(0))e^{i\omega t}e^{-\gamma t/2}\\
+q(t) &= q(0)e^{-i\omega t}e^{-\gamma t/2}\\ &= \frac{1}{\sqrt{2}}(x(0)-iy(0))e^{-i\omega t}e^{-\gamma t/2}
+\end{align}
+を得るので、元に戻せば
+\begin{align}
+x(t) &= \frac{1}{\sqrt{2}}(p(t)+q(t)) \\&= e^{-\gamma t/2}(x(0)\cos\omega t - y(0)\sin\omega t) \\
+y(t) &= \frac{1}{i\sqrt{2}}(p(t)-q(t)) \\&= e^{-\gamma t/2}(x(0)\sin\omega t + y(0)\cos\omega t)
+\end{align}
+となって解けた。
+<hr class="paragraph">
+<h2>4. 超演算子</h2>
+良い機会だと思うので、<h3>超演算子 (superoperator)</h3>というものについて紹介しておこう。<br><Br>
+今回、密度演算子を
+\[\rho(t) = \frac{1}{2}I + x(t)\sigma_x + y(t)\sigma_y + z(t)\sigma_z\tag{2}\]
+と展開して解く手法を展開した。\(\{I,\sigma_x,\sigma_y,\sigma_z\}\)という演算子たちを、基底ベクトルとみなしたわけだ。そこで、演算子をベクトルとみなすことをあらわにするために、以下のように4次元のベクトルと対応付けてみよう。
+\[I \to \left(\begin{array}{c} 1\\0\\0\\0\end{array}\right),~\sigma_x \to \left(\begin{array}{c} 0\\1\\0\\0\end{array}\right),~\sigma_y \to \left(\begin{array}{c} 0\\0\\1\\0\end{array}\right),~\sigma_z \to \left(\begin{array}{c} 0\\0\\0\\1\end{array}\right) \tag{*}\]
+このようにベクトル表記すると、例えばさっき考えた\(\left\{\sigma_+ \sigma_- , \cdot\right\}\)という「演算子に作用する演算子」は
+\begin{align}
+\left\{\sigma_+ \sigma_- , I\right\} &= I+\sigma_z \\
+\left\{\sigma_+ \sigma_- , \sigma_x\right\} &= \sigma_x \\
+\left\{\sigma_+ \sigma_- , \sigma_y\right\} &= \sigma_y \\
+\left\{\sigma_+ \sigma_- , \sigma_z\right\} &= I+\sigma_z				
+\end{align}
+という働きをしていたので、この「演算子に作用する演算子」を(*)式の基底の下で行列表現すると
+\[\left\{\sigma_+ \sigma_- , \cdot\right\} \to  \left(\begin{array}{cccc} 1&0&0&1\\0&1&0&0\\0&0&1&0\\1&0&0&1\end{array}\right)\]
+と書ける。エルミートであることが一目瞭然だし、\(\sigma_x,\sigma_y\)がこの行列の固有ベクトルとなっていることもわかる。\(\left\{\sigma_+ \sigma_- , \cdot\right\}\)のように、演算子に対しての線形演算子を<strong>超演算子</strong>とよぶ。<br><Br>
+「密度演算子に対する微分方程式」という難しそうなものにみえる Lindblad 方程式 (1), (2) も、右辺の「超演算子」の行列表現を求めてしまえば、普通の連立微分方程式と全く同じように計算できる。今回 x,y,z の3つの微分方程式に分けたところでは、実はそういう計算をしていたわけだ。
+<p class="smalltext">デコヒーレンスは密度演算子で扱うのが1番便利なんだから、量子力学全体を、密度演算子と、それに作用する超演算子で定式化してほしいなあという気持ち。
+
+
+
+\section{}
+射影演算子法：形式的な方法\\
+今見ているミクロな記述をするすべての情報が必要ではなく、ある射影成分のみ必要．射影成分のみに注目する．\\
+Nakajima-Zwanzig
+\begin{align}
+    \hP\hrho_{\tot}&=(\tr_{\E}\hrho_{\tot})\otimes\hrho_{\E}^{\rm{eq}}
+    =\rho_{\rS}\otimes\hrho_{\E}^{\rm{eq}}\\[10pt]
+    \hQ&=\hat{1}-\hP
+\end{align}
+\begin{equation}
+    \frac{d\hrho_{\tot}(t)}{dt}
+    =-\frac{i}{\hbar}[\hH_{\tot},\hrho_{\tot}(t)]\equiv\hL_{\tot}\hrho_{\tot}(t)
+\end{equation}
+これらの演算子$\hP$，$\hQ$を用いて，上式を対象系に対する部分とそれ以外の部分に分離する：
+\begin{align}
+   \frac{d}{dt}\hP\hrho_{\tot}(t)
+    &=\hP\hL_{\tot}\hat{1}\hrho_{\tot}(t)=\hP\hL_{\tot}(\hP+\hQ)\hrho_{\tot}(t)
+    =\hP\hL_{\tot}\hP\hrho_{\tot}(t)+\hP\hL_{\tot}\hQ\hrho_{\tot}(t)\\[10pt]
+    \frac{d}{dt}\hQ\hrho_{\tot}(t)
+    &=\hQ\hL_{\tot}\hP\hrho_{\tot}(t)+\hQ\hL_{\tot}\hQ\hrho_{\tot}(t)\\[10pt]
+\end{align}
+簡単のために
+\begin{equation}
+    \hP\hrho_{\tot}=p(t),\ \ \hP\hrho_{\tot}=q(t) 
+\end{equation}
+とおくと，
+\begin{align}
+   \frac{d}{dt}p(t)
+    &=\hP\hL_{\tot}p(t)+\hP\hL_{\tot}q(t)\\[10pt]
+    \frac{d}{dt}q(t)
+    &=\hQ\hL_{\tot}p(t)+\hQ\hL_{\tot}q(t)\\[10pt]
+\end{align}
+とまとめることができる．\eqref{}を形式的に解くと，
+\begin{equation}
+    %
+\end{equation}
+仮定：\\
+初期相関を無視
+\begin{equation}
+    \hrho_{\tot}(0)=\hrho_{\rS}(0)\otimes\hrho_{\E}^{\rm{eq}},\ \ (\hQ\hrho_{\tot}(0)=0)
+\end{equation}
+熱浴が散逸の時間スケールに対して速い．
+
+
+
+\section{Solution of the Lindblad Equation in the Kraus Representation}
+\cite{nakazato2006solution}
+ここで強調したいのは、マスター方程式は演算子形式で解かれており、その解は当然クラウス表現に入るということである。予想通り, この節で示した手順は, 行列要素間の方程式を全く考慮に入れていない. この場合, $9\times9$の行列を含む(少なくとも, 対角要素に2つの方程式, 非対角要素に3つの方程式). 必要なのは2つの連立方程式(2.10)だけである。したがって、本アプローチにより、大幅な簡素化が達成された。重要なのは、変換(2.5)を導入し、マスター方程式を(2.6)の形に書き換えることである。必要な方程式の数(この場合2つ)は、(2.6)の右辺の構造に依存しており、いわゆる「量子ジャンプ」に関連している [23, 24]。今回のケースでは、熱溜まりがゼロ温度であるため、(2.10)の第2方程式の微分が消失している。この特徴により、3 (2.10)の方程式を解くことが容易になる。実際、2番目の方程式を先に解き、2番目の方程式の解を1番目の方程式に差し込んだ後に、1番目の方程式を解くというように、1つずつ進めていけば良い。この特徴は、ゼロ温度の場合に特殊であり、ゼロ温度では低エネルギー準位から高エネルギー準位への遷移が起こらないという事実を反映していることを強調したい。同様の構造は Refs. [22, 24].

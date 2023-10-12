@@ -1,0 +1,155 @@
+\documentclass[dvipdfmx,autodetect-engine,10.5pt]{jsarticle}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}%these two come together
+\usepackage[dvipdfmx]{color}
+\usepackage{braket}%dirac notation
+\usepackage{wrapfig}
+\usepackage{here}
+\usepackage{tabularx, dcolumn}
+\usepackage{subfigure}
+\usepackage{cases}
+\usepackage{bigints}%インテグラルで大きくする
+\usepackage{mathtools} 
+\hypersetup{hidelinks}
+\interfootnotelinepenalty=10000 % this is to keep a footnote in a single page
+\usepackage{bm}%ベクトル記号
+\usepackage{ascmac} %囲い
+%%%%%%
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{cases}%連立方程式
+
+
+%%%%%%newcomand
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\nn}{\notag \\}
+
+\usepackage{mdframed}%ページをまたぐ    
+\newmdenv[skipabove=6mm, skipbelow=4mm]{kotak}
+
+
+\newtheorem{definition}{定義}[section]
+\newtheorem{theorem}[definition]{定理}
+\newtheorem{proof}{証明}
+\newtheorem{request}[definition]{要請}
+\newtheorem{prop}[definition]{命題}
+\newtheorem{these}[definition]{仮定}
+\newtheorem{lemma}[definition]{補題}
+\newtheorem{postlate}[definition]{公理}
+
+%sectionの大きさを変更する
+%\usepackage[explicit]{titlesec}
+
+%operator
+\newcommand{\hH}{{\hat{H}}}%ハミルトニアン
+\newcommand{\hHt}{{\hat{\mathcal{H}}}}%ハミルトニアン
+\newcommand{\hU}{{\hat{U}}}
+\newcommand{\hM}{{\hat{M}}}
+\newcommand{\hN}{{\hat{N}}}
+\newcommand{\hA}{{\hat{A}}}
+\newcommand{\hB}{{\hat{B}}}
+\newcommand{\hO}{{\hat{O}}}
+\newcommand{\hAd}{{\hat{A}^\dag}}
+\newcommand{\ha}{{\hat{a}}}
+\newcommand{\hb}{{\hat{b}}}
+\newcommand{\had}{{\hat{a}^\dag}}
+\newcommand{\hpsi}{{\hat{\psi}}}
+\newcommand{\hpsid}{{\hat{\psi}^\dag}}
+\newcommand{\hrho}{{\hat{\rho}}}
+\newcommand{\hsig}{{\hat{\sigma}}}
+\newcommand{\hx}{{\hat{x}}}
+\newcommand{\hy}{{\hat{y}}}
+\newcommand{\hz}{{\hat{z}}}
+\newcommand{\hX}{{\hat{X}}}
+\newcommand{\hY}{{\hat{Y}}}
+\newcommand{\hZ}{{\hat{Z}}}
+\newcommand{\hp}{{\hat{p}}}
+\newcommand{\hvp}{{\hat{\bm p}}}
+\newcommand{\dv}{{\nabla\cdot}} 
+\newcommand{\rot}{{\nabla\times}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% USER SPECIFIED COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ie}{i.e.}
+\newcommand{\eg}{e.g.}
+\newcommand{\etal}{\textit{et al.}}
+\newcommand{\e}{\textrm{e}} % Exponential
+\newcommand{\hc}{\text{h.c.}} % Hermitian conjugate
+
+\newcommand{\nbar}{\bar{n}}
+\newcommand{\adag}{\hat{a}^\dagger}
+\newcommand{\adagsq}{\hat{a}^{\dagger 2}}
+\newcommand{\hata}{\hat{a}}
+
+\newcommand{\jg}[1]{{\color{orange}#1}}
+\newcommand{\dr}[1]{{\color{red}#1}}
+\newcommand{\rg}[1]{{\color{MidnightBlue}#1}}
+\newcommand{\filler}[1][1]{{\color{gray}\lipsum[1-#1]}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\vector
+\newcommand{\vr}{{\bm{r}}} %vector r
+\newcommand{\vP}{{\bm{P}}} %vector r
+\newcommand{\vphi}{{\varphi(t,\bm{r})}}
+
+%
+
+\newcommand{\tr}{\mathrm{Tr}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\rint}{\mathrm{int}}
+\newcommand{\tot}{\mathrm{tot}}
+
+
+\newcommand{\YM}[1]{\textcolor[rgb]{1, 0.1, 0.1}{#1}}
+\newcommand{\YMdel}[1]{\sout{#1}}
+%\newcommand{\YMdel}[1]{\textcolor[rgb]{1, 0.1, 0.1}{\sout{\textcolor{black}{#1}}}}
+\newcommand{\KM}[1]{\textcolor[rgb]{0.1, 0.1, 1}{#1}}
+\newcommand{\KMdel}[1]{\textcolor[rgb]{0.1, 0.1, 0.9}{\sout{\textcolor{black}{#1}}}}
+
+
+\makeatletter
+\title{Quantum Optics}
+
+
+
+\begin{document}
+\maketitle
+
+
+\tableofcontents
+%目の保護用
+%\pagecolor{black}
+%\color{white}
+%%%%%%%%%%%%%%%%%%%%%
+
+% \input{file/Maxwell_equation.tex}
+% \input{file/free_em_field.tex}
+% \input{file/qc_em.tex}
+% \input{file/coherent_state.tex}
+% \input{file/sqeezed_state.tex}
+% \input{file/homodyne.tex}
+% \input{file/c_number_rep.tex}
+% \input{file/wigner_function.tex}
+\input{file/two_level_dynamics.tex}
+\input{file/atom_light_interaction.tex}
+
+
+
+
+
+
+\bibliographystyle{unsrt}%参考文bibliographystyle献出力スタイル
+\bibliography{myrefs}
+\end{document}
+
+
+
+
+
